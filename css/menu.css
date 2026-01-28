@@ -1,0 +1,54 @@
+@import url("variaveis.css");
+
+header {
+   width: 100%;
+   height: 5vh;
+   background-color: var(--realce);
+   margin-bottom: 20px;
+
+   & nav {
+      display: flex;
+      justify-content: space-between;
+   }
+
+   & ul {
+      height: 5vh;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 35px;
+
+      & li {
+         height: 100%;
+         place-content: center;
+         position: relative;
+
+         & a {
+            color: var(--gelo);
+            text-decoration: none;
+            font-weight: 500;
+         }
+
+         & i {
+            color: var(--gelo);
+            margin-right: 8px;
+            font-size: 1.2rem;
+         }
+      }
+
+      & li::after {
+         content: '';
+         width: 0;
+         height: 5px;
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         background-color: var(--realce03);
+         transition: all var(--trans02) ease;
+      }
+
+      & li:hover::after {
+         width: 100%;
+      }
+   }
+}

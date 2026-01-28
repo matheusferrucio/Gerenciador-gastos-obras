@@ -1,0 +1,38 @@
+.container_lista {
+   border-radius: 20px;
+   padding: 20px;
+   background-color: var(--branco);
+
+   & h1 {
+      color: var(--realce);
+      font-size: 2.5rem;
+   }
+
+   & .rowTitulo {
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid var(--gelo);
+   }
+
+   & .row.lista {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      & .card {
+         display: flex;
+         
+         & .particao_info_cliente {
+            flex: 5;
+         }
+
+         & .particao_btns_acao {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+         }
+      }
+   }
+}

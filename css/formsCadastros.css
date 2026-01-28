@@ -1,0 +1,83 @@
+.card_formulario {
+   width: 100%;
+   border-radius: 20px;
+   padding: 20px;
+   background-color: var(--branco);
+
+   & form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+   }
+
+   & h1 {
+      color: var(--realce);
+      font-size: 2.5rem;
+      text-align: center;
+   }
+
+   & .rowTitulo {
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid var(--gelo);
+   }
+
+   & .row {
+      display: flex;
+      gap: 25px;
+
+      & .particao {
+         display: flex;
+         flex-direction: column;
+         gap: 8px;
+         flex: 1;
+      }
+
+      & .inptRadio {
+         flex-direction: row;
+         align-items: center;
+      }
+
+      & label {
+         font-weight: 500;
+         font-size: 1rem;
+      }
+
+      & input {
+         border: 1px solid var(--cinza);
+         border-radius: 12px;
+         height: 40px;
+         color: var(--realce);
+         padding-left: 10px;
+      }
+
+      & input[type=submit] {
+         width: 200px;
+         cursor: pointer;
+         background-color: var(--realce);
+         color: var(--gelo);
+         font-size: 1.2rem;
+         font-weight: bold;
+         border: none;
+         transition: all var(--trans02) ease;
+      }
+      & input[type=submit]:hover {
+         background-color: var(--realce02);
+      }
+
+      & p {
+         text-align: center;
+
+         & a {
+            font-weight: 500;
+            color: var(--realce02);
+         }
+      }
+   }
+
+   & .rowBtn {
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+   }
+}

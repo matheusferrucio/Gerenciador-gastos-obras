@@ -1,0 +1,59 @@
+@import url("variaveis.css");
+
+body {
+    width: 100%;
+    height: 100vh;
+
+    background-color: var(--gelo);
+}
+
+.container {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.row {
+    width: 100%;
+}
+
+/* formatação geral dos botões */
+a.btn {
+    width: fit-content;
+    height: 40px;
+    border-radius: 12px;
+    display: block;
+    padding: 0 15px;
+    place-content: center;
+    text-decoration: none;
+
+    color: var(--gelo);
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all var(--trans02) ease;
+}
+
+/* Formatação padrão dos botões azuis */
+a.nav,
+a.editar {
+    background-color: var(--realce);
+}
+a.nav:hover,
+a.editar:hover {
+    background-color: var(--realce02);
+}
+
+/* Formatação botões de voltar */
+a.voltar {
+    background-color: var(--cinza-claro);
+}
+a.voltar:hover {
+    background-color: var(--cinza);
+}
+
+/* Formatação botões de excluir */
+a.excluir {
+    background-color: var(--vermelho);
+}
+a.excluir:hover {
+    background-color: var(--vermelho02);
+}

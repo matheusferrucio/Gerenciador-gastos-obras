@@ -28,7 +28,7 @@
                   <div class="row">
                      <div class="particao">
                         <label for="cpfCnpjCliente">Digite o CPF/CNPJ do cliente</label>
-                        <input type="text" name="cpfCnpjCliente" id="cpfCnpjCliente" placeholder="Ex: 00.111.222/0001-33" maxlength="11" required>
+                        <input type="text" name="cpfCnpjCliente" id="cpfCnpjCliente" placeholder="Ex: 00.111.222/0001-33" maxlength="14" required>
                      </div>
 
                      <div class="particao">

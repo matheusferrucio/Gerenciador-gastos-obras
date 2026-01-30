@@ -43,7 +43,8 @@
          font-size: 1rem;
       }
 
-      & input {
+      & input,
+      select {
          border: 1px solid var(--cinza);
          border-radius: 12px;
          height: 40px;

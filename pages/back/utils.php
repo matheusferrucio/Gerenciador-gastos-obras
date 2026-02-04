@@ -6,8 +6,10 @@
       $query->execute();
 
       if($query) {
+
          header("location:".$path);
          exit();
+
       }
    }
 
@@ -18,6 +20,7 @@
       $query->execute();
 
       if($query) {
+
          $dados = $query->fetch(PDO::FETCH_ASSOC);
 
          return $dados;
@@ -25,13 +28,14 @@
    }
 
    // Criei essa função para selecionar todos os dados da tabela referenciada
-   function selecionaTodos($conn, $tabela){
+   function selecionaTodos($conn, $tabela, $coluna){
       try {
-         $query = $conn->prepare("SELECT * FROM $tabela");
+         $query = $conn->prepare("SELECT * FROM $tabela ORDER BY $coluna ASC");
    
          $query->execute();
    
          if($query) {
+
             $dados = $query->fetchAll(PDO::FETCH_ASSOC);
 
             return $dados;

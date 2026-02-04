@@ -57,3 +57,7 @@ a.excluir {
 a.excluir:hover {
     background-color: var(--vermelho02);
 }
+
+.bold {
+    font-weight: 500;
+}

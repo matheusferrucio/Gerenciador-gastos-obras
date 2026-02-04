@@ -6,6 +6,7 @@
 
       require_once(__DIR__."/../../conexao/connection.php");
 
+      $idObra         = $_POST['id'];
       $nomeObra       = filter_input(INPUT_POST, 'nomeObra', FILTER_SANITIZE_SPECIAL_CHARS);
       $cpfCnpjCliente = filter_input(INPUT_POST, 'clienteObra', FILTER_SANITIZE_SPECIAL_CHARS);
       $cidadeObra     = filter_input(INPUT_POST, 'cidadeObra', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -26,26 +27,22 @@
          $idCidadeObra = $cidadeExiste['id'];
 
          try {
-            $query = $conn->prepare("INSERT INTO obras(
-                                       nome,
-                                       cpf_cnpj_cliente,
-                                       id_cidade,
-                                       rua,
-                                       numObra
-                                    ) VALUES(
-                                       :nome,
-                                       :cpf_cnpj_cliente,
-                                       :id_cidade,
-                                       :rua,
-                                       :numObra
-                                    )");
+            $query = $conn->prepare("UPDATE obras o
+                                     SET
+                                       nome             = :nome,
+                                       cpf_cnpj_cliente = :cpf_cnpj_cliente,
+                                       id_cidade        = :id_cidade,
+                                       rua              = :rua,
+                                       numObra          = :numObra
+                                     WHERE o.id         = :id");
 
             $query->execute([
                ":nome"             => $nomeObra,
                ":cpf_cnpj_cliente" => $cpfCnpjCliente,
                ":id_cidade"        => $idCidadeObra,
                ":rua"              => $ruaObra,
-               ":numObra"          => $numObra
+               ":numObra"          => $numObra,
+               ":id"               => $idObra
             ]);
 
             if($query) {
@@ -81,29 +78,25 @@
                   trim(ucfirst(strtolower($cidadeObra)))
                );
 
-               $sql = $conn->prepare("INSERT INTO obras(
-                                       nome,
-                                       cpf_cnpj_cliente,
-                                       id_cidade,
-                                       rua,
-                                       numObra
-                                    ) VALUES(
-                                       :nome,
-                                       :cpf_cnpj_cliente,
-                                       :id_cidade,
-                                       :rua,
-                                       :numObra
-                                    )");
+               $query = $conn->prepare("UPDATE obras o
+                                     SET
+                                       nome             = :nome,
+                                       cpf_cnpj_cliente = :cpf_cnpj_cliente,
+                                       id_cidade        = :id_cidade,
+                                       rua              = :rua,
+                                       numObra          = :numObra
+                                     WHERE o.id         = :id");
 
-               $sql->execute([
+               $query->execute([
                   ":nome"             => $nomeObra,
                   ":cpf_cnpj_cliente" => $cpfCnpjCliente,
                   ":id_cidade"        => $cidadeCadastrada['id'],
                   ":rua"              => $ruaObra,
-                  ":numObra"          => $numObra
+                  ":numObra"          => $numObra,
+                  ":id"               => $idObra
                ]);
 
-               if($sql) {
+               if($query) {
                   header("location:".BASE_URL."pages/front/listas/lista_obras.php");
                   exit();
                }

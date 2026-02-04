@@ -2,6 +2,8 @@
    require_once(__DIR__."/../../back/config.php");
 
    require_once(__DIR__."/../../back/_session.php");
+
+   $nomePagina = isset($_GET['nomePag']) ? $_GET['nomePag'] : "Cadastrar clientes";
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +15,7 @@
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/reset.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/style.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/formsCadastros.css">
-      <title>Cadastrar clientes</title>
+      <title><?= $nomePagina; ?></title>
 </head>
 <body>
       <?php require_once(__DIR__."/../menu.php"); ?>
@@ -28,7 +30,7 @@
                   <div class="row">
                      <div class="particao">
                         <label for="cpfCnpjCliente">Digite o CPF/CNPJ do cliente</label>
-                        <input type="text" name="cpfCnpjCliente" id="cpfCnpjCliente" placeholder="Ex: 00.111.222/0001-33" maxlength="14" required>
+                        <input type="text" name="cpfCnpjCliente" id="cpfCnpjCliente" placeholder="Ex: 00.111.222/0001-33" maxlength="14" minlength="11" required>
                      </div>
 
                      <div class="particao">

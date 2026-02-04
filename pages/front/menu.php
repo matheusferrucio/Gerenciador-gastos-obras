@@ -9,10 +9,10 @@
    <div class="container">
       <nav>
          <ul>
-            <li class="btnMenu"><a href="<?= BASE_URL; ?>">Início</a></li>
-            <li class="btnMenu"><a href="<?= BASE_URL; ?>pages/front/listas/lista_clientes.php">Clientes</a></li>
-            <li class="btnMenu"><a href="<?= BASE_URL; ?>pages/front/listas/lista_obras.php">Obras</a></li>
-            <li class="btnMenu"><a href="<?= BASE_URL; ?>">Cadastrar gastos obras</a></li>
+            <li class="btnMenu"><a href="<?= BASE_URL; ?>?nomePag=Inicio">Início</a></li>
+            <li class="btnMenu"><a href="<?= BASE_URL; ?>pages/front/listas/lista_clientes.php?nomePag=Clientes">Clientes</a></li>
+            <li class="btnMenu"><a href="<?= BASE_URL; ?>pages/front/listas/lista_obras.php?nomePag=Obras">Obras</a></li>
+            <li class="btnMenu"><a href="<?= BASE_URL; ?>pages/front/listas/lista_gastos_obras.php?nomePag=Gastos obras">Gastos obras</a></li>
          </ul>
 
          <ul>

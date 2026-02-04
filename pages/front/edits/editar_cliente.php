@@ -15,7 +15,7 @@
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/reset.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/style.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/formsCadastros.css">
-      <title>Cadastrar clientes</title>
+      <title>Editar cliente</title>
 </head>
 <body>
       <?php require_once(__DIR__."/../menu.php"); ?>
@@ -23,10 +23,15 @@
       <div class="container">
          <div class="card_formulario">
                <div class="row rowTitulo">
-                  <h1>Cadastrar clientes</h1>
+                  <h1>Editar cliente</h1>
                </div>
 
                <form action="<?= BASE_URL; ?>pages/back/edits/editar_clientesdb.php" method="POST">
+                  <input 
+                     type="hidden" 
+                     name="cpf_cnpj_antigo"
+                     value="<?= $linha['cpf_cnpj']; ?>">
+                  
                   <div class="row">
                      <div class="particao">
                         <label for="cpfCnpjCliente">Digite o CPF/CNPJ do cliente</label>
@@ -35,7 +40,8 @@
                            name="cpfCnpjCliente" 
                            id="cpfCnpjCliente" 
                            placeholder="Ex: 00.111.222/0001-33" 
-                           maxlength="11" 
+                           maxlength="14" 
+                           minlength="11"
                            value="<?= $linha['cpf_cnpj']; ?>"
                            required>
                      </div>
@@ -59,7 +65,8 @@
                                  type="radio" 
                                  name="tipoCliente" 
                                  id="pf"
-                                 value="pf">
+                                 value="pf"
+                                 required>
 
                               <label for="pf">
                                  Pessoa física
@@ -71,7 +78,8 @@
                                  type="radio" 
                                  name="tipoCliente" 
                                  id="pj" 
-                                 value="pj">
+                                 value="pj"
+                                 required>
                               
                               <label for="pj">
                                  Pessoa Jurídica

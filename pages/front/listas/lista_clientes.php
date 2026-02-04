@@ -4,6 +4,8 @@
    require_once(__DIR__."/../../back/_session.php");
 
    require_once(__DIR__."/../../back/listas/lista_clientesdb.php");
+
+   $nomePagina = isset($_GET['nomePag']) ? $_GET['nomePag'] : "Clientes";
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +18,7 @@
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/listas.css">
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
       <script src="<?= BASE_URL; ?>js/script.js" defer></script>
-      <title>Lista de clientes</title>
+      <title><?= $nomePagina; ?></title>
 </head>
 <body>
       <?php require_once(__DIR__."/../menu.php"); ?>
@@ -24,9 +26,7 @@
       <div class="container container_lista">
          <div class="row rowTitulo">
             <h1>Lista dos clientes cadastrados</h1>
-         </div>
 
-         <div class="row">
             <nav>
                <a href="<?= BASE_URL; ?>pages/front/cadastros/cadastrar_clientes.php" class="btn nav">Cadastrar cliente</a>
             </nav>
@@ -35,19 +35,21 @@
          <div class="row lista">
 
             <?php
-               foreach($dados as $linha) {
+               foreach($clientes as $linha) {
             ?>
 
                <div class="card">
-                  <div class="particao_info_cliente">
+                  <div class="particao_info">
                      <h3 class="titulo_card_lista"><?= $linha['nome']; ?></h3>
-                     <p class="texto_card_lista"><?= $linha['cpf_cnpj']; ?></p>
+                     <p class="texto_card_lista cpf_cnpj_cliente">
+                        <span class="bold">CPF/CNPJ:</span> <?= $linha['cpf_cnpj']; ?>
+                     </p>
                   </div>
 
                   <div class="particao_btns_acao">
                      <a href="<?= BASE_URL; ?>pages/front/edits/editar_cliente.php?cpfCnpj=<?= $linha['cpf_cnpj']; ?>" class="btn editar">Editar</a>
                      <a
-                        href="<?= BASE_URL; ?>pages/back/excluir/excluir_cliente.php?cpfCnpj=<?= $linha['cpf_cnpj']; ?>" 
+                        href="<?= BASE_URL; ?>pages/back/excluir/excluir_clientedb.php?cpfCnpj=<?= $linha['cpf_cnpj']; ?>" 
                         class="btn excluir"
                         onclick="confirmarExclusao(event, '<?= $linha['nome']; ?>')">
                         Excluir

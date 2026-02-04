@@ -1,15 +1,17 @@
 <?php
    require_once(__DIR__."/../../conexao/connection.php");
 
+   require_once(__DIR__."/../utils.php");
+
    try {
-      $query = $conn->prepare("SELECT * FROM clientes");
+      $clientes = selecionaTodos(
+         $conn,
+         'clientes',
+         'nome'
+      );
 
-      $query->execute();
-
-      if($query) {
-         $dados = $query->fetchAll(PDO::FETCH_ASSOC);
-
-         return $dados;
+      if($clientes) {
+         return $clientes;
       }
 
    } catch (PDOException $erro) {

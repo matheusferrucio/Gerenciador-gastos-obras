@@ -1,11 +1,13 @@
 @import url("variaveis.css");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     outline: none;
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
     color: var(--cor-texto);
 
     text-rendering: optimizeLegibility;

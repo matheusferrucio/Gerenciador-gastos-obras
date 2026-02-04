@@ -17,6 +17,7 @@
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/style.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/listas.css">
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+      <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js" defer></script>
       <script src="<?= BASE_URL; ?>js/script.js" defer></script>
       <title><?= $nomePagina; ?></title>
 </head>
@@ -58,11 +59,15 @@
                   </div>
 
                   <div class="particao_btns_acao">
-                     <a href="<?= BASE_URL; ?>pages/front/edits/editar_obra.php?id=<?= $linha['id']; ?>" class="btn editar">Editar</a>
+                     <a href="<?= BASE_URL; ?>pages/front/edits/editar_obra.php?id=<?= $linha['id']; ?>" class="btn editar">
+                        <i class='bx bx-edit'></i>
+                        Editar
+                     </a>
                      <a
                         href="<?= BASE_URL; ?>pages/back/excluir/excluir_obradb.php?id=<?= $linha['id']; ?>" 
                         class="btn excluir"
                         onclick="confirmarExclusao(event, '<?= $linha['nomeObra']; ?>')">
+                        <i class='bx bx-message-alt-x'></i>
                         Excluir
                      </a>
                   </div>

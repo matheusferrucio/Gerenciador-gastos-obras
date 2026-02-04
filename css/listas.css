@@ -2,10 +2,11 @@
    border-radius: 20px;
    padding: 20px;
    background-color: var(--branco);
+   border: 1px solid var(--borda-card);
 
    & h1 {
       color: var(--realce);
-      font-size: 2.5rem;
+      font-size: 2rem;
    }
 
    & .rowTitulo {
@@ -26,6 +27,10 @@
       & .card {
          display: flex;
 
+         & h2 {
+            font-size: 1.1rem;
+         }
+
          & .row {
             display: flex;
          }
@@ -36,6 +41,11 @@
             flex-direction: column;
             padding-top: 7px;
             gap: 5px;
+
+            & i {
+               font-size: 2rem;
+               color: var(--verde);
+            }
          }
          
          & .particao_info {
@@ -46,8 +56,15 @@
             flex: 1;
             display: flex;
             align-items: center;
-            justify-content: space-evenly;
+            justify-content: flex-end;
+            gap: 15px;
          }
+      }
+
+      & .card_gasto {
+         padding: 15px;
+         border-radius: 20px;
+         background-color: var(--gelo);
       }
    }
 }

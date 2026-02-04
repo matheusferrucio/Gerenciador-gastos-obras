@@ -1,0 +1,61 @@
+@import url('variaveis.css');
+
+table { 
+   border-spacing: 0;
+   text-align: left;
+   
+   & tr {
+      height: 50px;
+      align-items: center;
+      display: flex;
+   }
+   
+   & tr:not(:last-of-type) {
+      border-bottom: 1px solid var(--borda-card);
+   }
+
+   & th {
+      color: var(--realce);
+   }
+   
+   & td,
+   td p {
+      font-size: .9rem;
+   }
+
+   /* Formatação da largura de cada coluna da tabela */
+   & .celula_info_obra {
+      flex: 2;
+   }
+
+   & .celula_info_cliente {
+      flex: 2;
+   }
+
+   & .celula_valor_gasto {
+      flex: 1.2;
+   }
+
+   & .celula_valor_gasto.valor_gasto {
+      color: var(--verde);
+      font-weight: 500;
+   }
+
+   & .celula_mes_gasto {
+      flex: .6;
+   }
+
+   & .celula_descricao_gasto {
+      flex: 4;
+   }
+
+   & .celula_botoes_acoes {
+      flex: 1;
+      display: flex;
+      gap: 5px;
+   }
+
+   & .letra_menor {
+      font-size: .7rem;
+   }
+}

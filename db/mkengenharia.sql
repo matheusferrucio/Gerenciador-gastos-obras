@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28/01/2026 às 21:18
+-- Tempo de geração: 04/02/2026 às 21:58
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -32,6 +32,16 @@ CREATE TABLE `cidades` (
   `cidade` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `cidades`
+--
+
+INSERT INTO `cidades` (`id`, `cidade`) VALUES
+(1, 'araçatuba'),
+(2, 'Andradina'),
+(3, 'Avanhandava'),
+(4, 'Curitiba');
+
 -- --------------------------------------------------------
 
 --
@@ -40,7 +50,7 @@ CREATE TABLE `cidades` (
 
 CREATE TABLE `clientes` (
   `cpf_cnpj` varchar(20) NOT NULL,
-  `nome` varchar(30) NOT NULL,
+  `nome` varchar(50) NOT NULL,
   `tipo_cliente` char(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -49,7 +59,10 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`cpf_cnpj`, `nome`, `tipo_cliente`) VALUES
-('10337204000', 'Lacal/Rumo certo', 'pj');
+('07571710871', 'Lenilde Merlo Ravagnani', 'pf'),
+('10337204000', 'Rumo Certo/Lacal', 'pj'),
+('11111111111111', 'Lacal e Vasco', 'pj'),
+('14798865000150', 'Edifica empreendimentos/Cardassi', 'pj');
 
 -- --------------------------------------------------------
 
@@ -65,6 +78,14 @@ CREATE TABLE `obras` (
   `rua` varchar(50) NOT NULL,
   `numObra` char(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `obras`
+--
+
+INSERT INTO `obras` (`id`, `nome`, `cpf_cnpj_cliente`, `id_cidade`, `rua`, `numObra`) VALUES
+(4, 'Cemitério Andradina', '14798865000150', 2, 'Sebastião Arantes', '1251'),
+(5, 'Barracões São Bernardo', '10337204000', 1, 'São Bernardo', 'Diversos');
 
 -- --------------------------------------------------------
 
@@ -121,13 +142,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `cidades`
 --
 ALTER TABLE `cidades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `obras`
 --
 ALTER TABLE `obras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

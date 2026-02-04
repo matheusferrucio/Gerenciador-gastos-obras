@@ -19,6 +19,11 @@
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/style.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/forms.css">
       <title>Fazer Login</title>
+      <style>
+            body {
+                  padding: 0 !important;
+            }
+      </style>
 </head>
 <body>
       <div class="container">

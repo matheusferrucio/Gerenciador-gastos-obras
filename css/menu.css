@@ -3,8 +3,11 @@
 header {
    width: 100%;
    height: 5vh;
-   background-color: var(--realce);
+   background-color: var(--branco);
    margin-bottom: 20px;
+   border-bottom: 1px solid var(--borda-card);
+   position: fixed;
+   top: 0;
 
    & nav {
       display: flex;
@@ -24,13 +27,12 @@ header {
          position: relative;
 
          & a {
-            color: var(--gelo);
+            color: var(--realce);
             text-decoration: none;
-            font-weight: 500;
          }
 
          & i {
-            color: var(--gelo);
+            color: var(--realce);
             margin-right: 8px;
             font-size: 1.2rem;
          }
@@ -43,7 +45,7 @@ header {
          position: absolute;
          bottom: 0;
          left: 0;
-         background-color: var(--realce03);
+         background-color: var(--realce);
          transition: all var(--trans02) ease;
       }
 

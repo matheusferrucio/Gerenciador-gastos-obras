@@ -2,13 +2,14 @@
     --cor-texto: rgba(26, 26, 26, 0.84);
     --cinza: rgba(26, 26, 26, 0.7);
     --cinza-claro: rgba(37, 37, 37, 0.438);
+    --borda-card: rgba(37, 37, 37, 0.130);
     --realce: #213C51;
     --realce02: #173044;
-    --realce03: #2a79b9;
     --gelo: #fafafa;
     --branco: #fff;
     --vermelho: #f16060;
     --vermelho02: #cc4545;
+    --verde: #75B06F;
 
     --trans02: .2s;
     --trans04: .4s;

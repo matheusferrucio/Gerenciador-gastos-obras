@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04/02/2026 às 21:58
+-- Tempo de geração: 05/02/2026 às 21:39
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -67,6 +67,30 @@ INSERT INTO `clientes` (`cpf_cnpj`, `nome`, `tipo_cliente`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `gastosobras`
+--
+
+CREATE TABLE `gastosobras` (
+  `id` int(11) NOT NULL,
+  `id_obra` int(11) NOT NULL,
+  `valor_gasto` decimal(10,2) NOT NULL,
+  `data_gasto` date NOT NULL,
+  `descricao` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `gastosobras`
+--
+
+INSERT INTO `gastosobras` (`id`, `id_obra`, `valor_gasto`, `data_gasto`, `descricao`) VALUES
+(1, 5, 1000.00, '2026-02-05', ''),
+(2, 5, 1000.00, '2026-02-05', ''),
+(3, 4, 1000000.00, '2026-02-03', 'teste de inserção da descrição do gasto no banco'),
+(4, 4, 1000000.00, '2026-02-03', 'teste de inserção da descrição do gasto no banco');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `obras`
 --
 
@@ -123,6 +147,13 @@ ALTER TABLE `clientes`
   ADD PRIMARY KEY (`cpf_cnpj`);
 
 --
+-- Índices de tabela `gastosobras`
+--
+ALTER TABLE `gastosobras`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_obra` (`id_obra`);
+
+--
 -- Índices de tabela `obras`
 --
 ALTER TABLE `obras`
@@ -145,10 +176,26 @@ ALTER TABLE `cidades`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT de tabela `gastosobras`
+--
+ALTER TABLE `gastosobras`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT de tabela `obras`
 --
 ALTER TABLE `obras`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- Restrições para tabelas despejadas
+--
+
+--
+-- Restrições para tabelas `gastosobras`
+--
+ALTER TABLE `gastosobras`
+  ADD CONSTRAINT `gastosobras_ibfk_1` FOREIGN KEY (`id_obra`) REFERENCES `obras` (`id`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

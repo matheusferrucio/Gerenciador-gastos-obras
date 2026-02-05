@@ -5,11 +5,11 @@
 
    require_once(__DIR__."/../../back/utils.php");
 
-   require_once(__DIR__."/../../conexao/connection.php");
+   require_once(__DIR__."/../../conexao/connection.php");   
 
-   $listaClientes = selecionaTodos(
+   $listaObras = selecionaTodos(
       $conn,
-      'clientes',
+      'obras',
       'nome'
    );
 
@@ -36,44 +36,39 @@
                   <h1>Cadastrar obra</h1>
                </div>
 
-               <form action="<?= BASE_URL; ?>pages/back/cadastros/cadastrar_obradb.php" method="POST">
+               <form action="<?= BASE_URL; ?>pages/back/cadastros/cadastrar_gastos_obrasdb.php" method="POST">
                   <div class="row">
                      <div class="particao">
-                        <label for="nomeObra">Digite o nome da obra(algo para identifica-la)</label>
-                        <input type="text" name="nomeObra" id="nomeObra" placeholder="Ex: Barracão três lagoas" required>
-                     </div>   
-
-                     <div class="particao">
-                        <label for="clienteObra">Escolha o cliente dono da obra</label>
+                        <label for="obraGasto">Escolha a obra</label>
                         
-                         <select name="clienteObra" id="clienteObra">
+                         <select name="obraGasto" id="obraGasto" required>
                            <?php
-                              foreach($listaClientes as $lista) {
+                              foreach($listaObras as $lista) {
                            ?>
 
-                           <option value="<?= $lista['cpf_cnpj']; ?>"><?= $lista['nome']; ?></option>
+                           <option value="<?= $lista['id']; ?>"><?= $lista['nome']; ?></option>
 
                            <?php
                               }
                            ?>
                          </select>
+                     </div>   
+
+                     <div class="particao">
+                        <label for="gastoObra">Digite o valor gasto</label>
+                        <input type="text" name="gastoObra" id="gastoObra" placeholder="Ex: R$ 50.000" required>
+                     </div>
+                     
+                     <div class="particao">
+                        <label for="dataGasto">Mês gasto</label>
+                        <input type="date" name="dataGasto" id="dataGasto" required>
                      </div>
                   </div>
-                  
+
                   <div class="row">
                      <div class="particao">
-                        <label for="cidadeObra">Digite a cidade</label>
-                        <input type="text" name="cidadeObra" id="cidadeObra" placeholder="Ex: Araçatuba" required>
-                     </div>
-                     
-                     <div class="particao">
-                        <label for="ruaObra">Digite a rua</label>
-                        <input type="text" name="ruaObra" id="ruaObra" placeholder="Ex: Dr Raposo de Melo" required>
-                     </div>
-                     
-                     <div class="particao">
-                        <label for="numObra">Digite o número</label>
-                        <input type="text" name="numObra" id="numObra" placeholder="Ex: 101" required>
+                        <label for="descricaoGasto">Descrição do valor gasto</label>
+                        <input type="text" name="descricaoGasto" id="descricaoGasto" placeholder="Ex: referente a valor gasto com estrutura metálica" required>
                      </div>
                   </div>
 

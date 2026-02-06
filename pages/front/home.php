@@ -13,13 +13,22 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/reset.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/style.css">
+      <link rel="stylesheet" href="<?= BASE_URL; ?>css/home.css">
       <title><?= $nomePagina; ?></title>
 </head>
 <body>
       <?php require_once(__DIR__."/menu.php"); ?>
       
-      <div class="container">
-            <h1>Olá, <?= $_SESSION['nome']; ?></h1>
+      <div class="container dashboard">
+            <div class="card">
+                  <h1>Olá, <?= $_SESSION['nome']; ?></h1>
+            </div>
+            <div class="card">
+                  <h1>Olá, <?= $_SESSION['nome']; ?></h1>
+            </div>
+            <div class="card">
+                  <h1>Olá, <?= $_SESSION['nome']; ?></h1>
+            </div>
       </div>
 </body>
 </html>

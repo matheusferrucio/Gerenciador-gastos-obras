@@ -9,11 +9,16 @@ table {
       align-items: center;
       display: flex;
    }
+
+   /* Criei essa formatação para que sempre que a tabela estiver vazia, ainda tenha uma linha abaixo do cabeçalho */
+   & .linha_cabecalho {
+      border-bottom: 1px solid var(--borda-card);
+   }
    
    & tr:not(:last-of-type) {
       border-bottom: 1px solid var(--borda-card);
    }
-
+   
    & th {
       color: var(--realce);
    }

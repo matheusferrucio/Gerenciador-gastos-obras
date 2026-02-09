@@ -7,7 +7,7 @@
 
    require_once(__DIR__."/../../back/utils.php");
 
-   $meses = retornaMeses();
+   $meses = retornaMeses(false);
 
    $nomePagina = isset($_GET['nomePag']) ? $_GET['nomePag'] : "Gastos obras";
 ?>
@@ -30,7 +30,7 @@
       
       <div class="container container_lista">
          <div class="row rowTitulo">
-            <h1>Lista dos gastos das obras</h1>
+            <h1>💰 Lista dos gastos das obras</h1>
 
             <nav>
                <a href="<?= BASE_URL; ?>pages/front/cadastros/cadastrar_gasto_obra.php" class="btn nav">Cadastrar gasto</a>
@@ -60,7 +60,7 @@
                      <p class=""><?= $linha['nomeObra']; ?></p>
                   </td>
                   <td class="celula_info_cliente"><?= $linha['nomeCliente']; ?></td>
-                  <td class="celula_valor_gasto valor_gasto">R$ <?= number_format($linha['valor_gasto'], 2, ',', '.'); ?></td>
+                  <td class="celula_valor_gasto valor_gasto price">R$ <?= number_format($linha['valor_gasto'], 2, ',', '.'); ?></td>
                   <td class="celula_mes_gasto"><?= $meses[$numMesGasto]; ?></td>
                   <td class="celula_descricao_gasto"><?= $linha['descricao']; ?></td>
                   <td class="celula_botoes_acoes">

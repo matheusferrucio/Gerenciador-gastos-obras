@@ -47,19 +47,34 @@
       }
    }
 
-   function retornaMeses() {
-      $meses = ['01' => 'Jan',
-                '02' => 'Fev', 
-                '03' => 'Mar', 
-                '04' => 'Abr', 
-                '05' => 'Mai', 
-                '06' => 'Jun', 
-                '07' => 'Jul', 
-                '08' => 'Ago', 
-                '09' => 'Set', 
-                '10' => 'Out', 
-                '11' => 'Nov', 
-                '12' => 'Dez'];
+   function retornaMeses(bool $completos) {
+      if($completos) {
+         $meses = ['01' => 'Janeiro',
+                   '02' => 'Fevereiro', 
+                   '03' => 'Março', 
+                   '04' => 'Abril', 
+                   '05' => 'Maio', 
+                   '06' => 'Junho', 
+                   '07' => 'Julho', 
+                   '08' => 'Agosto', 
+                   '09' => 'Setembro', 
+                   '10' => 'Outubro', 
+                   '11' => 'Novembro', 
+                   '12' => 'Dezembro'];
+      } else {
+         $meses = ['01' => 'Jan',
+                   '02' => 'Fev', 
+                   '03' => 'Mar', 
+                   '04' => 'Abr', 
+                   '05' => 'Mai', 
+                   '06' => 'Jun', 
+                   '07' => 'Jul', 
+                   '08' => 'Ago', 
+                   '09' => 'Set', 
+                   '10' => 'Out', 
+                   '11' => 'Nov', 
+                   '12' => 'Dez'];
+      }
 
       return $meses;
    }

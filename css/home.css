@@ -1,15 +1,65 @@
 @import url('variaveis.css');
 
-.dashboard {
+.rowTitulo {
+   margin-bottom: 10px;
+}
+
+.row.meses {
    display: flex;
-   flex-direction: row;
    gap: 10px;
+
+   & span.mes_dashboard {
+      flex: 1;
+      padding: 10px;
+      background-color: var(--branco);
+      border-radius: 10px;
+      border: 1px solid var(--borda-card);
+      text-align: center;
+      cursor: pointer;
+      transition: var(--trans02);
+   }
+
+   & span.mes_dashboard:hover {
+      background-color: var(--borda-card);
+   }
+}
+
+.dashboard {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+   gap: 10px;
+   margin-top: 10px;
 }
 
 .card {
    flex: 1;
    background-color: var(--branco);
    border-radius: 20px;
-   padding: 20px;
    border: 1px solid var(--borda-card);
+   padding: 20px;
+   text-align: left;
+   position: relative;
+   overflow: hidden;
+
+   & h3 {
+      font-weight: 400;
+      margin-bottom: 5px;
+      position: relative;
+      z-index: 999;
+   }
+
+   & h1 {
+      font-size: 1.5rem;
+      position: relative;
+      z-index: 999;
+   }
+
+   & .emoji_fundo {
+      font-size: 5.4rem;
+      display: block;
+      position: absolute;
+      bottom: -15%;
+      right: -40px;
+      z-index: 1;
+   }
 }

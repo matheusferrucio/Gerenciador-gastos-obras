@@ -90,3 +90,7 @@ a.excluir:hover {
 .bold {
     font-weight: 500;
 }
+
+.price {
+    color: var(--verde);
+}

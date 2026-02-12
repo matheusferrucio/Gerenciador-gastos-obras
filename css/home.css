@@ -24,11 +24,12 @@
    }
 }
 
-.dashboard {
+/* Formatação dos cards de resumo */
+.dashboard .row.resumo {
    display: grid;
    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
    gap: 10px;
-   margin-top: 10px;
+   margin-top: 10px;   
 }
 
 .card {
@@ -61,5 +62,22 @@
       bottom: -15%;
       right: -40px;
       z-index: 1;
+   }
+}
+
+/* Formatação da sessão do gráfico */
+.grafico {
+   margin-top: 10px;
+
+   & .card {
+      & h1 {
+         font-size: 1.1rem;
+      }
+
+      & #myChart {
+         margin-top: 10px;
+         width: 100%;
+         max-height: 400px;
+      }
    }
 }

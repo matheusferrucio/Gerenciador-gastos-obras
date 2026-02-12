@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05/02/2026 às 21:39
+-- Tempo de geração: 12/02/2026 às 21:50
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -40,7 +40,8 @@ INSERT INTO `cidades` (`id`, `cidade`) VALUES
 (1, 'araçatuba'),
 (2, 'Andradina'),
 (3, 'Avanhandava'),
-(4, 'Curitiba');
+(4, 'Curitiba'),
+(5, 'Três Lagoas');
 
 -- --------------------------------------------------------
 
@@ -62,7 +63,8 @@ INSERT INTO `clientes` (`cpf_cnpj`, `nome`, `tipo_cliente`) VALUES
 ('07571710871', 'Lenilde Merlo Ravagnani', 'pf'),
 ('10337204000', 'Rumo Certo/Lacal', 'pj'),
 ('11111111111111', 'Lacal e Vasco', 'pj'),
-('14798865000150', 'Edifica empreendimentos/Cardassi', 'pj');
+('14798865000150', 'Edifica empreendimentos/Cardassi', 'pj'),
+('26517583000116', 'Emma Holding', 'pj');
 
 -- --------------------------------------------------------
 
@@ -83,10 +85,14 @@ CREATE TABLE `gastosobras` (
 --
 
 INSERT INTO `gastosobras` (`id`, `id_obra`, `valor_gasto`, `data_gasto`, `descricao`) VALUES
-(1, 5, 1000.00, '2026-02-05', ''),
-(2, 5, 1000.00, '2026-02-05', ''),
-(3, 4, 1000000.00, '2026-02-03', 'teste de inserção da descrição do gasto no banco'),
-(4, 4, 1000000.00, '2026-02-03', 'teste de inserção da descrição do gasto no banco');
+(6, 10, 5930.00, '2026-02-03', 'Fechamento Alameda Tintas'),
+(7, 10, 84.00, '2026-02-04', 'Fatura CPFL Janeiro'),
+(8, 10, 1258.00, '2026-02-04', 'Fechamento Estoril '),
+(9, 10, 2280.00, '2026-02-04', 'Construart'),
+(10, 10, 98.96, '2026-02-05', 'Fatura SAMAR Janeiro'),
+(11, 8, 970.00, '2026-02-12', 'Estoril cimentos'),
+(12, 8, 1900.00, '2026-02-11', 'Madeireira Araçatuba'),
+(13, 4, 230.50, '2026-02-12', 'Rizzo - sacos de cimento e fita zebrada');
 
 -- --------------------------------------------------------
 
@@ -109,7 +115,12 @@ CREATE TABLE `obras` (
 
 INSERT INTO `obras` (`id`, `nome`, `cpf_cnpj_cliente`, `id_cidade`, `rua`, `numObra`) VALUES
 (4, 'Cemitério Andradina', '14798865000150', 2, 'Sebastião Arantes', '1251'),
-(5, 'Barracões São Bernardo', '10337204000', 1, 'São Bernardo', 'Diversos');
+(5, 'Barracões São Bernardo', '10337204000', 1, 'São Bernardo', 'Diversos'),
+(6, 'Capela/Sala VIP', '14798865000150', 5, 'Quixeramobim', '1584'),
+(7, 'Barracões Três Lagoas', '11111111111111', 5, 'Av Ranulpho Marques Leal', '3478'),
+(8, 'Casa Royal Boulevard', '07571710871', 1, 'Maria Gerardi Ferreira', 'lote 09'),
+(9, 'Funerária Três Lagoas', '14798865000150', 5, 'Advogado Rosário Congro', '1149'),
+(10, 'Casas G03 e G04 VM', '26517583000116', 1, 'Ipê Rosa', '236, 246');
 
 -- --------------------------------------------------------
 
@@ -173,19 +184,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `cidades`
 --
 ALTER TABLE `cidades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `gastosobras`
 --
 ALTER TABLE `gastosobras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `obras`
 --
 ALTER TABLE `obras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restrições para tabelas despejadas

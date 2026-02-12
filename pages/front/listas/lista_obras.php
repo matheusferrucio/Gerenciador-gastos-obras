@@ -26,7 +26,7 @@
       
       <div class="container container_lista">
          <div class="row rowTitulo">
-            <h1>🏗️ Lista das obras cadastradas</h1>
+            <h1>🏡 Lista das obras cadastradas</h1>
 
             <nav>
                <a href="<?= BASE_URL; ?>pages/front/cadastros/cadastrar_obras.php" class="btn nav">Cadastrar obra</a>

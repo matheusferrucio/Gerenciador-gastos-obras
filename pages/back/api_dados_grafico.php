@@ -15,11 +15,24 @@
       if($query) {
          $teste = $query->fetchAll(PDO::FETCH_ASSOC);
 
-         echo '<pre>';
-         print_r($teste);
-         echo '</pre>';
+         $chaves = [];
+         $valores = [];
          
-         // echo json_encode($dados);
+         foreach($teste as $key => $value) {
+            array_push($valores, $value['soma_gastos_obra']);
+            array_push($chaves, $value['nome_obra']);
+         }
+
+         $dados = [
+            'labels' => array_values($chaves),
+            'values' => array_values($valores)
+         ];
+
+         // echo '<pre>';
+         // print_r($dados);
+         // echo '</pre>';
+         
+         echo json_encode($dados);
       }
 
    } catch(PDOException $erro) {

@@ -2,8 +2,8 @@
 
 body {
     width: 100%;
-    height: 100vh;
-    padding-top: 7vh;
+    height: auto;
+    padding: 60px 0 10px 0;
 
     background-color: var(--gelo);
 }
@@ -93,4 +93,25 @@ a.excluir:hover {
 
 .price {
     color: var(--verde);
+}
+
+/* Classes padrão para definir o flex de elementos */
+.f1 {
+    flex: 1;
+}
+
+.f2 {
+    flex: 2;
+}
+
+.f3 {
+    flex: 3;
+}
+
+.f4 {
+    flex: 4;
+}
+
+.f5 {
+    flex: 5;
 }

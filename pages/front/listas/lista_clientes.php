@@ -26,7 +26,7 @@
       
       <div class="container container_lista">
          <div class="row rowTitulo">
-            <h1>🙋🏻 Lista dos clientes cadastrados</h1>
+            <h1><i class='bx bx-male icon_titulo'></i> Lista dos clientes cadastrados</h1>
 
             <nav>
                <a href="<?= BASE_URL; ?>pages/front/cadastros/cadastrar_clientes.php" class="btn nav">Cadastrar cliente</a>

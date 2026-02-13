@@ -9,7 +9,19 @@
     --branco: #fff;
     --vermelho: #f16060;
     --vermelho02: #cc4545;
-    --verde: #75B06F;
+    --verde: #66ac5f;
+
+    --bg-icon-card1: #ddf8e0;
+    --co-icon-card1: #66ac5f;
+    
+    --bg-icon-card2: #ddf4f8;
+    --co-icon-card2: #5f89ac;
+
+    --bg-icon-card3: #e9ddf8;
+    --co-icon-card3: #805fac;
+
+    --bg-icon-card4: #f8eddd;
+    --co-icon-card4: #ac8d5f;
 
     --trans02: .2s;
     --trans04: .4s;

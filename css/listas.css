@@ -4,7 +4,8 @@
    background-color: var(--branco);
    border: 1px solid var(--borda-card);
 
-   & h1 {
+   & h1,
+   i.icon_titulo {
       color: var(--realce);
       font-size: 2rem;
    }

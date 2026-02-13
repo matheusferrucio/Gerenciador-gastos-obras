@@ -20,10 +20,10 @@ async function makeChart() {
    new Chart(ctx, {
       type: 'bar',
       data: {
-         labels: data.nome_obra,
+         labels: data.labels,
          datasets: [{
-            label: data.nome_obra,
-            data: data.soma_gastos_obra,
+            label: data.labels,
+            data: data.values,
             backgroundColor: [
                '#213C51'
             ],

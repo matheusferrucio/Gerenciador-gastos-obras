@@ -2,12 +2,13 @@
 
 header {
    width: 100%;
-   height: 5vh;
+   height: 50px;
    background-color: var(--branco);
    margin-bottom: 20px;
    border-bottom: 1px solid var(--borda-card);
    position: fixed;
    top: 0;
+   z-index: 999;
 
    & nav {
       display: flex;
@@ -15,7 +16,7 @@ header {
    }
 
    & ul {
-      height: 5vh;
+      height: 50px;
       list-style: none;
       display: flex;
       align-items: center;

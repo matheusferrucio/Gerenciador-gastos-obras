@@ -4,6 +4,36 @@
    margin-bottom: 10px;
 }
 
+/* Classes padrão para formatar elementos do card */
+.bg_verde {
+   background-color: var(--bg-icon-card1) !important;
+}
+.co_verde {
+   color: var(--co-icon-card1) !important;
+}
+
+.bg_azul {
+   background-color: var(--bg-icon-card2) !important;
+}
+.co_azul {
+   color: var(--co-icon-card2) !important;
+}
+
+.bg_roxo {
+   background-color: var(--bg-icon-card3) !important;
+}
+.co_roxo {
+   color: var(--co-icon-card3) !important;
+}
+
+.bg_laranja {
+   background-color: var(--bg-icon-card4) !important;
+}
+.co_laranja {
+   color: var(--co-icon-card4) !important;
+}
+/* ---------------------------------------- */
+
 .row.meses {
    display: flex;
    gap: 10px;
@@ -30,6 +60,7 @@
    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
    gap: 10px;
    margin-top: 10px;   
+   z-index: 1;
 }
 
 .card {
@@ -42,26 +73,29 @@
    position: relative;
    overflow: hidden;
 
+   & .row.row_resumo {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+
+      & .particao i {
+         font-size: 2rem;
+         padding: 5px;
+         border-radius: 15px;
+         background-color: var(--borda-card);
+         color: var(--cinza);
+      }
+
+   }
+
    & h3 {
       font-weight: 400;
       margin-bottom: 5px;
-      position: relative;
-      z-index: 999;
    }
 
    & h1 {
       font-size: 1.5rem;
-      position: relative;
-      z-index: 999;
-   }
-
-   & .emoji_fundo {
-      font-size: 5.4rem;
-      display: block;
-      position: absolute;
-      bottom: -15%;
-      right: -40px;
-      z-index: 1;
    }
 }
 

@@ -30,7 +30,7 @@
       
       <div class="container container_lista">
          <div class="row rowTitulo">
-            <h1>💰 Lista dos gastos das obras</h1>
+            <h1><i class='bx bx-dollar icon_titulo'></i> Lista dos gastos das obras</h1>
 
             <nav>
                <a href="<?= BASE_URL; ?>pages/front/cadastros/cadastrar_gasto_obra.php" class="btn nav">Cadastrar gasto</a>

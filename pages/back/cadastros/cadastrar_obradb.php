@@ -6,12 +6,13 @@
 
       require_once(__DIR__."/../../conexao/connection.php");
 
-      $nomeObra       = filter_input(INPUT_POST, 'nomeObra', FILTER_SANITIZE_SPECIAL_CHARS);
-      $cpfCnpjCliente = filter_input(INPUT_POST, 'clienteObra', FILTER_SANITIZE_SPECIAL_CHARS);
-      $cidadeObra     = filter_input(INPUT_POST, 'cidadeObra', FILTER_SANITIZE_SPECIAL_CHARS);
-      $ruaObra        = filter_input(INPUT_POST, 'ruaObra', FILTER_SANITIZE_SPECIAL_CHARS);
-      $numObra        = filter_input(INPUT_POST, 'numObra', FILTER_SANITIZE_SPECIAL_CHARS);
-
+      $nomeObra        = filter_input(INPUT_POST, 'nomeObra', FILTER_SANITIZE_SPECIAL_CHARS);
+      $cpfCnpjCliente  = filter_input(INPUT_POST, 'clienteObra', FILTER_SANITIZE_SPECIAL_CHARS);
+      $cidadeObra      = filter_input(INPUT_POST, 'cidadeObra', FILTER_SANITIZE_SPECIAL_CHARS);
+      $ruaObra         = filter_input(INPUT_POST, 'ruaObra', FILTER_SANITIZE_SPECIAL_CHARS);
+      $numObra         = filter_input(INPUT_POST, 'numObra', FILTER_SANITIZE_SPECIAL_CHARS);
+      $porcentagemObra = $_POST['porcentagemCobrada'] != null ? filter_input(INPUT_POST, 'porcentagemCobrada', FILTER_SANITIZE_SPECIAL_CHARS) : "10";
+      
       // Verifica se a cidade já foi cadastrada
       $cidadeExiste = selecionaPorKey(
          $conn,
@@ -31,21 +32,24 @@
                                        cpf_cnpj_cliente,
                                        id_cidade,
                                        rua,
-                                       numObra
+                                       numObra,
+                                       porcentagem_cobranca
                                     ) VALUES(
                                        :nome,
                                        :cpf_cnpj_cliente,
                                        :id_cidade,
                                        :rua,
-                                       :numObra
+                                       :numObra,
+                                       :porcentagem_cobranca
                                     )");
 
             $query->execute([
-               ":nome"             => $nomeObra,
-               ":cpf_cnpj_cliente" => $cpfCnpjCliente,
-               ":id_cidade"        => $idCidadeObra,
-               ":rua"              => $ruaObra,
-               ":numObra"          => $numObra
+               ":nome"                 => $nomeObra,
+               ":cpf_cnpj_cliente"     => $cpfCnpjCliente,
+               ":id_cidade"            => $idCidadeObra,
+               ":rua"                  => $ruaObra,
+               ":numObra"              => $numObra,
+               ":porcentagem_cobranca" => $porcentagemObra
             ]);
 
             if($query) {
@@ -86,21 +90,24 @@
                                        cpf_cnpj_cliente,
                                        id_cidade,
                                        rua,
-                                       numObra
+                                       numObra,
+                                       porcentagem_cobranca
                                     ) VALUES(
                                        :nome,
                                        :cpf_cnpj_cliente,
                                        :id_cidade,
                                        :rua,
-                                       :numObra
+                                       :numObra,
+                                       :porcentagem_cobranca
                                     )");
 
                $sql->execute([
-                  ":nome"             => $nomeObra,
-                  ":cpf_cnpj_cliente" => $cpfCnpjCliente,
-                  ":id_cidade"        => $cidadeCadastrada['id'],
-                  ":rua"              => $ruaObra,
-                  ":numObra"          => $numObra
+                  ":nome"                 => $nomeObra,
+                  ":cpf_cnpj_cliente"     => $cpfCnpjCliente,
+                  ":id_cidade"            => $cidadeCadastrada['id'],
+                  ":rua"                  => $ruaObra,
+                  ":numObra"              => $numObra,
+                  ":porcentagem_cobranca" => $porcentagemObra
                ]);
 
                if($sql) {

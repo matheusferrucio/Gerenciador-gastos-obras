@@ -7,6 +7,7 @@
                                  O.nome AS nomeObra,
                                  O.rua,
                                  O.numObra,
+                                 O.porcentagem_cobranca,
                                  C.cpf_cnpj,
                                  C.nome AS nomeCliente,
                                  Ci.cidade

@@ -8,6 +8,7 @@
                               FROM gastosobras g
                               INNER JOIN obras o
                               ON g.id_obra = o.id 
+                              GROUP BY o.nome
                               ORDER BY o.nome ASC");
 
       $query->execute();

@@ -40,12 +40,12 @@
          <div class="row lista">
             <table class="tabela_gastos_obras">
                <tr class="linha_cabecalho">
-                  <th class="celula_info_obra">Obra</th>
-                  <th class="celula_info_cliente">Cliente</th>
-                  <th class="celula_valor_gasto">Valor gasto</th>
-                  <th class="celula_mes_gasto">Mês</th>
-                  <th class="celula_descricao_gasto">Descrição</th>
-                  <th class="celula_botoes_acoes">Ações</th>
+                  <th class="f2">Obra</th>
+                  <th class="f2">Cliente</th>
+                  <th class="f1-2">Valor gasto</th>
+                  <th class="f-6">Mês</th>
+                  <th class="f4">Descrição</th>
+                  <th class="f1 celula_botoes_acoes">Ações</th>
                </tr>
 
                <?php
@@ -56,14 +56,14 @@
                ?>
                
                <tr>
-                  <td class="celula_info_obra">
+                  <td class="f2">
                      <p class=""><?= $linha['nomeObra']; ?></p>
                   </td>
-                  <td class="celula_info_cliente"><?= $linha['nomeCliente']; ?></td>
-                  <td class="celula_valor_gasto valor_gasto price">R$ <?= number_format($linha['valor_gasto'], 2, ',', '.'); ?></td>
-                  <td class="celula_mes_gasto"><?= $meses[$numMesGasto]; ?></td>
-                  <td class="celula_descricao_gasto"><?= $linha['descricao']; ?></td>
-                  <td class="celula_botoes_acoes">
+                  <td class="f2"><?= $linha['nomeCliente']; ?></td>
+                  <td class="f1-2 verde">R$ <?= number_format($linha['valor_gasto'], 2, ',', '.'); ?></td>
+                  <td class="f-6"><?= $meses[$numMesGasto]; ?></td>
+                  <td class="f4"><?= $linha['descricao']; ?></td>
+                  <td class="f1 celula_botoes_acoes">
                      <a href="<?= BASE_URL; ?>pages/front/edits/editar_gasto_obra.php?id=<?= $linha['id']; ?>" class="btn editar">
                         <i class='bx bx-edit'></i>
                      </a>

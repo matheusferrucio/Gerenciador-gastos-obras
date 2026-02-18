@@ -115,3 +115,11 @@
       }
    }
 }
+
+section.tabela_totais {
+   margin-top: 10px;
+
+   & h1 {
+      font-size: 1.1rem;
+   }
+}

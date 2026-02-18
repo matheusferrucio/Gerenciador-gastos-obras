@@ -16,6 +16,7 @@
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/reset.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/style.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/listas.css">
+      <link rel="stylesheet" href="<?= BASE_URL; ?>css/table.css">
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
       <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js" defer></script>
       <script src="<?= BASE_URL; ?>js/script.js" defer></script>
@@ -34,37 +35,49 @@
          </div>
 
          <div class="row lista">
+            <table class="tabela_gastos_obras">
+               <tr class="linha_cabecalho">
+                  <th class="f1">CPF/CNPJ</th>
+                  <th class="f2">Nome</th>
+                  <th class="f-6">Tipo cliente</th>
+                  <th class="f-5 celula_botoes_acoes">Ações</th>
+               </tr>
+               
+               <?php
+                  foreach($clientes as $linha) {
+               ?>
+               
+               <tr>
+                  <td class="f1">
+                     <p class=""><?= $linha['cpf_cnpj']; ?></p>
+                  </td>
 
-            <?php
-               foreach($clientes as $linha) {
-            ?>
+                  <td class="f2">
+                     <?= $linha['nome']; ?>
+                  </td>
 
-               <div class="card">
-                  <div class="particao_info">
-                     <h3 class="titulo_card_lista"><?= $linha['nome']; ?></h3>
-                     <p class="texto_card_lista cpf_cnpj_cliente">
-                        <span class="bold">CPF/CNPJ:</span> <?= $linha['cpf_cnpj']; ?>
-                     </p>
-                  </div>
+                  <td class="f-6">
+                     <?= strtoupper($linha['tipo_cliente']); ?>
+                  </td>
 
-                  <div class="particao_btns_acao">
-                     <a href="<?= BASE_URL; ?>pages/front/edits/editar_cliente.php?cpfCnpj=<?= $linha['cpf_cnpj']; ?>" class="btn editar">
+                  <td class="f-5 celula_botoes_acoes">
+                     <a href="<?= BASE_URL; ?>pages/front/edits/editar_gasto_obra.php?id=<?= $linha['cpf_cnpj']; ?>" class="btn editar">
                         <i class='bx bx-edit'></i>
-                        Editar
                      </a>
                      <a
-                        href="<?= BASE_URL; ?>pages/back/excluir/excluir_clientedb.php?cpfCnpj=<?= $linha['cpf_cnpj']; ?>" 
+                        href="<?= BASE_URL; ?>pages/back/excluir/excluir_gasto_obradb.php?id=<?= $linha['cpf_cnpj']; ?>" 
                         class="btn excluir"
-                        onclick="confirmarExclusao(event, '<?= $linha['nome']; ?>')">
+                        onclick="confirmarExclusao(event, '')">
                         <i class='bx bx-message-alt-x'></i>
-                        Excluir
                      </a>
-                  </div>
-               </div>
+                  </td>
+               </tr>
 
-            <?php
-               }
-            ?>
+               <?php
+                  }
+               ?>
+               
+            </table>
          </div>
       </div>
 </body>

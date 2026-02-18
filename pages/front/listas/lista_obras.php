@@ -16,6 +16,7 @@
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/reset.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/style.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/listas.css">
+      <link rel="stylesheet" href="<?= BASE_URL; ?>css/table.css">
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
       <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js" defer></script>
       <script src="<?= BASE_URL; ?>js/script.js" defer></script>
@@ -34,12 +35,65 @@
          </div>
 
          <div class="row lista">
+            <table class="tabela_gastos_obras">
+               <tr class="linha_cabecalho">
+                  <th class="f1-2">Obra</th>
+                  <th class="f1-2">Rua</th>
+                  <th class="f-6">Números</th>
+                  <th class="f1-2">Cliente</th>
+                  <th class="f-5">%</th>
+                  <th class="f-5 celula_botoes_acoes">Ações</th>
+               </tr>
+               
+               <?php
+                  foreach($obras as $linha) {
+               ?>
+               
+               <tr>
+                  <td class="f1-2">
+                     <p class=""><?= $linha['nomeObra']; ?></p>
+                  </td>
 
-            <?php
-               foreach($obras as $linha) {
-            ?>
+                  <td class="f1-2">
+                     <?= $linha['rua']; ?>
+                  </td>
 
-               <div class="card">
+                  <td class="f-6">
+                     <?= $linha['numObra']; ?>
+                  </td>
+
+                  <td class="f1-2">
+                     <?= $linha['nomeCliente']; ?>
+                  </td>
+
+                  <td class="f-5">
+                     <?= isset($linha['porcentagem_cobrada']) ? $linha['porcentagem_cobrada'] : "Não definido"; ?>
+                  </td>
+
+                  <td class="f-5 celula_botoes_acoes">
+                     <a href="<?= BASE_URL; ?>pages/front/edits/editar_gasto_obra.php?id=<?= $linha['id']; ?>" class="btn editar">
+                        <i class='bx bx-edit'></i>
+                     </a>
+                     <a
+                        href="<?= BASE_URL; ?>pages/back/excluir/excluir_gasto_obradb.php?id=<?= $linha['id']; ?>" 
+                        class="btn excluir"
+                        onclick="confirmarExclusao(event, '')">
+                        <i class='bx bx-message-alt-x'></i>
+                     </a>
+                  </td>
+               </tr>
+
+               <?php
+                  }
+               ?>
+               
+            </table>
+         </div>
+      </div>
+</body>
+</html>
+
+<!-- <div class="card">
                   <div class="particao_info">
                      <div class="row">
                         <h2 class="titulo_card_lista"><?= $linha['nomeObra']; ?></h2>
@@ -71,12 +125,4 @@
                         Excluir
                      </a>
                   </div>
-               </div>
-
-            <?php
-               }
-            ?>
-         </div>
-      </div>
-</body>
-</html>
+               </div> -->

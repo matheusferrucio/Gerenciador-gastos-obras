@@ -106,6 +106,18 @@
                                     <canvas id="myChart"></canvas>
                               </div>
                         </section>
+
+                        <section class="row tabela_totais">
+                              <div class="card">
+                                    <div class="row">
+                                          <h1><i class='bx bx-table'></i> Resumo dos gastos por obra</h1>
+                                    </div>
+
+                                    <div class="row">
+
+                                    </div>
+                              </div>
+                        </section>
                   </section>
             </div>
       </main>

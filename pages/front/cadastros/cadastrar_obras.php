@@ -75,6 +75,11 @@
                         <label for="numObra">Digite o número</label>
                         <input type="text" name="numObra" id="numObra" placeholder="Ex: 101" required>
                      </div>
+
+                     <div class="particao">
+                        <label for="porcentagemCobrada">Digite a porcentagem cobrada</label>
+                        <input type="text" name="porcentagemCobrada" id="porcentagemCobrada" placeholder="Ex: 10%">
+                     </div>
                   </div>
 
                   <div class="row rowBtn">

@@ -97,21 +97,21 @@ a.excluir:hover {
 
 /* Classes padrão para definir o flex de elementos */
 .f1 {
-    flex: 1;
+    flex: 1 !important;
 }
 
 .f2 {
-    flex: 2;
+    flex: 2 !important;
 }
 
 .f3 {
-    flex: 3;
+    flex: 3 !important;
 }
 
 .f4 {
-    flex: 4;
+    flex: 4 !important;
 }
 
 .f5 {
-    flex: 5;
+    flex: 5 !important;
 }

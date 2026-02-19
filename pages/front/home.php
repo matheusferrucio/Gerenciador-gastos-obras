@@ -55,7 +55,7 @@
                                           </div>
                                           
                                           <div class="particao f4">
-                                                <h3>Total 10% cobrado</h3>
+                                                <h3>Total de administração</h3>
                                                 <h1 class="co_verde">R$ <?= number_format($dados['total_comissao_obras'], 2, ',', '.'); ?></h1>
                                           </div>
                                     </div>

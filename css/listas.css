@@ -69,3 +69,28 @@
       }
    }
 }
+
+#paginacao {
+   width: 100%;
+   display: flex;
+   flex-direction: column-reverse;
+   gap: 10px;
+   align-items: center;
+   justify-content: center;
+   margin-top: 10px;
+
+   & #botoes_pagina {
+      display: flex;
+      gap: 8px;   
+
+      & button {
+         border: 1px solid var(--realce);
+         padding: 8px 15px;
+         background-color: transparent;
+         border-radius: 8px;
+         color: var(--realce);
+         cursor: pointer;
+         transition: all var(--trans02) ease;
+      }
+   }
+}

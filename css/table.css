@@ -8,6 +8,12 @@ table {
       height: 50px;
       align-items: center;
       display: flex;
+      transition: all var(--trans02) ease;
+   }
+
+   & tr:not(.linha_cabecalho):hover {
+      padding: 0 5px;
+      background-color: var(--gelo);
    }
 
    /* Criei essa formatação para que sempre que a tabela estiver vazia, ainda tenha uma linha abaixo do cabeçalho */

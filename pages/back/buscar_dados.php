@@ -15,7 +15,7 @@
    $stmt = $conn->prepare("SELECT 
                            o.nome AS nomeObra,
                            c.nome AS nomeCliente,
-                           g.id, 
+                           g.id AS id_gasto, 
                            g.valor_gasto, 
                            g.data_gasto, 
                            g.descricao
@@ -24,7 +24,7 @@
                         ON g.id_obra = o.id
                         INNER JOIN clientes c
                         ON o.cpf_cnpj_cliente = c.cpf_cnpj
-                        ORDER BY g.data_gasto
+                        ORDER BY g.data_gasto DESC
                         LIMIT :limite
                         OFFSET :offset");
 
@@ -35,9 +35,9 @@
    $lista_gastos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
    echo json_encode([
-      'gastos' => $lista_gastos,
-      'pagina_atual' => $pagina_atual,
+      'gastos'        => $lista_gastos,
+      'pagina_atual'  => $pagina_atual,
       'total_paginas' => $total_paginas,
-      'total' => (int) $total
+      'total'         => (int) $total
    ]);
 ?>

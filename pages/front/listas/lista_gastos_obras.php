@@ -44,7 +44,7 @@
                   <tr class="linha_cabecalho">
                      <th class="f2">Obra</th>
                      <th class="f2">Cliente</th>
-                     <th class="f1-2">Valor gasto</th>
+                     <th class="f2">Valor gasto</th>
                      <th class="f-6">Mês</th>
                      <th class="f4">Descrição</th>
                      <th class="f1 celula_botoes_acoes">Ações</th>
@@ -64,5 +64,13 @@
             <div id="botoes_pagina"></div>
          </div>
       </div>
+
+      <script>
+         // Criei essa constante porque o php é executado antes da página ser carregada,
+         // mas quando o script js injeta os dados na página, os botões de ação passam uma url
+         // como uma string e o servidor barra por achar que é um ataque, por isso defini a URL
+         // básica no meu documento base
+         const BASE_URL = "<?= BASE_URL; ?>";
+      </script>
 </body>
 </html>

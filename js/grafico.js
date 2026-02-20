@@ -13,8 +13,6 @@ async function fetchData() {
 async function makeChart() {
    const data = await fetchData(); // Pega os dados retornados pela API interna
 
-   console.log(data);
-
    const ctx = document.getElementById('myChart'); // Pega minha tag <canvas> para adicionar o gráfico
 
    new Chart(ctx, {

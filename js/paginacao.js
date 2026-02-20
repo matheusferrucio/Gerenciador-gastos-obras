@@ -6,10 +6,8 @@ async function carregarGastos(pagina) {
    carregando = true;
    
    try {
-      const response = await fetch(`../../back/buscar_dados.php?pagina${pagina}`);
+      const response = await fetch(`../../back/buscar_dados.php?pagina=${pagina}`);
       const dados = await response.json();
-
-      console.log(dados);
       
       renderizarTabela(dados.gastos);
       renderizarPaginacao(dados.pagina_atual, dados.total_paginas, dados.total);
@@ -37,15 +35,15 @@ function renderizarTabela(gastos){
             <p class="">${g.nomeObra}</p>
          </td>
          <td class="f2">${g.nomeCliente}</td>
-         <td class="f1-2 verde">R$ ${parseFloat(g.valor_gasto).toFixed(2)}</td>
+         <td class="f2 verde">${parseFloat(g.valor_gasto).toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</td>
          <td class="f-6">${formatarData(g.data_gasto)}</td>
          <td class="f4">${g.descricao}</td>
          <td class="f1 celula_botoes_acoes">
-            <a href="<?= BASE_URL; ?>pages/front/edits/editar_gasto_obra.php?id=${g.id}" class="btn editar">
+            <a href="${BASE_URL}pages/front/edits/editar_gasto_obra.php?id=${g.id_gasto}" class="btn editar">
                <i class='bx bx-edit'></i>
             </a>
             <a
-               href="<?= BASE_URL; ?>pages/back/excluir/excluir_gasto_obradb.php?id=${g.id}" 
+               href="${BASE_URL}pages/back/excluir/excluir_gasto_obradb.php?id=${g.id_gasto}" 
                class="btn excluir"
                onclick="confirmarExclusao(event, '')">
                <i class='bx bx-message-alt-x'></i>
@@ -58,7 +56,7 @@ function renderizarTabela(gastos){
 function renderizarPaginacao(atual, total, totalRegistros) {
    // Exibe a quantidade de páginas e registros
    document.getElementById('info_pagina').textContent = 
-      `Página ${atual}, de ${total} - ${totalRegistros} registros`;
+      `Página ${atual} de ${total} - ${totalRegistros} registros`;
 
    const container = document.getElementById('botoes_pagina');
    container.innerHTML = '';
@@ -67,7 +65,7 @@ function renderizarPaginacao(atual, total, totalRegistros) {
    const btnAnterior = document.createElement('button');
    btnAnterior.textContent = '← Anterior';
    btnAnterior.disabled = atual === 1;
-   btnAnterior.addEventListener('click', () => carregarGastos(atual - 1));
+   btnAnterior.addEventListener('click', () => carregarGastos(parseInt(atual) - 1));
    container.appendChild(btnAnterior);
 
    // essas linhas definem qual o valor mínimo e máximo para os botões de paginação
@@ -79,14 +77,14 @@ function renderizarPaginacao(atual, total, totalRegistros) {
       const btn = document.createElement('button');
       btn.textContent = i;
       btn.classList.toggle('ativo', i === atual); // se o valor/texto do botão for igual ao da página atual, ele recebe a classe ativo
-      btn.addEventListener('click', carregarGastos(i));
+      btn.addEventListener('click', () => carregarGastos(i));
       container.appendChild(btn);
    }
 
    const btnProxima = document.createElement('button');
    btnProxima.textContent = 'Próxima →';
    btnProxima.disabled = atual === total;
-   btnProxima.addEventListener('click', carregarGastos(atual + 1));
+   btnProxima.addEventListener('click', () => carregarGastos(parseInt(atual) + 1));
    container.appendChild(btnProxima);
 }
 

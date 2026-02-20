@@ -70,6 +70,7 @@
    }
 }
 
+/* Formatação da sessão de paginação */
 #paginacao {
    width: 100%;
    display: flex;
@@ -91,6 +92,11 @@
          color: var(--realce);
          cursor: pointer;
          transition: all var(--trans02) ease;
+      }
+
+      & button:hover {
+         background-color: var(--realce);
+         color: var(--branco);
       }
    }
 }

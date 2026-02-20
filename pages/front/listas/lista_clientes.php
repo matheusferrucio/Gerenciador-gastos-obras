@@ -20,6 +20,7 @@
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
       <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js" defer></script>
       <script src="<?= BASE_URL; ?>js/script.js" defer></script>
+      <script src="<?= BASE_URL; ?>js/regex.js" defer></script>
       <title><?= $nomePagina; ?></title>
 </head>
 <body>
@@ -49,7 +50,7 @@
                
                <tr>
                   <td class="f1">
-                     <p class=""><?= $linha['cpf_cnpj']; ?></p>
+                     <p class="cpf_cnpj_cliente"><?= $linha['cpf_cnpj']; ?></p>
                   </td>
 
                   <td class="f2">
@@ -61,11 +62,11 @@
                   </td>
 
                   <td class="f-5 celula_botoes_acoes">
-                     <a href="<?= BASE_URL; ?>pages/front/edits/editar_gasto_obra.php?id=<?= $linha['cpf_cnpj']; ?>" class="btn editar">
+                     <a href="<?= BASE_URL; ?>pages/front/edits/editar_cliente.php?cpfCnpj=<?= $linha['cpf_cnpj']; ?>" class="btn editar">
                         <i class='bx bx-edit'></i>
                      </a>
                      <a
-                        href="<?= BASE_URL; ?>pages/back/excluir/excluir_gasto_obradb.php?id=<?= $linha['cpf_cnpj']; ?>" 
+                        href="<?= BASE_URL; ?>pages/back/excluir/excluir_clientedb.php?cpfCnpj=<?= $linha['cpf_cnpj']; ?>" 
                         class="btn excluir"
                         onclick="confirmarExclusao(event, '')">
                         <i class='bx bx-message-alt-x'></i>

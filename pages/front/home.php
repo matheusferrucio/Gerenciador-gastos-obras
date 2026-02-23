@@ -23,6 +23,7 @@
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/reset.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/style.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/home.css">
+      <link rel="stylesheet" href="<?= BASE_URL; ?>css/tables.css">
       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
       <script src="<?= BASE_URL; ?>js/botoes.js" defer></script>
       <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
@@ -107,10 +108,62 @@
                               </div>
                         </section>
 
-                        <section class="row tabela_totais">
-                              <div class="card">
+                        <section class="row resumo_por_obra">
+                              <div class="card f4">
                                     <div class="row">
                                           <h1><i class='bx bx-table'></i> Resumo dos gastos por obra</h1>
+                                    </div>
+
+                                    <div class="row">
+                                          <table class="tabela_gastos_obras">
+                                                <tr class="linha_cabecalho">
+                                                      <th class="f1">CPF/CNPJ</th>
+                                                      <th class="f2">Nome</th>
+                                                      <th class="f-6">Tipo cliente</th>
+                                                      <th class="f-5 celula_botoes_acoes">Ações</th>
+                                                </tr>
+                                                
+                                                <?php
+                                                      foreach($clientes as $linha) {
+                                                ?>
+                                                
+                                                <tr>
+                                                      <td class="f1">
+                                                      <p class="cpf_cnpj_cliente"><?= $linha['cpf_cnpj']; ?></p>
+                                                      </td>
+
+                                                      <td class="f2">
+                                                      <?= $linha['nome']; ?>
+                                                      </td>
+
+                                                      <td class="f-6">
+                                                      <?= strtoupper($linha['tipo_cliente']); ?>
+                                                      </td>
+
+                                                      <td class="f-5 celula_botoes_acoes">
+                                                      <a href="<?= BASE_URL; ?>pages/front/edits/editar_cliente.php?cpfCnpj=<?= $linha['cpf_cnpj']; ?>" class="btn editar">
+                                                            <i class='bx bx-edit'></i>
+                                                      </a>
+                                                      <a
+                                                            href="<?= BASE_URL; ?>pages/back/excluir/excluir_clientedb.php?cpfCnpj=<?= $linha['cpf_cnpj']; ?>" 
+                                                            class="btn excluir"
+                                                            onclick="confirmarExclusao(event, '')">
+                                                            <i class='bx bx-message-alt-x'></i>
+                                                      </a>
+                                                      </td>
+                                                </tr>
+
+                                                <?php
+                                                      }
+                                                ?>
+                                                
+                                          </table>
+                                    </div>
+                              </div>
+
+                              <div class="card f2">
+                                    <div class="row">
+                                          <h1><i class='bx bx-doughnut-chart'></i> Distribuição de comissões por obra</h1>
                                     </div>
 
                                     <div class="row">

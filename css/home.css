@@ -117,8 +117,10 @@
    }
 }
 
-section.tabela_totais {
+section.resumo_por_obra {
    margin-top: 10px;
+   display: flex;
+   gap: 10px;
 
    & h1 {
       font-size: 1.1rem;

@@ -99,4 +99,9 @@
          color: var(--branco);
       }
    }
+
+   & #botoes_pagina button.active {
+      background-color: var(--realce) !important;
+      color: var(--branco) !important;
+   }
 }

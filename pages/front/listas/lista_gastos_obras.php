@@ -44,7 +44,7 @@
                   <tr class="linha_cabecalho">
                      <th class="f2">Obra</th>
                      <th class="f2">Cliente</th>
-                     <th class="f2">Valor gasto</th>
+                     <th class="f1-2">Valor gasto</th>
                      <th class="f-6">Mês</th>
                      <th class="f4">Descrição</th>
                      <th class="f1 celula_botoes_acoes">Ações</th>

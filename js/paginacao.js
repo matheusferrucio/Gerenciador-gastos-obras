@@ -35,7 +35,7 @@ function renderizarTabela(gastos){
             <p class="">${g.nomeObra}</p>
          </td>
          <td class="f2">${g.nomeCliente}</td>
-         <td class="f2 verde">${parseFloat(g.valor_gasto).toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</td>
+         <td class="f1-2 verde">${parseFloat(g.valor_gasto).toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</td>
          <td class="f-6">${formatarData(g.data_gasto)}</td>
          <td class="f4">${g.descricao}</td>
          <td class="f1 celula_botoes_acoes">
@@ -64,7 +64,7 @@ function renderizarPaginacao(atual, total, totalRegistros) {
    // Cria e seta a funcionalidade do botão de 'Anterior'
    const btnAnterior = document.createElement('button');
    btnAnterior.textContent = '← Anterior';
-   btnAnterior.disabled = atual === 1;
+   btnAnterior.disabled = parseInt(atual) === 1;
    btnAnterior.addEventListener('click', () => carregarGastos(parseInt(atual) - 1));
    container.appendChild(btnAnterior);
 
@@ -79,6 +79,13 @@ function renderizarPaginacao(atual, total, totalRegistros) {
       btn.classList.toggle('ativo', i === atual); // se o valor/texto do botão for igual ao da página atual, ele recebe a classe ativo
       btn.addEventListener('click', () => carregarGastos(i));
       container.appendChild(btn);
+
+      btn.classList.remove('active');
+
+      // Adiciona um background diferente no botão com o número da página selecionada
+      if (btn.textContent == parseInt(atual)) {
+         btn.classList.add('active');
+      }
    }
 
    const btnProxima = document.createElement('button');

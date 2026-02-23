@@ -57,7 +57,16 @@
                               foreach($listaObras as $lista) {
                            ?>
 
-                           <option value="<?= $lista['id']; ?>"><?= $lista['nome']; ?></option>
+                           <option value="<?= $lista['id']; ?>" 
+                              <?php
+                                 // Criei esse if para que o valor padrão do select
+                                 // no formulário de edição seja o mesmo valor guardado
+                                 // no banco
+                                 if($lista['nome'] == $dados['nomeObra']) {
+                                    echo 'selected';
+                                 }
+                              ?>
+                           ><?= $lista['nome']; ?></option>
 
                            <?php
                               }

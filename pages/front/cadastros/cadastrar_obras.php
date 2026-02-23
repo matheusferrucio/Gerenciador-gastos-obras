@@ -78,7 +78,7 @@
 
                      <div class="particao">
                         <label for="porcentagemCobrada">Digite a porcentagem cobrada</label>
-                        <input type="text" name="porcentagemCobrada" id="porcentagemCobrada" placeholder="Ex: 10%">
+                        <input type="text" name="porcentagemCobrada" id="porcentagemCobrada" placeholder="Ex: 10%" required>
                      </div>
                   </div>
 

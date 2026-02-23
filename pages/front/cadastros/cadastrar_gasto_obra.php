@@ -14,6 +14,7 @@
    );
 
    $nomePagina = isset($_GET['nomePag']) ? $_GET['nomePag'] : "Cadastrar gastos obra";
+
 ?>
 
 <!DOCTYPE html>

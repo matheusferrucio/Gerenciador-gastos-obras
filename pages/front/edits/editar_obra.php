@@ -110,6 +110,17 @@
                            value="<?= $dados['numObra']; ?>"
                            required>
                      </div>
+
+                     <div class="particao">
+                        <label for="porcentagemCobrada">Digite a porcentagem cobrada</label>
+                        <input 
+                           type="text" 
+                           name="porcentagemCobrada" 
+                           id="porcentagemCobrada"
+                           value="<?= $dados['porcentagem'] != null ? $dados['porcentagem'] : "Não atribuído"; ?>"
+                           placeholder="Ex: 10%"
+                           required>
+                     </div>
                   </div>
 
                   <div class="row rowBtn">

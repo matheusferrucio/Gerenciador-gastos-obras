@@ -12,6 +12,7 @@
       $cidadeObra     = filter_input(INPUT_POST, 'cidadeObra', FILTER_SANITIZE_SPECIAL_CHARS);
       $ruaObra        = filter_input(INPUT_POST, 'ruaObra', FILTER_SANITIZE_SPECIAL_CHARS);
       $numObra        = filter_input(INPUT_POST, 'numObra', FILTER_SANITIZE_SPECIAL_CHARS);
+      $porcentagem    = filter_input(INPUT_POST, 'porcentagemCobrada', FILTER_SANITIZE_SPECIAL_CHARS);
 
       // Verifica se a cidade já foi cadastrada
       $cidadeExiste = selecionaPorKey(
@@ -29,11 +30,12 @@
          try {
             $query = $conn->prepare("UPDATE obras o
                                      SET
-                                       nome             = :nome,
-                                       cpf_cnpj_cliente = :cpf_cnpj_cliente,
-                                       id_cidade        = :id_cidade,
-                                       rua              = :rua,
-                                       numObra          = :numObra
+                                       nome                 = :nome,
+                                       cpf_cnpj_cliente     = :cpf_cnpj_cliente,
+                                       id_cidade            = :id_cidade,
+                                       rua                  = :rua,
+                                       numObra              = :numObra,
+                                       porcentagem_cobranca = :porcentagem
                                      WHERE o.id         = :id");
 
             $query->execute([
@@ -42,6 +44,7 @@
                ":id_cidade"        => $idCidadeObra,
                ":rua"              => $ruaObra,
                ":numObra"          => $numObra,
+               ":porcentagem"      => $porcentagem,
                ":id"               => $idObra
             ]);
 

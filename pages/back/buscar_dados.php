@@ -24,7 +24,8 @@
                         ON g.id_obra = o.id
                         INNER JOIN clientes c
                         ON o.cpf_cnpj_cliente = c.cpf_cnpj
-                        ORDER BY g.data_gasto DESC
+                        ORDER BY o.nome ASC,
+                                 g.data_gasto
                         LIMIT :limite
                         OFFSET :offset");
 

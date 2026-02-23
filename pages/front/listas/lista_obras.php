@@ -67,15 +67,15 @@
                   </td>
 
                   <td class="f-5">
-                     <?= isset($linha['porcentagem_cobrada']) ? $linha['porcentagem_cobrada'] : "Não definido"; ?>
+                     <?= $linha['porcentagem'] != null ? $linha['porcentagem'].'%' : "Não definido"; ?>
                   </td>
 
                   <td class="f-5 celula_botoes_acoes">
-                     <a href="<?= BASE_URL; ?>pages/front/edits/editar_gasto_obra.php?id=<?= $linha['id']; ?>" class="btn editar">
+                     <a href="<?= BASE_URL; ?>pages/front/edits/editar_obra.php?id=<?= $linha['id']; ?>" class="btn editar">
                         <i class='bx bx-edit'></i>
                      </a>
                      <a
-                        href="<?= BASE_URL; ?>pages/back/excluir/excluir_gasto_obradb.php?id=<?= $linha['id']; ?>" 
+                        href="<?= BASE_URL; ?>pages/back/excluir/excluir_obradb.php?id=<?= $linha['id']; ?>" 
                         class="btn excluir"
                         onclick="confirmarExclusao(event, '')">
                         <i class='bx bx-message-alt-x'></i>

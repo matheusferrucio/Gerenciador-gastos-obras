@@ -5,7 +5,7 @@ function confirmarExclusao(event, nome) {
     // Swal é uma biblioteca para pop-ups em js
     Swal.fire({
         title: 'Confirmar Exclusão',
-        text: `Tem certeza que deseja excluir '${nome}'? Esta ação não poderá ser desfeita.`,
+        text: `Tem certeza que deseja excluir esse gasto? Esta ação não poderá ser desfeita.`,
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#f16060',

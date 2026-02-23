@@ -7,10 +7,10 @@
 
    require_once(__DIR__."/../back/views/view_resumodb.php");
 
-//    require_once(__DIR__."/../back/api_dados_grafico.php");
+   require_once __DIR__."/../back/views/view_tabela_resumo_obrasdb.php";
 
    $meses = retornaMeses(true);
-
+   
    $nomePagina = isset($_GET['nomePag']) ? $_GET['nomePag'] : "Início";
 ?>
 
@@ -23,7 +23,7 @@
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/reset.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/style.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/home.css">
-      <link rel="stylesheet" href="<?= BASE_URL; ?>css/tables.css">
+      <link rel="stylesheet" href="<?= BASE_URL; ?>css/table.css">
       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
       <script src="<?= BASE_URL; ?>js/botoes.js" defer></script>
       <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
@@ -117,39 +117,26 @@
                                     <div class="row">
                                           <table class="tabela_gastos_obras">
                                                 <tr class="linha_cabecalho">
-                                                      <th class="f1">CPF/CNPJ</th>
-                                                      <th class="f2">Nome</th>
-                                                      <th class="f-6">Tipo cliente</th>
-                                                      <th class="f-5 celula_botoes_acoes">Ações</th>
+                                                      <th class="f2">Nome obra</th>
+                                                      <th class="f1">Total gasto</th>
+                                                      <th class="f1">Comissão</th>
                                                 </tr>
                                                 
                                                 <?php
-                                                      foreach($clientes as $linha) {
+                                                      foreach($resumoPorObra as $linha) {
                                                 ?>
                                                 
                                                 <tr>
-                                                      <td class="f1">
-                                                      <p class="cpf_cnpj_cliente"><?= $linha['cpf_cnpj']; ?></p>
-                                                      </td>
-
                                                       <td class="f2">
-                                                      <?= $linha['nome']; ?>
+                                                            <p class=""><?= $linha['nome']; ?></p>
                                                       </td>
 
-                                                      <td class="f-6">
-                                                      <?= strtoupper($linha['tipo_cliente']); ?>
+                                                      <td class="f1 verde">
+                                                            R$ <?= number_format($linha['total'], 2, ',', '.'); ?>
                                                       </td>
 
-                                                      <td class="f-5 celula_botoes_acoes">
-                                                      <a href="<?= BASE_URL; ?>pages/front/edits/editar_cliente.php?cpfCnpj=<?= $linha['cpf_cnpj']; ?>" class="btn editar">
-                                                            <i class='bx bx-edit'></i>
-                                                      </a>
-                                                      <a
-                                                            href="<?= BASE_URL; ?>pages/back/excluir/excluir_clientedb.php?cpfCnpj=<?= $linha['cpf_cnpj']; ?>" 
-                                                            class="btn excluir"
-                                                            onclick="confirmarExclusao(event, '')">
-                                                            <i class='bx bx-message-alt-x'></i>
-                                                      </a>
+                                                      <td class="f1 verde">
+                                                            R$ <?= number_format($linha['comissao_obra'], 2, ',', '.'); ?>
                                                       </td>
                                                 </tr>
 

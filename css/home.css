@@ -124,5 +124,10 @@ section.resumo_por_obra {
 
    & h1 {
       font-size: 1.1rem;
+      margin-bottom: 10px;
+   }
+
+   & .card:first-of-type .row:last-of-type table {
+      width: 100%;
    }
 }

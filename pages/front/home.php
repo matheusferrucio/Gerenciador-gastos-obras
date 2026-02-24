@@ -120,6 +120,7 @@
                                                 <tr class="linha_cabecalho">
                                                       <th class="f2">Nome obra</th>
                                                       <th class="f1">Total gasto</th>
+                                                      <th class="f-6">%</th>
                                                       <th class="f1">Comissão</th>
                                                 </tr>
                                                 
@@ -134,6 +135,10 @@
 
                                                       <td class="f1 verde">
                                                             R$ <?= number_format($linha['total'], 2, ',', '.'); ?>
+                                                      </td>
+
+                                                      <td class="f-6">
+                                                            <?= $linha['porcentagem']; ?>%
                                                       </td>
 
                                                       <td class="f1 verde">

@@ -5,7 +5,8 @@
       $stmt = $conn->prepare("SELECT
                                  o.nome,
                                  SUM(g.valor_gasto) AS total,
-                                 SUM(g.valor_gasto * (o.porcentagem_cobranca / 100)) AS comissao_obra
+                                 SUM(g.valor_gasto * (o.porcentagem_cobranca / 100)) AS comissao_obra,
+                                 o.porcentagem_cobranca AS porcentagem
                               FROM obras o
                               INNER JOIN gastosobras g
                               ON o.id = g.id_obra

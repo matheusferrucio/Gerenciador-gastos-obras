@@ -20,7 +20,6 @@ async function makeChart() {
       data: {
          labels: data.labels,
          datasets: [{
-            label: data.labels,
             data: data.values,
             backgroundColor: [
                '#213C51'

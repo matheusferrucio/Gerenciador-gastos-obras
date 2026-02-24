@@ -34,7 +34,6 @@ async function makeThreadChart() {
         data: {
             labels: dados.labels,
             datasets: [{
-                label: false,
                 data: dados.values,
                 backgroundColor: cores,
                 hoverOffset: 4

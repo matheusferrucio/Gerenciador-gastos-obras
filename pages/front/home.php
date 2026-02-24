@@ -28,6 +28,7 @@
       <script src="<?= BASE_URL; ?>js/botoes.js" defer></script>
       <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
       <script src="<?= BASE_URL; ?>js/grafico.js" defer></script>
+      <script src="<?= BASE_URL; ?>js/grafico_rosca.js" defer></script>
       <title><?= $nomePagina; ?></title>
 </head>
 <body>
@@ -154,7 +155,7 @@
                                     </div>
 
                                     <div class="row">
-
+                                          <canvas id="donut_chart"></canvas>
                                     </div>
                               </div>
                         </section>

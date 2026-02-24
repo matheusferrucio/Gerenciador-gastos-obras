@@ -14,12 +14,12 @@
       $query->execute();
 
       if($query) {
-         $teste = $query->fetchAll(PDO::FETCH_ASSOC);
+         $listaDados = $query->fetchAll(PDO::FETCH_ASSOC);
 
          $chaves = [];
          $valores = [];
          
-         foreach($teste as $key => $value) {
+         foreach($listaDados as $key => $value) {
             array_push($valores, $value['soma_gastos_obra']);
             array_push($chaves, $value['nome_obra']);
          }

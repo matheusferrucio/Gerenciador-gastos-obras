@@ -111,7 +111,7 @@
 
                         <section class="row resumo_por_obra">
                               <div class="card f4">
-                                    <div class="row">
+                                    <div class="row linha_titulo">
                                           <h1><i class='bx bx-table'></i> Resumo dos gastos por obra</h1>
                                     </div>
 

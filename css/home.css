@@ -121,13 +121,26 @@ section.resumo_por_obra {
    margin-top: 10px;
    display: flex;
    gap: 10px;
+   /* position: relative; */
 
    & h1 {
       font-size: 1.1rem;
       margin-bottom: 10px;
    }
 
-   & .card:first-of-type .row:last-of-type table {
+   & .card {
+      max-height: 500px;
+   }
+
+   & .card:first-of-type {
+      overflow-y: scroll;
+   }
+
+   & .card::-webkit-scrollbar {
+      display: none;
+   }
+   
+   & .card:first-of-type .row:last-of-type table.tabela_gastos_obras {
       width: 100%;
    }
 }

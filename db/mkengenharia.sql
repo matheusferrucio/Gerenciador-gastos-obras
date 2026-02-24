@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/02/2026 às 21:42
+-- Tempo de geração: 24/02/2026 às 21:56
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -42,7 +42,8 @@ INSERT INTO `cidades` (`id`, `cidade`) VALUES
 (3, 'Avanhandava'),
 (4, 'Curitiba'),
 (5, 'Três Lagoas'),
-(6, 'Diversas');
+(6, 'Diversas'),
+(7, 'teste');
 
 -- --------------------------------------------------------
 
@@ -170,7 +171,8 @@ INSERT INTO `gastosobras` (`id`, `id_obra`, `valor_gasto`, `data_gasto`, `descri
 (98, 11, 1469.09, '2026-02-10', 'Taxa alvará habite-se'),
 (99, 11, 7404.07, '2026-02-10', 'Taxa alvará habite-se'),
 (100, 11, 452.00, '2026-02-11', 'Danizete de fátima ribeiro'),
-(101, 10, 4200.00, '2026-02-23', 'Casa das molduras');
+(101, 10, 4200.00, '2026-02-23', 'Casa das molduras'),
+(102, 45, 1000.00, '2026-02-11', 'teste');
 
 -- --------------------------------------------------------
 
@@ -200,7 +202,8 @@ INSERT INTO `obras` (`id`, `nome`, `cpf_cnpj_cliente`, `id_cidade`, `rua`, `numO
 (8, 'Casa Royal Boulevard', '14798865000150', 1, 'Maria Gerardi Ferreira', 'lote 09', '10'),
 (9, 'Funerária Três Lagoas', '14798865000150', 5, 'Advogado Rosário Congro', '1149', '10'),
 (10, 'Casas G03 e G04 VM', '14798865000150', 1, 'Ipê Rosa', '236, 246', '10'),
-(11, 'Reformas Cardassi', '14798865000150', 6, 'Diversas', 'Diversos', '10');
+(11, 'Reformas Cardassi', '14798865000150', 6, 'Diversas', 'Diversos', '10'),
+(45, 'teste', '26517583000116', 7, 'teste', 'teste', '10');
 
 -- --------------------------------------------------------
 
@@ -264,19 +267,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `cidades`
 --
 ALTER TABLE `cidades`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `gastosobras`
 --
 ALTER TABLE `gastosobras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
 -- AUTO_INCREMENT de tabela `obras`
 --
 ALTER TABLE `obras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- Restrições para tabelas despejadas

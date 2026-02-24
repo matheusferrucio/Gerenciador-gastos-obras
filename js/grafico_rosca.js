@@ -1,6 +1,6 @@
 async function fetchData() {
     try {
-        const response = await fetch('../back/api_dados_grafico_rosca.php');
+        const response = await fetch('../back/apis/api_dados_grafico_rosca.php');
         const dados = response.json();
         return dados;
     } catch(error) {

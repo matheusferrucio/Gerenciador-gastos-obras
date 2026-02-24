@@ -1,7 +1,7 @@
 // Faz a requisição para a API interna que pega os dados do banco
 async function fetchData() {
    try {
-      const response = await fetch('../back/api_dados_grafico.php');
+      const response = await fetch('../back/apis/api_dados_grafico.php');
       const data = response.json();
       return data;
    } catch(error) {

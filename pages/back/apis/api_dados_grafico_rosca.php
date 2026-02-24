@@ -3,7 +3,7 @@
 
     header("Content-type: application/json");
 
-    require_once __DIR__."/../conexao/connection.php";
+    require_once __DIR__."/../../conexao/connection.php";
 
     try {
         $stmt = $conn->prepare("SELECT

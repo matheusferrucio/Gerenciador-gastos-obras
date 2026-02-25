@@ -9,19 +9,19 @@ function formatarCpfCnpj(valores){
             .replace(/(\d{3})(\d)/, '$1.$2')
             .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
 
-         numero.textContent = novoNumero;
+         element.textContent = novoNumero;
       } else {
          var novoNumero = numero
-            .replace(/(\d{2})(\d)/, '$1.$2')
-            .replace(/(\d{3})(\d)/, '$1.$2')
-            .replace(/(\d{3})(\d)/, '$1/$2')
-            .replace(/(\d{4})(\d{1,2})$/, '$1-$2');
-
-         numero.textContent = novoNumero;
+         .replace(/(\d{2})(\d)/, '$1.$2')
+         .replace(/(\d{3})(\d)/, '$1.$2')
+         .replace(/(\d{3})(\d)/, '$1/$2')
+         .replace(/(\d{4})(\d{1,2})$/, '$1-$2');
+         
+         element.textContent = novoNumero;
       }
    });
 }
 
-const cpfCnpj = document.querySelectorAll(".cpf_cnpj_cliente");
+const cpfCnpj = document.querySelectorAll("td p.cpf_cnpj_cliente");
 
 formatarCpfCnpj(cpfCnpj);

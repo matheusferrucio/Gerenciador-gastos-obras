@@ -18,20 +18,24 @@ body {
 }
 
 /* formatação geral dos botões */
-a.btn {
+a.btn,
+button.btn {
     width: fit-content;
     height: 35px;
     border-radius: 12px;
+    border: 1px solid var(--realce);
+    background-color: transparent;
     display: block;
     padding: 0 15px;
     place-content: center;
     text-decoration: none;
+    cursor: pointer;
 
     display: flex;
     gap: 5px;
     align-items: center;
 
-    color: var(--gelo);
+    color: var(--realce);
     font-size: 1rem;
     transition: all var(--trans02) ease;
 }
@@ -48,7 +52,8 @@ a.editar {
     }
 }
 a.nav:hover,
-a.editar:hover {
+a.editar:hover,
+button.btn:hover {
     background-color: var(--realce);
     color: var(--branco);
 
@@ -69,21 +74,21 @@ a.voltar:hover {
 }
 
 /* Formatação botões de excluir */
-a.excluir {
+.excluir {
     background-color: transparent;
-    border: 1px solid var(--vermelho);
-    color: var(--vermelho);
+    border: 1px solid var(--vermelho) !important;
+    color: var(--vermelho) !important;
 
     & i {
-        color: var(--vermelho);
+        color: var(--vermelho) !important;
     }
 }
-a.excluir:hover {
-    background-color: var(--vermelho);
-    color: var(--branco);
+.excluir:hover {
+    background-color: var(--vermelho) !important;
+    color: var(--branco) !important;
 
     & i {
-        color: var(--branco);
+        color: var(--branco) !important;
     }
 }
 
@@ -114,4 +119,73 @@ a.excluir:hover {
 
 .f5 {
     flex: 5 !important;
+}
+
+/* 
+    Formatação de modal
+    no momento que estou criando, estou criando para utilizar no página de lista_gastos_obras
+    mas como provavelmente vou querer/precisar criar modais em outras páginas, estou criando uma
+    formatação geral no style.css para não precisar ficar replicando em outras páginas e nem linkando 
+    páginas css que não tem nada a ver umas com as outras
+*/
+html::after {
+    display: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 145dvh;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+div.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    
+    background-color: var(--branco);
+    padding: 20px;
+    border: 1px solid var(--borda-card);
+    border-radius: 20px;
+
+    & h2 {
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    & .conteudo_modal .row {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 15px;
+
+        & label {
+            font-size: .9rem;
+        }
+        
+        & select,
+        input {
+            border: 1px solid var(--realce);
+            border-radius: 12px;
+            height: 35px;
+            color: var(--realce);
+            padding-left: 10px;
+            font-size: .9rem;
+        }
+
+        & .botoes_modal {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 10px;
+        }
+    }
+
+    & .btn_fechar {
+        margin: 0 auto;
+    }
 }

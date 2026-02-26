@@ -30,7 +30,7 @@
             <h1><i class='bx bx-buildings icon_titulo' ></i> Lista das obras cadastradas</h1>
 
             <nav>
-               <a href="<?= BASE_URL; ?>pages/front/cadastros/cadastrar_obras.php" class="btn nav">Cadastrar obra</a>
+               <a href="<?= BASE_URL; ?>pages/front/cadastros/cadastrar_obras.php" class="btn nav"><i class='bx bx-plus'></i> Cadastrar obra</a>
             </nav>
          </div>
 

@@ -31,7 +31,7 @@
             <h1><i class='bx bx-male icon_titulo'></i> Lista dos clientes cadastrados</h1>
 
             <nav>
-               <a href="<?= BASE_URL; ?>pages/front/cadastros/cadastrar_clientes.php" class="btn nav">Cadastrar cliente</a>
+               <a href="<?= BASE_URL; ?>pages/front/cadastros/cadastrar_clientes.php" class="btn nav"><i class='bx bx-plus'></i> Cadastrar cliente</a>
             </nav>
          </div>
 

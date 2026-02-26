@@ -1,13 +1,21 @@
 <?php
    require_once(__DIR__."/../../back/config.php");
 
+   require_once(__DIR__."/../../conexao/connection.php");
+
    require_once(__DIR__."/../../back/_session.php");
 
-   // require_once(__DIR__."/../../back/listas/lista_gastos_obrasdb.php");
+   require_once(__DIR__."/../../back/utils.php");
 
-   // require_once(__DIR__."/../../back/utils.php");
+   $listaObras = selecionaTodos($conn, 'obras', 'nome');
 
-   // $meses = retornaMeses(false);
+   $listaClientes = selecionaTodos($conn, 'clientes', 'nome');
+
+   $listaMeses = retornaMeses(false);
+
+   // echo '<pre>';
+   // print_r($listaObras);
+   // echo '</pre>';
 
    $nomePagina = isset($_GET['nomePag']) ? $_GET['nomePag'] : "Gastos obras";
 ?>
@@ -33,9 +41,82 @@
          <div class="row rowTitulo">
             <h1><i class='bx bx-dollar icon_titulo'></i> Lista dos gastos das obras</h1>
 
-            <nav>
-               <a href="<?= BASE_URL; ?>pages/front/cadastros/cadastrar_gasto_obra.php" class="btn nav">Cadastrar gasto</a>
-            </nav>
+            <div class="particao">
+               <button id="btn_abrir_filtro" class="btn"><i class='bx bx-filter-alt'></i> Filtrar</button>
+               
+               <nav>
+                  <a href="<?= BASE_URL; ?>pages/front/cadastros/cadastrar_gasto_obra.php" class="btn nav"><i class='bx bx-plus'></i> Cadastrar gasto</a>
+               </nav>
+            </div>
+
+            <div class="overlay" style="display: none;"></div>
+
+            <div class="modal active" style="display: none;">
+               <div class="conteudo_modal">
+                  <h2>Filtrar gastos</h2>
+
+                  <div class="row">
+                     <label for="filtro_obra">Por obra</label>
+                     <select name="filtro_obra" id="filtro_obra">
+                        <?php
+                           foreach($listaObras as $linha) {
+                        ?>
+                        
+                        <option value="<?= $linha['id'] ?>"><?= $linha['nome']; ?></option>
+   
+                        <?php
+                           }
+                        ?>
+                     </select>
+                  </div>
+
+                  <div class="row">
+                     <label for="filtro_cliente">Por cliente</label>
+                     <select name="filtro_cliente" id="filtro_cliente">
+                        <?php
+                           foreach($listaClientes as $linha) {
+                        ?>
+                        
+                        <option value="<?= $linha['cpf_cnpj']; ?>"><?= $linha['nome']; ?></option>
+   
+                        <?php
+                           }
+                        ?>
+                     </select>
+                  </div>
+
+                  <div class="row">
+                     <label for="filtro_mes">Por mês</label>
+                     <select name="filtro_mes" id="filtro_mes">
+                        <?php
+                           foreach($listaMeses as $key => $value) {
+                        ?>
+                        
+                        <option value="<?= $key; ?>"><?= $value; ?></option>
+   
+                        <?php
+                           }
+                        ?>
+                     </select>
+
+                  </div>
+                  
+                  <div class="row">
+                     <label for="filtro_ano">Por ano</label>
+                     <input type="text" name="filtro_ano" id="filtro_ano" placeholder="Ex: 2025">
+                  </div>
+
+                  <div class="row">
+                     <div class="botoes_modal">
+                        <button id="btn_limpar_filtro" class="btn excluir"><i class='bx bx-trash' ></i> Limpar</button>
+                        <button id="btn_aplicar_filtro" class="btn"><i class='bx bx-filter-alt' ></i> Aplicar</button>
+                     </div>
+                  </div>
+
+                  
+                  <button id="btn_fechar_filtro" class="btn btn_fechar"><i class='bx bx-x' ></i> Fechar</button>
+               </div>
+            </div>
          </div>
 
          <div class="row lista">

@@ -1,11 +1,24 @@
 let paginaAtual = 1;
 let carregando = false;
 
+// Objeto que guarda os filtros ativos
+let filtros = {
+   obra:     '',
+   clientes: '',
+   mes:      '',
+   ano:      ''
+};
+
 async function carregarGastos(pagina) {
    if(carregando) return;
    carregando = true;
    
    try {
+      const params = new URLSearchParams ({
+         pagina,
+         ...filtros // espalha os filtros como parâmetros da URL
+      });
+
       const response = await fetch(`../../back/buscar_dados.php?pagina=${pagina}`);
       const dados = await response.json();
       

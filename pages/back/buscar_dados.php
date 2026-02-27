@@ -7,6 +7,11 @@
       - A variável stmtTotal executa uma query para contar a quantidade de registros no banco que atendam aos filtros
       - Inseri a variável $where para personalizar a query principal para que ela retorne apenas os valores que se encaixam nos filtros
       - Adicionei um foreach que insere os parâmetros, o limite e o offset na query
+
+      Hoje (27/02) eu modifiquei a linha que conta o total de registros no banco:
+
+      - A query está retornando um array com a quantidade de registros, mas faltava referenciar o índice de onde está esse contagem,
+        agora estou referenciando o índice de onde está essa informação, por isso do [0]['total_registros']
    */
 
    header("Content-type: application/json"); // especifica o formatao da resposta http
@@ -52,7 +57,7 @@
    // $total = $conn->query("SELECT COUNT(*) FROM gastosobras")->fetchColumn();
    // Conta a quantidade de registros respeitando o(s) filtro(s)
    $stmtTotal = $conn->prepare("SELECT
-                                    COUNT(*)
+                                    COUNT(*) AS total_registros
                                  FROM gastosobras g
                                  INNER JOIN obras o ON g.id_obra = o.id
                                  INNER JOIN clientes c ON o.cpf_cnpj_cliente = c.cpf_cnpj
@@ -60,7 +65,7 @@
 
    $stmtTotal->execute($parametros);
 
-   $total = $stmtTotal->fetchColumn(PDO::FETCH_ASSOC);
+   $total = $stmtTotal->fetchAll(PDO::FETCH_ASSOC)[0]['total_registros'];
                                  
    $total_paginas = ceil($total / $registros_por_pagina); // define quantas páginas terão
 
@@ -90,14 +95,22 @@
 
    $stmt->bindValue(':limite', $registros_por_pagina, PDO::PARAM_INT);
    $stmt->bindvalue(':offset', $offset, PDO::PARAM_INT);
+   
    $stmt->execute();
 
-   $lista_gastos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+   if ($stmt) {
+      $lista_gastos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-   echo json_encode([
-      'gastos'        => $lista_gastos,
-      'pagina_atual'  => $pagina_atual,
-      'total_paginas' => $total_paginas,
-      'total'         => (int) $total
-   ]);
+      echo json_encode([
+         'gastos'        => $lista_gastos,
+         'pagina_atual'  => $pagina_atual,
+         'total_paginas' => $total_paginas,
+         'total'         => (int) $total
+      ]);
+
+      // echo '<pre>';
+      // print_r($lista_gastos);
+      // echo '</pre>';
+   }
+
 ?>

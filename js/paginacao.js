@@ -21,6 +21,9 @@ async function carregarGastos(pagina) {
 
       const response = await fetch(`../../back/buscar_dados.php?pagina=${pagina}`);
       const dados = await response.json();
+
+      console.log(dados);
+      
       
       renderizarTabela(dados.gastos);
       renderizarPaginacao(dados.pagina_atual, dados.total_paginas, dados.total);

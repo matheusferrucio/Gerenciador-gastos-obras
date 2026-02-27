@@ -53,8 +53,9 @@
 
             <div class="overlay" style="display: none;"></div>
 
-            <div class="modal active" style="display: none;">
+            <div class="modal active" id="modal" style="display: none;">
                <div class="conteudo_modal">
+                  <div class="row"></div>
                   <h2>Filtrar gastos</h2>
 
                   <div class="row">

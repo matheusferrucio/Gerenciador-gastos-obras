@@ -14,16 +14,15 @@ async function carregarGastos(pagina) {
    carregando = true;
    
    try {
+      // Cria uma URL personalizada com os parãmetros de página e filtros
       const params = new URLSearchParams ({
          pagina,
          ...filtros // espalha os filtros como parâmetros da URL
       });
 
-      const response = await fetch(`../../back/buscar_dados.php?pagina=${pagina}`);
+      // Passamos a página e os filtros como parâmetros de URL para requisição
+      const response = await fetch(`../../back/buscar_dados.php?${params}`);
       const dados = await response.json();
-
-      console.log(dados);
-      
       
       renderizarTabela(dados.gastos);
       renderizarPaginacao(dados.pagina_atual, dados.total_paginas, dados.total);
@@ -36,6 +35,10 @@ async function carregarGastos(pagina) {
       carregando = false;
    }
 }
+
+document.getElementById('btn_abrir_filtro').addEventListener('click', function() {
+   document.getElementById('modal').style.display = 'block';
+});
 
 function renderizarTabela(gastos){
    const corpo = document.getElementById('corpo-tabela');

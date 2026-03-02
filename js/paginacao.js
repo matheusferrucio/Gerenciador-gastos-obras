@@ -38,6 +38,12 @@ async function carregarGastos(pagina) {
 
 document.getElementById('btn_abrir_filtro').addEventListener('click', function() {
    document.getElementById('modal').style.display = 'block';
+   document.querySelector('.overlay').style.display = 'block';
+});
+
+document.getElementById('btn_fechar_filtro').addEventListener('click', function() {
+   document.getElementById('modal').style.display = 'none';
+   document.querySelector('.overlay').style.display = 'none';
 });
 
 function renderizarTabela(gastos){

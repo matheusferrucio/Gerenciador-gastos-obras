@@ -128,40 +128,63 @@ a.voltar:hover {
     formatação geral no style.css para não precisar ficar replicando em outras páginas e nem linkando 
     páginas css que não tem nada a ver umas com as outras
 */
-html::after {
+.overlay {
     display: none;
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 145dvh;
     background-color: rgba(0, 0, 0, .3);
+    z-index: 11;
 }
 
 div.modal {
-    position: absolute;
+    position: fixed;
+    width: 450px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 10;
+    z-index: 12;
     
     background-color: var(--branco);
     padding: 20px;
-    border: 1px solid var(--borda-card);
+    border: .5px solid var(--borda-card) !important;
     border-radius: 20px;
 
     & h2 {
         font-size: 1.6rem;
-        margin-bottom: 10px;
-        text-align: center;
+    }
+
+    /* 
+        Formata a linha com o título do modal e o botão de fechar
+    */
+    & .conteudo_modal .row:first-of-type {
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom: 2px solid var(--gelo);
+        padding-bottom: 10px;
+
+        & button {
+            padding: 3px 5px;
+
+            & i {
+                font-size: 1.3rem;
+            }
+        }
     }
 
     & .conteudo_modal .row {
         display: flex;
         flex-direction: column;
-        gap: 6px;
+        gap: 8px;
         margin-bottom: 15px;
+
+        .particao {
+            display: flex;
+            flex-direction: column;
+        }
 
         & label {
             font-size: .9rem;
@@ -173,7 +196,7 @@ div.modal {
             border-radius: 12px;
             height: 35px;
             color: var(--realce);
-            padding-left: 10px;
+            padding: 0 10px 0 10px !important;
             font-size: .9rem;
         }
 
@@ -185,7 +208,8 @@ div.modal {
         }
     }
 
-    & .btn_fechar {
-        margin: 0 auto;
+    & .row.filtros_data {
+        flex-direction: row;
+        gap: 10px;
     }
 }

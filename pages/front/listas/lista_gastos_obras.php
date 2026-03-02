@@ -51,12 +51,14 @@
                </nav>
             </div>
 
-            <div class="overlay" style="display: none;"></div>
+            <div class="overlay"></div>
 
-            <div class="modal active" id="modal" style="display: none;">
+            <div class="modal" id="modal" style="display: none;">
                <div class="conteudo_modal">
-                  <div class="row"></div>
-                  <h2>Filtrar gastos</h2>
+                  <div class="row">
+                     <h2>Filtrar gastos</h2>
+                     <button id="btn_fechar_filtro" class="btn btn_fechar"><i class='bx bx-x' ></i></button>
+                  </div>
 
                   <div class="row">
                      <label for="filtro_obra">Por obra</label>
@@ -88,36 +90,34 @@
                      </select>
                   </div>
 
-                  <div class="row">
-                     <label for="filtro_mes">Por mês</label>
-                     <select name="filtro_mes" id="filtro_mes">
-                        <?php
-                           foreach($listaMeses as $key => $value) {
-                        ?>
-                        
-                        <option value="<?= $key; ?>"><?= $value; ?></option>
-   
-                        <?php
-                           }
-                        ?>
-                     </select>
-
-                  </div>
-                  
-                  <div class="row">
-                     <label for="filtro_ano">Por ano</label>
-                     <input type="text" name="filtro_ano" id="filtro_ano" placeholder="Ex: 2025">
+                  <div class="row filtros_data">
+                     <div class="particao f1">
+                        <label for="filtro_mes">Por mês</label>
+                        <select name="filtro_mes" id="filtro_mes">
+                           <?php
+                              foreach($listaMeses as $key => $value) {
+                           ?>
+                           
+                           <option value="<?= $key; ?>"><?= $value; ?></option>
+      
+                           <?php
+                              }
+                           ?>
+                        </select>
+                     </div>
+                           
+                     <div class="particao f1">
+                        <label for="filtro_ano">Por ano</label>
+                        <input type="text" name="filtro_ano" id="filtro_ano" placeholder="Ex: 2025">
+                     </div>
                   </div>
 
                   <div class="row">
                      <div class="botoes_modal">
-                        <button id="btn_limpar_filtro" class="btn excluir"><i class='bx bx-trash' ></i> Limpar</button>
+                        <button id="btn_limpar_filtro" class="btn excluir"><i class='bx bx-brush'></i> Limpar</button>
                         <button id="btn_aplicar_filtro" class="btn"><i class='bx bx-filter-alt' ></i> Aplicar</button>
                      </div>
                   </div>
-
-                  
-                  <button id="btn_fechar_filtro" class="btn btn_fechar"><i class='bx bx-x' ></i> Fechar</button>
                </div>
             </div>
          </div>

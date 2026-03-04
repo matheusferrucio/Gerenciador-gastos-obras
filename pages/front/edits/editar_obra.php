@@ -68,7 +68,13 @@
                               foreach($listaClientes as $lista) {
                            ?>
 
-                           <option value="<?= $lista['cpf_cnpj']; ?>"><?= $lista['nome']; ?></option>
+                           <option value="<?= $lista['cpf_cnpj']; ?>"
+                              <?php
+                                 if($lista['cpf_cnpj'] == $dados['cpf_cnpj']){
+                                    echo 'selected';
+                                 }
+                              ?>
+                           ><?= $lista['nome']; ?></option>
 
                            <?php
                               }

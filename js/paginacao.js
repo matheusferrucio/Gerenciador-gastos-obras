@@ -72,6 +72,9 @@ document.getElementById('btn_limpar_filtro').addEventListener('click', function(
    document.getElementById('filtro_mes').value = '';
    document.getElementById('filtro_ano').value = '';
 
+   document.getElementById('modal').style.display = 'none';
+   document.querySelector('.overlay').style.display = 'none';
+
    carregarGastos(1);
 });
 
@@ -79,7 +82,7 @@ function renderizarTabela(gastos){
    const corpo = document.getElementById('corpo-tabela');
 
    if (gastos.length == 0) {
-      corpo.innerHTML = '<tr><td colspan="6">Nenhum gasto encontrado.</td></tr>';
+      corpo.innerHTML = '<tr><td colspan="6">Nenhum registro encontrado.</td></tr>';
       return;
    }
 

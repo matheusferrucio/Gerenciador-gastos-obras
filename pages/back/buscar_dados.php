@@ -12,16 +12,20 @@
 
       - A query está retornando um array com a quantidade de registros, mas faltava referenciar o índice de onde está esse contagem,
         agora estou referenciando o índice de onde está essa informação, por isso do [0]['total_registros']
+
+      Alteração de hoje (04/03)
+
+      - A variável que monta minha cláusula WHERE estava com espaços faltando, agora com os devidos espaços o código está funcionando
    */
 
    header("Content-type: application/json"); // especifica o formatao da resposta http
 
    require_once __DIR__."/../conexao/connection.php";
 
-   $filtro_obra    = isset($_GET['filtro_obra']) ? $_GET['filtro_obra'] : '';
-   $filtro_cliente = isset($_GET['filtro_cliente']) ? $_GET['filtro_cliente'] : '';
-   $filtro_mes     = isset($_GET['filtro_mes']) ? $_GET['filtro_mes'] : '';
-   $filtro_ano     = isset($_GET['filtro_obra']) ? $_GET['filtro_obra'] : '';
+   $filtro_obra    = isset($_GET['obra']) ? $_GET['obra'] : '';
+   $filtro_cliente = isset($_GET['cliente']) ? $_GET['cliente'] : '';
+   $filtro_mes     = isset($_GET['mes']) ? $_GET['mes'] : '';
+   $filtro_ano     = isset($_GET['ano']) ? $_GET['ano'] : '';
 
    $condicoes  = [];
    $parametros = [];
@@ -33,20 +37,20 @@
 
    if ($filtro_cliente) {
       $condicoes[] = "c.cpf_cnpj = :cliente";
-      $params[':cliente'] = $filtro_cliente;
+      $parametros[':cliente'] = $filtro_cliente;
    }
 
    if ($filtro_mes) {
       $condicoes[] = "MONTH(g.data_gasto) = :mes";
-      $params[':mes'] = $filtro_mes;
+      $parametros[':mes'] = $filtro_mes;
    }
 
    if ($filtro_ano) {
       $condicoes[] = "YEAR(g.data_gasto) = :ano";
-      $params[':ano'] = $filtro_ano;
+      $parametros[':ano'] = $filtro_ano;
    }
 
-   $where = count($condicoes) > 0 ? 'WHERE' . implode(' AND', $condicoes) : '';
+   $where = count($condicoes) > 0 ? 'WHERE ' . implode(' AND ', $condicoes) : '';
 
    // error_reporting(0);
 
@@ -54,7 +58,6 @@
    $pagina_atual = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
    $offset = ($pagina_atual - 1) * $registros_por_pagina; // define a partir de qual linha os dados serão selecionados
 
-   // $total = $conn->query("SELECT COUNT(*) FROM gastosobras")->fetchColumn();
    // Conta a quantidade de registros respeitando o(s) filtro(s)
    $stmtTotal = $conn->prepare("SELECT
                                     COUNT(*) AS total_registros

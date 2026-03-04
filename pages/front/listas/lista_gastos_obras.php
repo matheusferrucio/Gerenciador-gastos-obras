@@ -63,6 +63,9 @@
                   <div class="row">
                      <label for="filtro_obra">Por obra</label>
                      <select name="filtro_obra" id="filtro_obra">
+
+                        <option value="" default>Todos as obras</option>
+                     
                         <?php
                            foreach($listaObras as $linha) {
                         ?>
@@ -78,6 +81,9 @@
                   <div class="row">
                      <label for="filtro_cliente">Por cliente</label>
                      <select name="filtro_cliente" id="filtro_cliente">
+
+                        <option value="" default>Todos os clientes</option>
+                        
                         <?php
                            foreach($listaClientes as $linha) {
                         ?>
@@ -94,6 +100,9 @@
                      <div class="particao f1">
                         <label for="filtro_mes">Por mês</label>
                         <select name="filtro_mes" id="filtro_mes">
+                           
+                           <option value="" default>Todos os meses</option>
+
                            <?php
                               foreach($listaMeses as $key => $value) {
                            ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25/02/2026 às 21:54
+-- Tempo de geração: 04/03/2026 às 19:38
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -195,12 +195,12 @@ CREATE TABLE `obras` (
 
 INSERT INTO `obras` (`id`, `nome`, `cpf_cnpj_cliente`, `id_cidade`, `rua`, `numObra`, `porcentagem_cobranca`) VALUES
 (4, 'Cemitério Andradina', '14798865000150', 2, 'Sebastião Arantes', '1251', '10'),
-(5, 'Barracões São Bernardo', '14798865000150', 1, 'São Bernardo', 'Diversos', '9.5'),
+(5, 'Barracões São Bernardo', '10337204000', 1, 'São Bernardo', 'Diversos', '9.5'),
 (6, 'Capela/Sala VIP', '14798865000150', 5, 'Quixeramobim', '1584', '10'),
-(7, 'Barracões Três Lagoas', '14798865000150', 5, 'Av Ranulpho Marques Leal', '3478', '10'),
-(8, 'Casa Royal Boulevard', '14798865000150', 1, 'Maria Gerardi Ferreira', 'lote 09', '10'),
+(7, 'Barracões Três Lagoas', '11111111111111', 5, 'Av Ranulpho Marques Leal', '3478', '10'),
+(8, 'Casa Royal Boulevard', '07571710871', 1, 'Maria Gerardi Ferreira', 'lote 09', '10'),
 (9, 'Funerária Três Lagoas', '14798865000150', 5, 'Advogado Rosário Congro', '1149', '10'),
-(10, 'Casas G03 e G04 VM', '14798865000150', 1, 'Ipê Rosa', '236, 246', '10'),
+(10, 'Casas G03 e G04 VM', '26517583000116', 1, 'Ipê Rosa', '236, 246', '10'),
 (11, 'Reformas Cardassi', '14798865000150', 6, 'Diversas', 'Diversos', '10');
 
 -- --------------------------------------------------------

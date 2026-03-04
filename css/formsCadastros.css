@@ -46,12 +46,16 @@
 
       & input,
       select {
-         border: 1px solid var(--cinza);
+         border: 1px solid var(--realce);
          border-radius: 12px;
          height: 35px;
-         color: var(--realce);
          padding-left: 10px;
          font-size: .9rem;
+      }
+
+      & input:focus,
+      select:focus {
+         outline: 3px solid var(--borda-outline-input);
       }
 
       & input[type=date] {

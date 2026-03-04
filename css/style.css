@@ -200,6 +200,11 @@ div.modal {
             font-size: .9rem;
         }
 
+        & input:focus,
+        select:focus {
+            outline: 3px solid var(--borda-outline-input);
+        } 
+
         & .botoes_modal {
             display: flex;
             flex-direction: row;

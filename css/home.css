@@ -34,23 +34,51 @@
 }
 /* ---------------------------------------- */
 
-.row.meses {
+.row.filtro_periodo {
    display: flex;
    gap: 10px;
 
-   & span.mes_dashboard {
+   & .particao.anos {
       flex: 1;
-      padding: 10px;
-      background-color: var(--branco);
-      border-radius: 10px;
-      border: 1px solid var(--borda-card);
-      text-align: center;
-      cursor: pointer;
-      transition: var(--trans02);
+      display: flex;
+      flex-direction: column;
+
+      & select {
+         border: 1px solid var(--borda-card);
+         border-radius: 12px;
+         height: 100%;
+         /* color: var(--texto); */
+         /* padding-left: 10px; */
+         font-size: 1.1rem;
+         text-align: center;
+         font-weight: bold;
+         appearance: none;
+      }
+
+      & select:focus {
+         outline: 3px solid var(--borda-outline-input);
+      }
    }
 
-   & span.mes_dashboard:hover {
-      background-color: var(--borda-card);
+   & .particao.meses {
+      flex: 10;
+      display: flex;
+      gap: 10px;
+
+      & span.mes_dashboard {
+         flex: 1;
+         padding: 10px;
+         background-color: var(--branco);
+         border-radius: 10px;
+         border: 1px solid var(--borda-card);
+         text-align: center;
+         cursor: pointer;
+         transition: var(--trans02);
+      }
+
+      & span.mes_dashboard:hover {
+         background-color: var(--borda-card);
+      }
    }
 }
 

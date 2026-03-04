@@ -9,7 +9,7 @@
 
    require_once __DIR__."/../back/views/view_tabela_resumo_obrasdb.php";
 
-   $meses = retornaMeses(true);
+   $meses = retornaMeses(false);
    
    $nomePagina = isset($_GET['nomePag']) ? $_GET['nomePag'] : "Início";
 ?>
@@ -25,10 +25,10 @@
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/home.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/table.css">
       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-      <script src="<?= BASE_URL; ?>js/botoes.js" defer></script>
       <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
       <script src="<?= BASE_URL; ?>js/grafico.js" defer></script>
       <script src="<?= BASE_URL; ?>js/grafico_rosca.js" defer></script>
+      <script src="<?= BASE_URL; ?>js/botoes.js" defer></script>
       <title><?= $nomePagina; ?></title>
 </head>
 <body>
@@ -37,15 +37,26 @@
       <main>
             <div class="container">
                   <div class="row rowTitulo">
-                        <h1><i class='bx bxs-calendar'></i> Escolha o mês que deseja consultar</h1>
+                        <h1><i class='bx bxs-calendar'></i> Escolha o período que deseja consultar</h1>
                   </div>
                   
-                  <div class="row meses">
-                        <?php foreach($meses as $val => $mes) { ?>
+                  <div class="row filtro_periodo">
+                        <div class="particao anos">
+                              <!-- <label for="ano">Ano</label> -->
+                              <select name="filtro_anos" id="filtro_anos">
+                                    <option value="">2026</option>
+                              </select>
+                        </div>
                         
-                        <span class="mes_dashboard" value="<?= $val; ?>"><?= $mes; ?></span>
+                        <div class="particao meses">
+                              <span class="mes_dashboard" value="">Todos</span>
       
-                        <?php } ?>
+                              <?php foreach($meses as $val => $mes) { ?>
+                              
+                              <span class="mes_dashboard" value="<?= $val; ?>"><?= $mes; ?></span>
+            
+                              <?php } ?>
+                        </div>
                   </div>
       
                   <section class="dashboard">

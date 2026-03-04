@@ -12,8 +12,6 @@ async function fetchData() {
 async function makeThreadChart() {
     const dados = await fetchData();
 
-    console.log(dados);
-
     const ctx = document.getElementById('donut_chart');
 
     const cores = [

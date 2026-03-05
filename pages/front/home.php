@@ -28,7 +28,7 @@
       <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
       <script src="<?= BASE_URL; ?>js/grafico.js" defer></script>
       <script src="<?= BASE_URL; ?>js/grafico_rosca.js" defer></script>
-      <script src="<?= BASE_URL; ?>js/botoes.js" defer></script>
+      <script src="<?= BASE_URL; ?>js/filtros_dashboard.js" defer></script>
       <title><?= $nomePagina; ?></title>
 </head>
 <body>
@@ -42,10 +42,21 @@
                   
                   <div class="row filtro_periodo">
                         <div class="particao anos">
-                              <!-- <label for="ano">Ano</label> -->
-                              <select name="filtro_anos" id="filtro_anos">
+                              <!-- <select name="filtro_anos" id="filtro_anos">
                                     <option value="">2026</option>
-                              </select>
+                              </select> -->
+
+                              <button id="btn_ano" class="">
+                                    <?= date('Y'); ?> <i class='bx bxs-chevron-down'></i>
+                              </button>
+
+                              <div class="dropdown" id="dropdown_filtro_ano">
+                                    <ul class="dados_dropdown">
+                                          <li><a href="#">Teste</a></li>
+                                          <li><a href="#">Teste</a></li>
+                                          <li><a href="#">Teste</a></li>
+                                    </ul>
+                              </div>
                         </div>
                         
                         <div class="particao meses">

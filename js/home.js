@@ -1,3 +1,4 @@
+// Esse algoritmo abaixo serve para abrir e fechar o dropdown do filtro de anos do dashboard
 const btnAno = document.getElementById('btn_ano');
 let dropdownAberto = false;
 
@@ -21,3 +22,13 @@ document.addEventListener('click', function() {
         dropdownAberto = false;
     }
 });
+
+// Esse algoritmo abaixo puxa os dados do banco para exibir no dashboard
+
+async function carregaDados() {
+    try {
+        
+    } catch (error) {
+        
+    }
+}

@@ -28,7 +28,7 @@
       <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
       <script src="<?= BASE_URL; ?>js/grafico.js" defer></script>
       <script src="<?= BASE_URL; ?>js/grafico_rosca.js" defer></script>
-      <script src="<?= BASE_URL; ?>js/filtros_dashboard.js" defer></script>
+      <script src="<?= BASE_URL; ?>js/home.js" defer></script>
       <title><?= $nomePagina; ?></title>
 </head>
 <body>

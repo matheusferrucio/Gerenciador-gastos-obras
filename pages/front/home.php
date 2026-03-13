@@ -9,6 +9,8 @@
 
    require_once __DIR__."/../back/views/view_tabela_resumo_obrasdb.php";
 
+   require_once __DIR__."/../back/apis/api_dados_home.php";
+
    $meses = retornaMeses(false);
    
    $nomePagina = isset($_GET['nomePag']) ? $_GET['nomePag'] : "Início";
@@ -60,7 +62,7 @@
                         </div>
                         
                         <div class="particao meses">
-                              <span class="mes_dashboard" value="">Todos</span>
+                              <span class="mes_dashboard" value="todos">Todos</span>
       
                               <?php foreach($meses as $val => $mes) { ?>
                               

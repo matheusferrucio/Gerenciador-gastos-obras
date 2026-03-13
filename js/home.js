@@ -24,11 +24,20 @@ document.addEventListener('click', function() {
 });
 
 // Esse algoritmo abaixo puxa os dados do banco para exibir no dashboard
+const botoesFiltroMes = document.querySelectorAll("span.mes_dashboard");
 
-async function carregaDados() {
+async function carregaDados(botoesFiltroMes) {
     try {
-        
+        botoesFiltroMes.forEach(el => {
+            el.addEventListener('click', function(){
+                // console.log(this.getAttribute('value'));
+                
+                
+            });
+        });
     } catch (error) {
         
     }
 }
+
+carregaDados(botoesFiltroMes);

@@ -8,9 +8,7 @@
    require_once(__DIR__."/../back/views/view_resumodb.php");
 
    require_once __DIR__."/../back/views/view_tabela_resumo_obrasdb.php";
-
-   require_once __DIR__."/../back/apis/api_dados_home.php";
-
+   
    $meses = retornaMeses(false);
    
    $nomePagina = isset($_GET['nomePag']) ? $_GET['nomePag'] : "Início";

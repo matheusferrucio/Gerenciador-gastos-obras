@@ -40,7 +40,7 @@
             echo json_encode($dados);
         }
     } catch(PDOException $erro) {
-        echo "Não foi possível recuperar os dados";
+        echo "Não foi possível recuperar os dados" . $erro;
         exti();
     }
 ?>

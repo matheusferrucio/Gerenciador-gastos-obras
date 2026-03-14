@@ -52,8 +52,6 @@
 
    $where = count($condicoes) > 0 ? 'WHERE ' . implode(' AND ', $condicoes) : '';
 
-   // error_reporting(0);
-
    $registros_por_pagina = 20;
    $pagina_atual = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
    $offset = ($pagina_atual - 1) * $registros_por_pagina; // define a partir de qual linha os dados serão selecionados

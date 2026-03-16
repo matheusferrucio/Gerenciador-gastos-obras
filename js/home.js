@@ -8,11 +8,9 @@ btnAno.addEventListener('click', function(e){
     if(dropdownAberto) {
         btnAno.classList.remove('active');
         dropdownAberto = false;
-        console.log(dropdownAberto);
     } else {
-        btnAno.classList.toggle('active');
+        btnAno.classList.add('active');
         dropdownAberto = true;
-        console.log(dropdownAberto);
     }
 });
 
@@ -41,11 +39,9 @@ async function carregarDashboard() {
     const params = new URLSearchParams(filtroAtivo);
     const response = await fetch(`../back/apis/api_dados_home.php?${params}`);
     const dados    = await response.json();
-
-    // console.log(dados.grafico_colunas.labels);
     
     atualizarCards(dados.resumo);
-    // atualizarTabela(dados.tabela);
+    atualizarTabela(dados.tabela);
     atualizarGraficos(dados);
 }
 
@@ -70,7 +66,7 @@ function atualizarCards(cards) {
 function atualizarTabela(obras) {
     const tabela = document.querySelector(".tabela_gastos_obras");
 
-    if(obra.length === 0) { 
+    if(obras.length === 0) { 
         tabela.innerHTML += "<tr><td>Nenhum dado foi encontrado</td></tr>";
         return;
     }
@@ -78,14 +74,14 @@ function atualizarTabela(obras) {
     tabela.innerHTML = obras.map(o => `
         <tr>
             <td class="f2">
-                <p class="">${o}</p>
+                <p class="">${o.nome_obra}</p>
             </td>
 
-            <td class="f1 verde">R$ ${o}</td>
+            <td class="f1 verde">${new Intl.NumberFormat('pr-BR', {style: 'currency', currency: 'BRL'}).format(o.total_obra)}</td>
 
-            <td class="f-6">${o}%</td>
+            <td class="f-6">${o.porcentagem}%</td>
 
-            <td class="f1 verde">R$ ${o}</td>
+            <td class="f1 verde">${new Intl.NumberFormat('pr-BR', {style: 'currency', currency: 'BRL'}).format(o.comissao_obra)}</td>
         </tr>
     `).join('');
 }
@@ -94,7 +90,6 @@ function atualizarGraficos(obras) {
     const labels    = obras.grafico_colunas.labels;
     const gastos    = obras.grafico_colunas.values.map(o => parseFloat(o));
     const comissoes = obras.grafico_rosca.values.map(o => parseFloat(o));
-    console.log(comissoes);
     
     // Gráfico de colunas
     if(graficoColunas) {
@@ -191,6 +186,17 @@ document.querySelectorAll('span.mes_dashboard').forEach(btn => {
 
 document.querySelectorAll('li.ano_dashboard').forEach(btn => {
     btn.addEventListener('click', function() {
-        
+        filtroAtivo.ano = this.dataset.ano;
+
+        // Atualiza o ano selecionado no botão do dropdown
+        document.getElementById('btn_ano').firstChild.textContent = this.dataset.ano + ' ';
+
+        // Fecha o dropdown
+        btnAno.classList.remove('active');
+        dropdownAberto = false;
+
+        carregarDashboard();
     });
 });
+
+document.addEventListener('DOMContentLoaded', carregarDashboard());

@@ -11,7 +11,7 @@
    
    $meses = retornaMeses(false);
 
-   $query = $conn->query("SELECT YEAR(g.data_gasto) AS ano FROM gastosobras g GROUP BY YEAR(g.data_gasto) ORDER BY g.data_gasto ASC");
+   $query = $conn->query("SELECT YEAR(g.data_gasto) AS ano FROM gastosobras g GROUP BY YEAR(g.data_gasto) ORDER BY g.data_gasto DESC");
 
    $anos = $query->fetchAll(PDO::FETCH_ASSOC);
 
@@ -58,7 +58,9 @@
                                                 foreach($anos as $ano) {
                                           ?>
                                           
-                                          <li class="ano_dashboard"><a href="#"><?= $ano['ano']; ?></a></li>
+                                          <li class="ano_dashboard" data-ano="<?= $ano['ano']; ?>">
+                                                <?= $ano['ano']; ?>
+                                          </li>
 
                                           <?php
                                                 }
@@ -152,34 +154,7 @@
                                                       <th class="f1">Total gasto</th>
                                                       <th class="f-6">%</th>
                                                       <th class="f1">Comissão</th>
-                                                </tr>
-                                                
-                                                <!-- <?php
-                                                      foreach($resumoPorObra as $linha) {
-                                                ?>
-                                                
-                                                <tr>
-                                                      <td class="f2">
-                                                            <p class=""><?= $linha['nome']; ?></p>
-                                                      </td>
-
-                                                      <td class="f1 verde">
-                                                            R$ <?= number_format($linha['total'], 2, ',', '.'); ?>
-                                                      </td>
-
-                                                      <td class="f-6">
-                                                            <?= $linha['porcentagem']; ?>%
-                                                      </td>
-
-                                                      <td class="f1 verde">
-                                                            R$ <?= number_format($linha['comissao_obra'], 2, ',', '.'); ?>
-                                                      </td>
-                                                </tr>
-
-                                                <?php
-                                                      }
-                                                ?> -->
-                                                
+                                                </tr> 
                                           </table>
                                     </div>
                               </div>

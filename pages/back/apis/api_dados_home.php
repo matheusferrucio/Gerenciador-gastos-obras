@@ -16,7 +16,7 @@
    require_once __DIR__."/../../conexao/connection.php";
 
    // Valida se o valor do filtro foi setado, se é numérico ou se é igual a 'todos'
-   $filtro_mes = isset($_GET['mes']) && (is_numeric($_GET['mes'])) || $_GET['mes'] === "todos" ? $_GET['mes'] : date('m');
+   $filtro_mes = isset($_GET['mes']) && (is_numeric($_GET['mes']) || $_GET['mes'] === "todos") ? $_GET['mes'] : date('m');
    $filtro_ano = isset($_GET['ano']) && (is_numeric($_GET['ano'])) ? $_GET['ano'] : date('Y');
 
    $condicoes = [];

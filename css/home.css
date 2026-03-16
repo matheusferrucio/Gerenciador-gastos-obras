@@ -127,6 +127,11 @@
       & span.mes_dashboard:hover {
          background-color: var(--borda-card);
       }
+
+      & span.mes_dashboard.active {
+         background-color: var(--realce);
+         color: var(--branco);
+      }
    }
 }
 

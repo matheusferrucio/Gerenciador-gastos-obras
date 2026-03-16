@@ -10,6 +10,14 @@
    require_once __DIR__."/../back/views/view_tabela_resumo_obrasdb.php";
    
    $meses = retornaMeses(false);
+
+   $query = $conn->query("SELECT YEAR(g.data_gasto) AS ano FROM gastosobras g GROUP BY YEAR(g.data_gasto) ORDER BY g.data_gasto ASC");
+
+   $anos = $query->fetchAll(PDO::FETCH_ASSOC);
+
+//    echo "<pre>";
+//    print_r($anos);
+//    echo "</pre>";
    
    $nomePagina = isset($_GET['nomePag']) ? $_GET['nomePag'] : "Início";
 ?>
@@ -26,8 +34,6 @@
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/table.css">
       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
       <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
-      <script src="<?= BASE_URL; ?>js/grafico.js" defer></script>
-      <script src="<?= BASE_URL; ?>js/grafico_rosca.js" defer></script>
       <script src="<?= BASE_URL; ?>js/home.js" defer></script>
       <title><?= $nomePagina; ?></title>
 </head>
@@ -42,19 +48,21 @@
                   
                   <div class="row filtro_periodo">
                         <div class="particao anos">
-                              <!-- <select name="filtro_anos" id="filtro_anos">
-                                    <option value="">2026</option>
-                              </select> -->
-
                               <button id="btn_ano" class="">
                                     <?= date('Y'); ?> <i class='bx bxs-chevron-down'></i>
                               </button>
 
                               <div class="dropdown" id="dropdown_filtro_ano">
                                     <ul class="dados_dropdown">
-                                          <li><a href="#">Teste</a></li>
-                                          <li><a href="#">Teste</a></li>
-                                          <li><a href="#">Teste</a></li>
+                                          <?php
+                                                foreach($anos as $ano) {
+                                          ?>
+                                          
+                                          <li class="ano_dashboard"><a href="#"><?= $ano['ano']; ?></a></li>
+
+                                          <?php
+                                                }
+                                          ?>
                                     </ul>
                               </div>
                         </div>
@@ -80,7 +88,7 @@
                                           
                                           <div class="particao f4">
                                                 <h3>Total de administração</h3>
-                                                <h1 class="co_verde">R$ <?= number_format($dados['total_comissao_obras'], 2, ',', '.'); ?></h1>
+                                                <h1 class="co_verde" id="total_comissoes"></h1>
                                           </div>
                                     </div>
                               </div>
@@ -93,7 +101,7 @@
 
                                           <div class="particao f4">
                                                 <h3>Total dos gastos da obras</h3>
-                                                <h1 class="co_azul">R$ <?= number_format($dados['total_gastos_obras'], 2, ',', '.'); ?></h1>
+                                                <h1 class="co_azul" id="total_gastos"></h1>
                                           </div>
                                     </div>
                               </div>
@@ -106,7 +114,7 @@
 
                                           <div class="particao f4">
                                                 <h3>Total de obras ativas</h3>
-                                                <h1 class="co_roxo"><?= $dados['qtd_total_obras'] ?></h1>
+                                                <h1 class="co_roxo" id="qtd_obras"></h1>
                                           </div>
                                     </div>
                               </div>
@@ -118,7 +126,7 @@
                                           </div>
                                           <div class="particao f4">
                                                 <h3>Média por obra</h3>
-                                                <h1 class="co_laranja">R$ <?= number_format($dados['ticket_medio_obra'], 2, ',', '.'); ?></h1>
+                                                <h1 class="co_laranja" id="media_comissoes"></h1>
                                           </div>
                                     </div>
                               </div>
@@ -146,7 +154,7 @@
                                                       <th class="f1">Comissão</th>
                                                 </tr>
                                                 
-                                                <?php
+                                                <!-- <?php
                                                       foreach($resumoPorObra as $linha) {
                                                 ?>
                                                 
@@ -170,7 +178,7 @@
 
                                                 <?php
                                                       }
-                                                ?>
+                                                ?> -->
                                                 
                                           </table>
                                     </div>

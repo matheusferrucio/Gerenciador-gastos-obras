@@ -84,8 +84,7 @@
                         INNER JOIN clientes c
                         ON o.cpf_cnpj_cliente = c.cpf_cnpj
                         $where
-                        ORDER BY o.nome ASC,
-                           g.data_gasto
+                        ORDER BY g.data_gasto DESC, o.nome ASC
                         LIMIT :limite
                         OFFSET :offset");
 

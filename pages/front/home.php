@@ -149,12 +149,18 @@
 
                                     <div class="row">
                                           <table class="tabela_gastos_obras">
-                                                <tr class="linha_cabecalho">
-                                                      <th class="f2">Nome obra</th>
-                                                      <th class="f1">Total gasto</th>
-                                                      <th class="f-6">%</th>
-                                                      <th class="f1">Comissão</th>
-                                                </tr> 
+                                                <thead id="cabecalho_tabela">
+                                                      <tr class="linha_cabecalho">
+                                                            <th class="f2">Nome obra</th>
+                                                            <th class="f1">Total gasto</th>
+                                                            <th class="f-6">%</th>
+                                                            <th class="f1">Comissão</th>
+                                                      </tr> 
+                                                </thead>
+
+                                                <tbody id="corpo_tabela">
+
+                                                </tbody>
                                           </table>
                                     </div>
                               </div>

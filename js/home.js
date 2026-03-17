@@ -27,6 +27,8 @@ let graficoRosca  = null;
 
 const hoje = new Date();
 
+let qtdCliques = 0;
+
 // Objeto dos filtros ativos
 let filtroAtivo = {
     // Pega o mês atual e adiciona 1(porque a função recupera o mês a partir do 0)
@@ -64,14 +66,20 @@ function atualizarCards(cards) {
 
 // Função que atualiza a tabela de resumo das obras
 function atualizarTabela(obras) {
-    const tabela = document.querySelector(".tabela_gastos_obras");
+    const corpo = document.querySelector("#corpo_tabela");
+
+    corpo.innerHTML = "";
 
     if(obras.length === 0) { 
-        tabela.innerHTML += "<tr><td>Nenhum dado foi encontrado</td></tr>";
+        if(qtdCliques < 1) {
+            corpo.innerHTML += "<tr><td>Nenhum dado foi encontrado</td></tr>";
+            qtdCliques += 1;
+        }
+
         return;
     }
     
-    tabela.innerHTML = obras.map(o => `
+    corpo.innerHTML = obras.map(o => `
         <tr>
             <td class="f2">
                 <p class="">${o.nome_obra}</p>

@@ -136,7 +136,7 @@
       
                         <section class="row grafico">
                               <div class="card">
-                                    <h1><i class='bx bx-bar-chart'></i> Comparativo de ganho por obra</h1>
+                                    <h1><i class='bx bx-bar-chart'></i> Comparativo de gastos por obra</h1>
                                     <canvas id="myChart"></canvas>
                               </div>
                         </section>
@@ -144,7 +144,7 @@
                         <section class="row resumo_por_obra">
                               <div class="card f4">
                                     <div class="row linha_titulo">
-                                          <h1><i class='bx bx-table'></i> Resumo dos gastos por obra</h1>
+                                          <h1><i class='bx bx-table'></i> Resumo por obra</h1>
                                     </div>
 
                                     <div class="row">
@@ -167,7 +167,7 @@
 
                               <div class="card f2">
                                     <div class="row">
-                                          <h1><i class='bx bx-doughnut-chart'></i> Distribuição de comissões por obra</h1>
+                                          <h1><i class='bx bx-doughnut-chart'></i> Distribuição administração por obra</h1>
                                     </div>
 
                                     <div class="row">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04/03/2026 às 19:38
+-- Tempo de geração: 18/03/2026 às 21:31
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -66,7 +66,8 @@ INSERT INTO `clientes` (`cpf_cnpj`, `nome`, `tipo_cliente`) VALUES
 ('10337204000', 'Rumo Certo/Lacal', 'pj'),
 ('11111111111111', 'Lacal e Vasco', 'pj'),
 ('14798865000150', 'Edifica empreendimentos/Cardassi', 'pj'),
-('26517583000116', 'Emma Holding', 'pj');
+('26517583000116', 'Emma Holding', 'pj'),
+('29525239000167', 'Distribuidora Prudente', 'pj');
 
 -- --------------------------------------------------------
 
@@ -127,10 +128,10 @@ INSERT INTO `gastosobras` (`id`, `id_obra`, `valor_gasto`, `data_gasto`, `descri
 (54, 10, 8000.00, '2026-02-19', '1º pagto marmoraria universo'),
 (55, 10, 500.00, '2026-02-20', '5º pgto pintor'),
 (56, 10, 2327.50, '2026-02-20', 'Ranchos Grill'),
-(57, 6, 2980.00, '2026-02-10', 'Petit Pavet'),
-(58, 6, 400.00, '2026-02-12', 'Porte de areia três irmãos'),
-(59, 6, 468.00, '2026-02-12', 'Cimaferro - 12 sacos de cimento'),
-(60, 6, 127.00, '2026-02-16', 'Fechamento estoque materiais de construção'),
+(57, 6, 2980.00, '2026-03-02', 'Petit Pavet'),
+(58, 6, 400.00, '2026-03-02', 'Porte de areia três irmãos'),
+(59, 6, 468.00, '2026-03-02', 'Cimaferro - 12 sacos de cimento'),
+(60, 6, 127.00, '2026-03-02', 'Fechamento estoque materiais de construção'),
 (61, 8, 123.80, '2026-02-05', 'Materiais Araçapar'),
 (62, 8, 8000.00, '2026-02-06', '3a medição Hélio'),
 (63, 8, 680.00, '2026-02-09', 'Estoril cimentos'),
@@ -171,7 +172,100 @@ INSERT INTO `gastosobras` (`id`, `id_obra`, `valor_gasto`, `data_gasto`, `descri
 (98, 11, 1469.09, '2026-02-10', 'Taxa alvará habite-se'),
 (99, 11, 7404.07, '2026-02-10', 'Taxa alvará habite-se'),
 (100, 11, 452.00, '2026-02-11', 'Danizete de fátima ribeiro'),
-(101, 10, 4200.00, '2026-02-23', 'Casa das molduras');
+(101, 10, 4200.00, '2026-02-23', 'Casa das molduras'),
+(106, 10, 79.60, '2026-03-04', 'Fechamento casa dos parafusos'),
+(107, 10, 1624.00, '2026-03-06', 'Minas pedras - entrada'),
+(108, 10, 21200.00, '2026-03-06', '4/5 pgto Gil Esquadrias'),
+(109, 10, 11500.00, '2026-03-06', '2º pgto Marmoraria Universo'),
+(110, 10, 28124.00, '2026-03-06', '3 boletos referente às portas'),
+(111, 10, 1800.00, '2026-03-06', '1º pgto Alair - instalação ilhas, pias, tanques e lavatórios'),
+(112, 10, 1670.00, '2026-03-06', '24a medição Aguinaldo'),
+(113, 10, 206.00, '2026-03-09', 'Fechamento Preço bom'),
+(114, 10, 80.00, '2026-03-11', 'Araçapar parafusos - ref lonas plásticas'),
+(115, 10, 320.00, '2026-03-12', 'Avante locação - locação de andaime'),
+(116, 10, 1966.00, '2026-03-13', '24a medição prt 2 - Rodrigo Aparecido'),
+(117, 10, 3000.00, '2026-03-13', '7º pgto vitor pintor'),
+(118, 10, 2276.12, '2026-03-13', 'Bombas e filtros piscinas - Komeco'),
+(119, 10, 377.80, '2026-03-16', 'Construart - caixa de piso ripado amadeirado'),
+(120, 10, 1200.00, '2026-03-18', '2º pgto Alair - instalação ilhas, pias, tanques e lavatórios'),
+(121, 10, 1688.00, '2026-03-18', 'Construart - Rejuntes'),
+(122, 10, 123.00, '2026-03-18', 'Madeiras Araçá'),
+(123, 5, 1450.00, '2026-03-03', 'Portão de enrolar 3º galpão'),
+(124, 5, 352.00, '2026-03-04', 'Fechamento quinzenal Porto Tubarão'),
+(125, 5, 8759.34, '2026-03-04', 'Fechamento elétrica Araçatuba'),
+(126, 5, 450.00, '2026-03-04', 'Molejão truck - 1 container'),
+(127, 5, 222.00, '2026-03-04', 'KJP - fechamento'),
+(128, 5, 7000.00, '2026-03-04', '6a medição 4º galpão Vilson Lopes'),
+(129, 5, 2600.00, '2026-03-05', 'Fechamento depósito correa'),
+(130, 5, 5000.00, '2026-03-06', '5º pgto Vitor Pintor'),
+(131, 5, 1350.00, '2026-03-09', 'Cão Guarda'),
+(132, 5, 2000.00, '2026-03-10', '6º pgto Vitor Pintor'),
+(133, 5, 1976.00, '2026-03-11', 'Vivafer - compra de 26 malhas'),
+(134, 5, 675.00, '2026-03-11', 'Telas Esgalha - blocos de concreto'),
+(135, 5, 15179.92, '2026-03-12', 'Constroeste - Piso frente do 3º galpão'),
+(136, 5, 180.00, '2026-03-12', 'Avante locação - locação de andaime'),
+(137, 5, 20000.00, '2026-03-13', 'Metalbens - pgto da nf'),
+(138, 5, 8900.00, '2026-03-13', 'Vidraçaria Judá - Esquadria 3º galpão'),
+(139, 5, 1020.00, '2026-03-13', 'Estoril cimentos'),
+(140, 5, 34097.00, '2026-03-13', 'Metalbens - pagamento final da parte sem NF'),
+(141, 5, 19340.00, '2026-03-16', 'Calhas ebenezer - calhas, rufos, revestimento de platibanda e lanternim do 4º galpão'),
+(142, 5, 3600.00, '2026-03-17', 'Automatizadores megatron - Portão de enrolar 3º galpão'),
+(143, 5, 2155.50, '2026-03-17', 'Fechamento Telas Esgalha'),
+(144, 5, 900.00, '2026-03-17', 'Limpeza 3º galpão - Dona Regina'),
+(145, 5, 472.50, '2026-03-18', 'KJP Locações - Locação de escoras para laje'),
+(146, 5, 160.00, '2026-03-18', 'Madeiras Araçá'),
+(147, 8, 1340.00, '2026-03-03', 'Casacor'),
+(148, 8, 680.00, '2026-03-04', 'Porto tubarão'),
+(149, 8, 3685.00, '2026-03-06', 'Alcides Flávio - Bate estaca'),
+(150, 8, 3500.00, '2026-03-06', '5a medição Hélio'),
+(151, 8, 1373.90, '2026-03-09', 'Constroeste'),
+(152, 8, 1221.24, '2026-03-09', 'Constroeste'),
+(153, 8, 1712.00, '2026-03-10', 'Fechamento Avante Locação'),
+(154, 8, 3600.00, '2026-03-11', 'Felifer - 100 barras de 3/8'),
+(155, 8, 680.00, '2026-03-13', 'Estoril cimentos'),
+(156, 8, 9399.98, '2026-03-16', 'Constroeste - concretagem das estacas'),
+(157, 8, 330.00, '2026-03-18', 'Madeiras Araçá'),
+(158, 46, 8000.00, '2026-03-02', 'Limpeza Terreno - Caiçara terraplanagem'),
+(159, 46, 250.00, '2026-03-02', 'Serviço munck - transporte de poste provisório'),
+(160, 46, 4901.95, '2026-03-12', 'JL Fundações - perfuração de estacas'),
+(161, 46, 3900.00, '2026-03-12', 'Porto tubarão - areia grossa, fina lavada e brita'),
+(162, 46, 6750.00, '2026-03-12', 'Constroeste - concretagem de estacas'),
+(163, 46, 6500.00, '2026-03-12', 'Constroeste - concretagem de estacas'),
+(164, 46, 10000.49, '2026-03-16', 'Vivafer - material para fundação'),
+(165, 46, 188.00, '2026-03-18', 'Madeiras Araçá'),
+(166, 9, 150.00, '2026-03-04', 'Porto de areia 3 irmãos'),
+(167, 9, 520.00, '2026-03-04', 'Fechamento Valmir Caçambas'),
+(168, 9, 8000.00, '2026-03-05', '3º pgto Jerson pintor'),
+(169, 9, 3102.00, '2026-03-09', 'Finatto industria de esquadrias'),
+(170, 9, 19000.00, '2026-03-11', 'Bracale revestimentos - serviço de forro e drywall'),
+(171, 9, 730.00, '2026-03-16', 'Marmoraria três lagoas'),
+(172, 9, 1568.15, '2026-03-18', 'Gon tintas'),
+(173, 9, 234.50, '2026-03-18', 'Estoque materiais de construção'),
+(174, 9, 110.23, '2026-03-18', 'Estoque materiais de construção'),
+(175, 6, 349.35, '2026-03-02', 'Fechamento elétrica Araçatuba'),
+(176, 6, 720.00, '2026-03-16', 'Marmoraria três lagoas'),
+(177, 6, 6865.00, '2026-03-18', 'Gon tintas'),
+(178, 6, 345.89, '2026-03-18', 'Estoque materiais de construção'),
+(179, 7, 1000.00, '2026-03-03', 'Vigilante'),
+(180, 7, 1040.00, '2026-03-05', 'Fechamento disk caçamba'),
+(181, 7, 1201.82, '2026-03-05', 'Fechamento elétrica Araçatuba'),
+(182, 7, 2045.52, '2026-03-11', 'Blocos panorama - 50% com NF'),
+(183, 7, 3396.52, '2026-03-11', 'Blocos panorama - 50% sem NF'),
+(184, 7, 2956.00, '2026-03-12', 'Ferros, treliças e vigas'),
+(185, 7, 500.00, '2026-03-13', 'Serviço munck'),
+(186, 7, 2250.00, '2026-03-13', 'Depósito Kombina'),
+(187, 7, 660.00, '2026-03-13', 'Porto de areia 3 irmãos'),
+(188, 7, 25000.00, '2026-03-13', '23a medição Messias'),
+(189, 7, 5000.00, '2026-03-18', '24a medição Messias'),
+(190, 7, 5000.00, '2026-03-18', 'Constroluz mix concreto'),
+(191, 7, 409.64, '2026-03-18', 'Estoque materiais de construção'),
+(192, 4, 355.00, '2026-03-04', 'Rizzo comércio de materiais'),
+(193, 4, 2345.00, '2026-03-04', 'Print Brasil - Logo em PVC 20mm'),
+(194, 4, 200.00, '2026-03-05', 'Limpeza - Dona Regina'),
+(195, 4, 2000.00, '2026-03-06', '4º pgto Evandro Eletricista'),
+(196, 4, 764.22, '2026-03-09', 'Concresp - serviço de concretagem'),
+(197, 4, 310.00, '2026-03-09', 'Concresp - brita'),
+(198, 4, 480.00, '2026-03-11', 'Araçapar');
 
 -- --------------------------------------------------------
 
@@ -201,7 +295,8 @@ INSERT INTO `obras` (`id`, `nome`, `cpf_cnpj_cliente`, `id_cidade`, `rua`, `numO
 (8, 'Casa Royal Boulevard', '07571710871', 1, 'Maria Gerardi Ferreira', 'lote 09', '10'),
 (9, 'Funerária Três Lagoas', '14798865000150', 5, 'Advogado Rosário Congro', '1149', '10'),
 (10, 'Casas G03 e G04 VM', '26517583000116', 1, 'Ipê Rosa', '236, 246', '10'),
-(11, 'Reformas Cardassi', '14798865000150', 6, 'Diversas', 'Diversos', '10');
+(11, 'Reformas Cardassi', '14798865000150', 6, 'Diversas', 'Diversos', '10'),
+(46, 'Distribuidora Prudente', '29525239000167', 1, 'Judith Machareth', 'Q14 - L8,', '10');
 
 -- --------------------------------------------------------
 
@@ -271,13 +366,13 @@ ALTER TABLE `cidades`
 -- AUTO_INCREMENT de tabela `gastosobras`
 --
 ALTER TABLE `gastosobras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=199;
 
 --
 -- AUTO_INCREMENT de tabela `obras`
 --
 ALTER TABLE `obras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- Restrições para tabelas despejadas

@@ -71,10 +71,7 @@ function atualizarTabela(obras) {
     corpo.innerHTML = "";
 
     if(obras.length === 0) { 
-        if(qtdCliques < 1) {
-            corpo.innerHTML += "<tr><td>Nenhum dado foi encontrado</td></tr>";
-            qtdCliques += 1;
-        }
+        corpo.innerHTML = "<tr><td>Nenhum dado foi encontrado</td></tr>";
 
         return;
     }
@@ -170,7 +167,7 @@ function atualizarGraficos(obras) {
                 responsive: true,
                 plugins: {
                 legend: {
-                    display: false
+                    display: true
                 },
                 title: {
                     display: false

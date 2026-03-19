@@ -57,5 +57,19 @@
                   </form>
             </div>
       </div>
+
+      <script defer>
+            const inputs = document.querySelectorAll("form .row .input_wrap input");
+
+            inputs.forEach(function(el){
+                  el.addEventListener('focus', function(){
+                        this.parentElement.classList.add("focus");
+                  });
+                  
+                  el.addEventListener('focusout', function(){
+                        this.parentElement.classList.remove("focus");
+                  });
+            });
+      </script>
 </body>
 </html>

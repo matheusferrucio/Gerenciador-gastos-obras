@@ -1,7 +1,6 @@
 const input   = document.getElementById('valor');
 const hidden  = document.getElementById('valor_numerico');
 const inputWrap = document.querySelector('.input_wrap');
-const form = document.querySelector('form.form_cadastro');
 
 // Formata centavos + milhares no padrão pt-BR
 function formatarBRL(raw) {
@@ -52,15 +51,15 @@ input.addEventListener('input', function (e) {
 /* ── Teclas especiais: Backspace apaga dígito ── */
 input.addEventListener('keydown', function (e) {
    if (e.key === 'Backspace') {
-   e.preventDefault();
-   // Remove o último dígito dos dígitos brutos
-   const digits = this.value.replace(/\D/g, '');
-   const novoDigits = digits.slice(0, -1);
-   this.value = novoDigits ? formatarBRL(novoDigits) : '';
+      e.preventDefault();
+      // Remove o último dígito dos dígitos brutos
+      const digits = this.value.replace(/\D/g, '');
+      const novoDigits = digits.slice(0, -1);
+      this.value = novoDigits ? formatarBRL(novoDigits) : '';
 
-   const raw = this.value;
-   const numerico = raw ? parseFloat(paraFloat(raw)) : 0;
-   hidden.value = raw ? paraFloat(raw) : '';
-   atualizarEstado(raw, numerico);
+      const raw = this.value;
+      const numerico = raw ? parseFloat(paraFloat(raw)) : 0;
+      hidden.value = raw ? paraFloat(raw) : '';
+      atualizarEstado(raw, numerico);
    }
 });

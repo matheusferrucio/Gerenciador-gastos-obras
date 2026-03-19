@@ -17,6 +17,8 @@
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/reset.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/style.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/forms.css">
+      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
       <title>Cadastre-se</title>
       <style>
             body {
@@ -31,22 +33,31 @@
 
                   <form action="<?= BASE_URL; ?>pages/back/cadastros/cadastrardb.php" method="POST">
                         <div class="row">
-                              <label for="nomeUsuario">Digite seu nome abaixo</label>
-                              <input type="text" name="nomeUsuario" id="nomeUsuario" placeholder="Ex: Matheus da Cruz Ferrucio" required>
+                              <!-- <label for="nomeUsuario">Digite seu nome abaixo</label> -->
+                              <div class="input_wrap">
+                                    <span><i class='bx bx-user'></i></span>
+                                    <input type="text" name="nomeUsuario" id="nomeUsuario" placeholder="Digite seu nome aqui" required>
+                              </div>
                         </div>
 
                         <div class="row">
-                              <label for="cpfUsuario">Digite seu cpf abaixo</label>
-                              <input type="text" name="cpfUsuario" id="cpfUsuario" placeholder="Ex: 111.222-33" maxlength="11" required>
+                              <!-- <label for="cpfUsuario">Digite seu cpf abaixo</label> -->
+                              <div class="input_wrap">
+                                    <span><i class='bx bxs-user-badge'></i></span>
+                                    <input type="text" name="cpfUsuario" id="cpfUsuario" placeholder="Digite seu CPF aqui" maxlength="11" required>
+                              </div>
                         </div>
 
                         <div class="row">
-                              <label for="senhaUser">Digite sua senha</label>
-                              <input type="password" name="senhaUsuario" id="senhaUser" required>
+                              <!-- <label for="senhaUser">Digite sua senha</label> -->
+                              <div class="input_wrap">
+                                    <span><i class='bx bxs-lock' ></i></span>
+                                    <input type="password" name="senhaUsuario" id="senhaUser" placeholder="Crie sua senha de acesso aqui" required>
+                              </div>
                         </div>
 
                         <div class="row">
-                              <input type="submit" value="Cadastrar">
+                              <button type="submit">Cadastrar</button>
                         </div>
 
                         <div class="row">

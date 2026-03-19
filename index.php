@@ -18,6 +18,8 @@
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/reset.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/style.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/forms.css">
+      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
       <title>Fazer Login</title>
       <style>
             body {
@@ -32,17 +34,21 @@
 
                   <form action="<?= BASE_URL; ?>pages/back/logindb.php" method="POST">
                         <div class="row">
-                              <label for="cpfUsuario">Digite seu cpf abaixo</label>
-                              <input type="text" name="cpfUsuario" id="cpfUsuario" placeholder="Ex: 111.222-33" maxlength="11" required>
+                              <div class="input_wrap">
+                                    <span><i class='bx bxs-user-badge'></i></span>
+                                    <input type="text" name="cpfUsuario" id="cpfUsuario" placeholder="Digite seu CPF" maxlength="11" required>
+                              </div>
                         </div>
 
                         <div class="row">
-                              <label for="senhaUsuario">Digite sua senha</label>
-                              <input type="password" name="senhaUsuario" id="senhaUsuario" required>
+                              <div class="input_wrap">
+                                    <span><i class='bx bxs-lock' ></i></span>
+                                    <input type="password" name="senhaUsuario" id="senhaUsuario" placeholder="Digite sua senha" required>
+                              </div>
                         </div>
 
                         <div class="row">
-                              <input type="submit" value="Entrar">
+                              <button type="submit">Entrar</i></button>
                         </div>
 
                         <div class="row">

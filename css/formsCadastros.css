@@ -34,6 +34,30 @@
          flex: 1;
       }
 
+      .input_wrap {
+         display: flex;
+         border-radius: 12px;
+
+         & span {
+            flex: 1;
+            border: 1px solid var(--realce);
+            border-radius: 12px 0 0 12px;
+            border-right: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 500;
+            color: var(--realce);
+            font-size: .9rem;
+         }
+
+         & input {
+            flex: 8;
+            border-radius: 0 12px 12px 0;
+            outline: none !important;
+         }
+      }
+
       & .inptRadio {
          flex-direction: row;
          align-items: center;

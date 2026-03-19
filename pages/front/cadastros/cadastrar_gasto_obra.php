@@ -26,6 +26,7 @@
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/reset.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/style.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/formsCadastros.css">
+      <script src="<?= BASE_URL; ?>js/formatacao_input.js" defer></script>
       <title><?= $nomePagina; ?></title>
 </head>
 <body>
@@ -34,10 +35,10 @@
       <div class="container">
          <div class="card_formulario">
                <div class="row rowTitulo">
-                  <h1>Cadastrar obra</h1>
+                  <h1>Cadastrar gasto de obra</h1>
                </div>
 
-               <form action="<?= BASE_URL; ?>pages/back/cadastros/cadastrar_gastos_obrasdb.php" method="POST">
+               <form action="<?= BASE_URL; ?>pages/back/cadastros/cadastrar_gastos_obrasdb.php" method="POST" class="form_cadastro">
                   <div class="row">
                      <div class="particao">
                         <label for="obraGasto">Escolha a obra</label>
@@ -57,7 +58,20 @@
 
                      <div class="particao">
                         <label for="gastoObra">Digite o valor gasto</label>
-                        <input type="text" name="gastoObra" id="gastoObra" placeholder="Ex: R$ 50.000" required>
+                        <div class="input_wrap">
+                           <span class="currency_prefix">R$</span>
+                           <input 
+                              type="text" 
+                              id="valor" 
+                              name="gastoObra" 
+                              placeholder="0,00" 
+                              inputmode="numeric"
+                              autocomplete="off"
+                              maxlength="22"
+                              required>
+                        </div>
+
+                        <input type="hidden" name="valor" id="valor_numerico">
                      </div>
                      
                      <div class="particao">

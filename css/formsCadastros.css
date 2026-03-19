@@ -58,6 +58,10 @@
          }
       }
 
+      .input_wrap.focus {
+         outline: 3px solid var(--borda-outline-input);
+      }
+
       & .inptRadio {
          flex-direction: row;
          align-items: center;

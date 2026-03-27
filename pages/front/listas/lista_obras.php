@@ -25,104 +25,64 @@
 <body>
       <?php require_once(__DIR__."/../menu.php"); ?>
       
-      <div class="container container_lista">
+      <div class="container container_titulo">
          <div class="row rowTitulo">
             <h1><i class='bx bx-buildings icon_titulo' ></i> Lista das obras cadastradas</h1>
 
             <nav>
                <a href="<?= BASE_URL; ?>pages/front/cadastros/cadastrar_obras.php" class="btn nav"><i class='bx bx-plus'></i> Cadastrar obra</a>
             </nav>
+         </div>           
+      </div> <!-- container -->
+
+      <?php
+         foreach($obras as $linha) {
+      ?>
+
+      <div class="container container_lista">
+         <div class="row titulo_obra">
+            <div class="particao">
+               <h2 class="titulo_card_obra"><?= $linha['nomeObra']; ?> <span>/ <?= $linha['nomeCliente']; ?></span></h2>
+            </div>
+
+            <div class="particao">
+               <a href="<?= BASE_URL; ?>pages/front/edits/editar_obra.php?id=<?= $linha['id']; ?>" class="btn editar">
+                  <i class='bx bx-edit'></i> Editar
+               </a>
+
+               <a
+                  href="<?= BASE_URL; ?>pages/back/excluir/excluir_obradb.php?id=<?= $linha['id']; ?>" 
+                  class="btn excluir"
+                  onclick="confirmarExclusao(event, '')">
+                  <i class='bx bx-message-alt-x'></i> Excluir
+               </a>
+            </div>
          </div>
+         <div class="row info_obra">
+            <div class="particao">
+               <h3>Endereço da obra</h3>
+               <p>Rua: <span><?= $linha['rua']; ?></span></p>
+               <p>Número(s): <span><?= $linha['numObra']; ?></span></p>
+               <!-- <p>Cidade: <span>Cidade da obra</span></p> -->
+            </div>
 
-         <div class="row lista">
-            <table class="tabela_gastos_obras">
-               <tr class="linha_cabecalho">
-                  <th class="f1-2">Obra</th>
-                  <th class="f1-2">Rua</th>
-                  <th class="f-6">Números</th>
-                  <th class="f1-2">Cliente</th>
-                  <th class="f-5">%</th>
-                  <th class="f-5 celula_botoes_acoes">Ações</th>
-               </tr>
-               
-               <?php
-                  foreach($obras as $linha) {
-               ?>
-               
-               <tr>
-                  <td class="f1-2">
-                     <p class=""><?= $linha['nomeObra']; ?></p>
-                  </td>
-
-                  <td class="f1-2">
-                     <?= $linha['rua']; ?>
-                  </td>
-
-                  <td class="f-6">
-                     <?= $linha['numObra']; ?>
-                  </td>
-
-                  <td class="f1-2">
-                     <?= $linha['nomeCliente']; ?>
-                  </td>
-
-                  <td class="f-5">
-                     <?= $linha['porcentagem'] != null ? $linha['porcentagem'].'%' : "Não definido"; ?>
-                  </td>
-
-                  <td class="f-5 celula_botoes_acoes">
-                     <a href="<?= BASE_URL; ?>pages/front/edits/editar_obra.php?id=<?= $linha['id']; ?>" class="btn editar">
-                        <i class='bx bx-edit'></i>
-                     </a>
-                     <a
-                        href="<?= BASE_URL; ?>pages/back/excluir/excluir_obradb.php?id=<?= $linha['id']; ?>" 
-                        class="btn excluir"
-                        onclick="confirmarExclusao(event, '')">
-                        <i class='bx bx-message-alt-x'></i>
-                     </a>
-                  </td>
-               </tr>
-
-               <?php
-                  }
-               ?>
-               
-            </table>
+            <div class="particao">
+               <h3>Porcentagem cobrada</h3>
+               <div class="box_porcentagem">
+                  <span><?= $linha['porcentagem'] != null ? $linha['porcentagem'].'%' : "0%"; ?></span>
+               </div>
+            </div>
          </div>
+         <!-- <div class="row dados_adm_obra">
+            <h3>Dados de administração da obra</h3>
+            <div class="particao">
+               <div class="box_dado_adm_obra"></div>
+            </div>
+         </div> -->
       </div>
+
+      <?php
+         }
+      ?>
 </body>
 </html>
-
-<!-- <div class="card">
-                  <div class="particao_info">
-                     <div class="row">
-                        <h2 class="titulo_card_lista"><?= $linha['nomeObra']; ?></h2>
-                     </div>
-
-                     <div class="row">
-                        <div class="particao">
-                           <p class="texto_card_lista"><span class="bold">Rua:</span> <?= $linha['rua']; ?></p>
-                           <p class="texto_card_lista"><span class="bold">Número:</span> <?= $linha['numObra']; ?></p>
-                        </div>
-                        
-                        <div class="particao">
-                           <p class="texto_card_lista"><span class="bold">Cliente:</span> <?= $linha['nomeCliente']; ?></p>
-                           <p class="texto_card_lista endereco_obra"><span class="bold">CPF/CNPJ do cliente:</span> <?= $linha['cpf_cnpj']; ?></p>
-                        </div>
-                     </div>
-                  </div>
-
-                  <div class="particao_btns_acao">
-                     <a href="<?= BASE_URL; ?>pages/front/edits/editar_obra.php?id=<?= $linha['id']; ?>" class="btn editar">
-                        <i class='bx bx-edit'></i>
-                        Editar
-                     </a>
-                     <a
-                        href="<?= BASE_URL; ?>pages/back/excluir/excluir_obradb.php?id=<?= $linha['id']; ?>" 
-                        class="btn excluir"
-                        onclick="confirmarExclusao(event, '<?= $linha['nomeObra']; ?>')">
-                        <i class='bx bx-message-alt-x'></i>
-                        Excluir
-                     </a>
-                  </div>
-               </div> -->

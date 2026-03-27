@@ -1,3 +1,20 @@
+.container.container_titulo .rowTitulo{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding-bottom: 10px;
+
+   & h1,
+   h1 i {
+      font-size: 1.8rem;
+   }
+}
+
+/* Para espaçar os cards de obra */
+.container.container_lista:not(:last-of-type) {
+   margin-bottom: 10px;
+}
+
 .container_lista {
    border-radius: 20px;
    padding: 20px;
@@ -71,6 +88,74 @@
          padding: 15px;
          border-radius: 20px;
          background-color: var(--gelo);
+      }
+   }
+
+   & .row.titulo_obra {
+      border-bottom: 2px solid var(--gelo);
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & h2.titulo_card_obra {
+         font-size: 1.5rem !important;
+
+         & span {
+            font-size: .9rem;
+            opacity: .6;
+         }
+      }
+
+      & .particao:last-of-type {
+         display: flex;
+         gap: 5px;
+      }
+   }
+
+   & h3 {
+      font-size: 1.1rem;
+   }
+
+   & .row.info_obra {
+      display: flex;
+
+      & .particao {
+         flex: 1;
+
+         display: flex;
+         flex-direction: column;
+         gap: 10px;
+
+         & span {
+            font-weight: 600;
+         }
+
+         & .box_porcentagem {
+            width: 70px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border: 1px solid var(--verde);
+            background-color: var(--verde-claro);
+            border-radius: 15px;
+            
+            & span {
+               color: var(--verde);
+            }
+         }
+      }
+   }
+
+   & .row.dados_adm_obra {
+      margin-top: 20px;
+
+      & .particao {
+         border: 1px solid black;
+         display: flex;
+         gap: 10px;
       }
    }
 }

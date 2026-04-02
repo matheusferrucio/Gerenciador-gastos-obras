@@ -6,7 +6,7 @@
 
       $idGastoObra    = $_POST['id'];
       $idObra         = $_POST['obraGasto'];
-      $valorGastoObra = filter_input(INPUT_POST, 'gastoObra', FILTER_SANITIZE_SPECIAL_CHARS);
+      $valorGastoObra = filter_input(INPUT_POST, 'valor', FILTER_VALIDATE_FLOAT);
       $dataGasto      = $_POST['dataGasto'];
       $descricao      = filter_input(INPUT_POST, 'descricaoGasto', FILTER_SANITIZE_SPECIAL_CHARS);
 

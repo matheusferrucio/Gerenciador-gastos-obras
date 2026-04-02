@@ -30,6 +30,7 @@
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/reset.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/style.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/formsCadastros.css">
+      <script src="<?= BASE_URL; ?>js/formatacao_input.js" defer></script>
       <title><?= $nomePagina; ?></title>
 </head>
 <body>
@@ -76,13 +77,18 @@
 
                      <div class="particao">
                         <label for="gastoObra">Digite o valor gasto</label>
-                        <input 
-                           type="text" 
-                           name="gastoObra" 
-                           id="gastoObra" 
-                           placeholder="Ex: R$ 50.000" 
-                           value="<?= $dados['valor_gasto']; ?>"
-                           required>
+                        <div class="input_wrap">
+                           <span class="currency_prefix">R$</span>
+                           <input 
+                              type="text" 
+                              id="valor" 
+                              name="gastoObra" 
+                              placeholder="0,00" 
+                              inputmode="numeric"
+                              autocomplete="off"
+                              maxlength="22"
+                              required>
+                        </div>
                      </div>
                      
                      <div class="particao">

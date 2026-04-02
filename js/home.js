@@ -50,7 +50,7 @@ async function carregarDashboard() {
 // Função que atualiza os valores dos cards
 function atualizarCards(cards) {
     document.getElementById("total_comissoes").textContent = new Intl.NumberFormat('pr-BR', {
-        style: 'currency', currency: 'BRL'
+        style: 'currency', currency: 'BRL', minimumFractionDigits: 0, maximumFractionDigits: 0
     }).format(cards.total_comissao_obras);
 
     document.getElementById("total_gastos").textContent = new Intl.NumberFormat('pr-BR', {
@@ -60,7 +60,7 @@ function atualizarCards(cards) {
     document.getElementById("qtd_obras").textContent = cards.qtd_total_obras;
 
     document.getElementById("media_comissoes").textContent = new Intl.NumberFormat('pr-BR', {
-        style: 'currency', currency: 'BRL'
+        style: 'currency', currency: 'BRL', minimumFractionDigits: 0, maximumFractionDigits: 0
     }).format(cards.ticket_medio_obra);
 }
 
@@ -86,7 +86,7 @@ function atualizarTabela(obras) {
 
             <td class="f-6">${o.porcentagem}%</td>
 
-            <td class="f1 verde">${new Intl.NumberFormat('pr-BR', {style: 'currency', currency: 'BRL'}).format(o.comissao_obra)}</td>
+            <td class="f1 verde">${new Intl.NumberFormat('pr-BR', {style: 'currency', currency: 'BRL', minimumFractionDigits: 0, maximumFractionDigits: 0}).format(o.comissao_obra)}</td>
         </tr>
     `).join('');
 }

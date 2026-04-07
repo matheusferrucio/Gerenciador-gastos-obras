@@ -9,10 +9,26 @@ let filtros = {
    ano:      ''
 };
 
+function reatauraFiltros() {
+   // Pega os filtros salvos no localStorage
+   const filtrosSalvos = localStorage.getItem('filtros_gastos');
+   if(!filtrosSalvos) return;
+   
+   filtros = JSON.parse(filtrosSalvos);
+
+   console.log(filtros);
+   
+
+   document.getElementById('filtro_obra').value       = filtros.obra;
+   document.getElementById('filtro_cliente').value    = filtros.cliente;
+   document.getElementById('filtro_mes').value        = filtros.mes;
+   document.getElementById('filtro_ano').value        = filtros.ano;
+}
+
 async function carregarGastos(pagina) {
    if(carregando) return;
    carregando = true;
-   
+
    try {
       // Cria uma URL personalizada com os parãmetros de página e filtros
       const params = new URLSearchParams ({
@@ -52,6 +68,9 @@ document.getElementById('btn_aplicar_filtro').addEventListener('click', function
    filtros.mes = document.getElementById('filtro_mes').value;
    filtros.ano = document.getElementById('filtro_ano').value;
 
+   // Adiciona os filtros ao localStorage para que o filtro persista
+   localStorage.setItem('filtros_gastos', JSON.stringify(filtros));
+
    document.getElementById('modal').style.display = 'none';
    document.querySelector('.overlay').style.display = 'none';
 
@@ -66,6 +85,9 @@ document.getElementById('btn_limpar_filtro').addEventListener('click', function(
       mes:     '',
       ano:     ''
    };
+
+   // Limpa o localStorage
+   localStorage.removeItem('filtros_gastos');
 
    document.getElementById('filtro_obra').value = '';
    document.getElementById('filtro_cliente').value = '';
@@ -161,4 +183,9 @@ function formatarData(data) {
    return meses[parseInt(mes) - 1];
 }
 
-carregarGastos(1);
+document.addEventListener('DOMContentLoaded', () => {
+   reatauraFiltros();
+   carregarGastos(1);
+
+   console.log(localStorage.getItem('filtros_gastos'));
+});

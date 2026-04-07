@@ -89,6 +89,8 @@
                               maxlength="22"
                               required>
                         </div>
+
+                        <input type="hidden" name="valor" id="valor_numerico">
                      </div>
                      
                      <div class="particao">

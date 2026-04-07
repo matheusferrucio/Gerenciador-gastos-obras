@@ -1,5 +1,6 @@
 <?php
    if($_SERVER["REQUEST_METHOD"] == "POST") {
+      
       require_once(__DIR__."/../config.php");
 
       require_once(__DIR__."/../../conexao/connection.php");
@@ -8,6 +9,11 @@
       $cpfCnpjCliente       = filter_input(INPUT_POST, 'cpfCnpjCliente', FILTER_SANITIZE_SPECIAL_CHARS);
       $nomeCliente          = filter_input(INPUT_POST, 'nomeCliente', FILTER_SANITIZE_SPECIAL_CHARS);
       $tipoCliente          = $_POST['tipoCliente'];
+
+      if(empty($cpfCnpjCliente) || !filter_var($cpfCnpjCliente, FILTER_VALIDATE_INT) || empty($nomeCliente) || !filter_var($nomeCliente, FILTER_VALIDATE_STRING) || empty($tipoCliente)) {
+         throw new Exception("Preencha todos os campos para atualizar o cliente");
+         die();
+      }
 
       // Verifica se o cpf_cnpj do cliente foi alterado ou não
       if($cpfCnpjClienteAntigo === $cpfCnpjCliente) {
@@ -26,17 +32,17 @@
                ":cpf_cnpj"     => $cpfCnpjClienteAntigo
             ]);
 
-            if($query) {
-               echo 'Edição realizada com sucesso';
-               
-               header("location:".BASE_URL."pages/front/listas/lista_clientes.php");
-               exit();
+            if(!$query) {
+               throw new PDOException("Erro ao atualizar cliente");
             }
+
+            header("location:".BASE_URL."pages/front/listas/lista_clientes.php");
+            exit();
+         }
          
          } catch (PDOException $erro) {
-            echo $erro;
-            echo "Não foi possível cadastrar cliente";
-            exit();
+            echo $erro->getMessage();
+            die();
          }
 
       } else {
@@ -58,22 +64,20 @@
                ":cpf_cnpj_key" => $cpfCnpjCliente
             ]);
 
-            if($query) {
-               echo 'Edição realizada com sucesso';
-               
-               header("location:".BASE_URL."pages/front/listas/lista_clientes.php");
-               exit();
+            if(!$query) {
+               throw new PDOException("Erro ao atualizar cliente");
             }
+            
+            header("location:".BASE_URL."pages/front/listas/lista_clientes.php");
+            die();
          
          } catch (PDOException $erro) {
-            echo $erro;
-            echo "Não foi possível cadastrar cliente";
-            exit();
+            echo $erro->getMessage();
+            die();
          }
       }
-
    } else {
-      echo "Não foi possível recuperar os dados";
-      exit();
+      throw new Exception("Método de requisição inválido");
+      die();
    }
 ?>

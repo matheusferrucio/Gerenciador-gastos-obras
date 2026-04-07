@@ -11,6 +11,12 @@
       $descricao      = filter_input(INPUT_POST, 'descricaoGasto', FILTER_SANITIZE_SPECIAL_CHARS);
 
       try {
+
+         if(empty($idObra) || empty($valorGastoObra) || $valorGastoObra <= 0 || empty($dataGasto) || !filter_var($dataGasto, FILTER_VALIDATE_DATE) || empty($descricao)) {
+            throw new Exception("Preencha todos os campos para atualizar o gasto da obra");
+            die();
+         }
+         
          $query = $conn->prepare("UPDATE gastosobras SET
                                     id_obra = :id_obra,
                                     valor_gasto = :valor_gasto,
@@ -27,18 +33,20 @@
             ":id"          => $idGastoObra
          ]);
 
-         if($query) {
-            header("location:".BASE_URL."pages/front/listas/lista_gastos_obras.php");
-            exit();
+         if(!$query) {
+            throw new PDOException("Erro ao atualizar o gasto da obra");
          }
 
-      } catch(PDOException $erro) {
-         echo "Não foi possível cadastrar o gasto da obra";
+         header("location:".BASE_URL."pages/front/listas/lista_gastos_obras.php");
          exit();
+
+      } catch(PDOException $erro) {
+         echo $erro->getMessage();
+         die();
       }
 
    } else {
-      echo "Não foi possível cadastrar o gasto da obra";
-      exit();
+      throw new Exception("Método de requisição inválido");
+      die();
    }
 ?>

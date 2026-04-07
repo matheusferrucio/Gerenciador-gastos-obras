@@ -1,5 +1,6 @@
 <?php
    if($_SERVER['REQUEST_METHOD'] == "POST") {
+
       require_once(__DIR__."/../config.php");
 
       require_once(__DIR__."/../utils.php");
@@ -13,6 +14,11 @@
       $ruaObra        = filter_input(INPUT_POST, 'ruaObra', FILTER_SANITIZE_SPECIAL_CHARS);
       $numObra        = filter_input(INPUT_POST, 'numObra', FILTER_SANITIZE_SPECIAL_CHARS);
       $porcentagem    = filter_input(INPUT_POST, 'porcentagemCobrada', FILTER_SANITIZE_SPECIAL_CHARS);
+
+      if(empty($idObra) || empty($nomeObra) || empty($cpfCnpjCliente) || empty($cidadeObra) || empty($ruaObra) || empty($numObra) || empty($porcentagem)) {
+         throw new Exception("Preencha todos os campos para atualizar a obra");
+         die();
+      }
 
       // Verifica se a cidade já foi cadastrada
       $cidadeExiste = selecionaPorKey(
@@ -48,14 +54,16 @@
                ":id"               => $idObra
             ]);
 
-            if($query) {
-               header("location:".BASE_URL."pages/front/listas/lista_obras.php");
-               exit();
+            if(!$query) {
+               throw new PDOException("Erro ao atualizar a obra");
             }
+            
+            header("location:".BASE_URL."pages/front/listas/lista_obras.php");
+            exit();
 
          } catch (PDOException $erro) {
-            echo "Não foi possível cadastrar a obra";
-            exit();
+            echo $erro->getMessage();
+            die();
          }
 
       } else {
@@ -72,46 +80,50 @@
                ":cidade" => $cidadeObra
             ]);
 
-            if($query) {
-
-               $cidadeCadastrada = selecionaPorKey(
-                  $conn,
-                  'cidades',
-                  'cidade',
-                  trim(ucfirst(strtolower($cidadeObra)))
-               );
-
-               $query = $conn->prepare("UPDATE obras o
-                                     SET
-                                       nome             = :nome,
-                                       cpf_cnpj_cliente = :cpf_cnpj_cliente,
-                                       id_cidade        = :id_cidade,
-                                       rua              = :rua,
-                                       numObra          = :numObra
-                                     WHERE o.id         = :id");
-
-               $query->execute([
-                  ":nome"             => $nomeObra,
-                  ":cpf_cnpj_cliente" => $cpfCnpjCliente,
-                  ":id_cidade"        => $cidadeCadastrada['id'],
-                  ":rua"              => $ruaObra,
-                  ":numObra"          => $numObra,
-                  ":id"               => $idObra
-               ]);
-
-               if($query) {
-                  header("location:".BASE_URL."pages/front/listas/lista_obras.php");
-                  exit();
-               }
-            } else {
-               echo 'Não foi possível cadastrar a cidade';
+            if(!$query) {
+               throw new PDOException("Erro ao cadastrar a cidade");
             }
 
-         } catch (PDOException $erro) {
-            echo "Não foi possível cadastrar a obra";
-            exit();
-         }
+            $cidadeCadastrada = selecionaPorKey(
+               $conn,
+               'cidades',
+               'cidade',
+               trim(ucfirst(strtolower($cidadeObra)))
+            );
 
+            $query = $conn->prepare("UPDATE obras o
+                                    SET
+                                    nome             = :nome,
+                                    cpf_cnpj_cliente = :cpf_cnpj_cliente,
+                                    id_cidade        = :id_cidade,
+                                    rua              = :rua,
+                                    numObra          = :numObra
+                                    WHERE o.id         = :id");
+
+            $query->execute([
+               ":nome"             => $nomeObra,
+               ":cpf_cnpj_cliente" => $cpfCnpjCliente,
+               ":id_cidade"        => $cidadeCadastrada['id'],
+               ":rua"              => $ruaObra,
+               ":numObra"          => $numObra,
+               ":id"               => $idObra
+            ]);
+
+            if(!$query) {
+               throw new PDOException("Erro ao atualizar a obra");
+            }
+            
+            header("location:".BASE_URL."pages/front/listas/lista_obras.php");
+            exit();
+
+         } catch (PDOException $erro) {
+            echo $erro->getMessage();
+            die();
+         }
       }
+
+   } else {
+      throw new Exception("Método de requisição inválido");
+      die();
    }
 ?>

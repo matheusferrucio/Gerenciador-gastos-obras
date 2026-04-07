@@ -19,7 +19,3 @@ function confirmarExclusao(event, nome) {
         }
     });
 }
-
-array.forEach(element => {
-    
-});

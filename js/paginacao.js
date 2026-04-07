@@ -4,7 +4,7 @@ let carregando = false;
 // Objeto que guarda os filtros ativos
 let filtros = {
    obra:     '',
-   cliente: '',
+   cliente:  '',
    mes:      '',
    ano:      ''
 };
@@ -19,10 +19,10 @@ function reatauraFiltros() {
    console.log(filtros);
    
 
-   document.getElementById('filtro_obra').value       = filtros.obra;
-   document.getElementById('filtro_cliente').value    = filtros.cliente;
-   document.getElementById('filtro_mes').value        = filtros.mes;
-   document.getElementById('filtro_ano').value        = filtros.ano;
+   document.getElementById('filtro_obra').value    = filtros.obra;
+   document.getElementById('filtro_cliente').value = filtros.cliente;
+   document.getElementById('filtro_mes').value     = filtros.mes;
+   document.getElementById('filtro_ano').value     = filtros.ano;
 }
 
 async function carregarGastos(pagina) {
@@ -53,25 +53,25 @@ async function carregarGastos(pagina) {
 }
 
 document.getElementById('btn_abrir_filtro').addEventListener('click', function() {
-   document.getElementById('modal').style.display = 'block';
+   document.getElementById('modal').style.display   = 'block';
    document.querySelector('.overlay').style.display = 'block';
 });
 
 document.getElementById('btn_fechar_filtro').addEventListener('click', function() {
-   document.getElementById('modal').style.display = 'none';
+   document.getElementById('modal').style.display   = 'none';
    document.querySelector('.overlay').style.display = 'none';
 });
 
 document.getElementById('btn_aplicar_filtro').addEventListener('click', function(){
-   filtros.obra = document.getElementById('filtro_obra').value;
+   filtros.obra    = document.getElementById('filtro_obra').value;
    filtros.cliente = document.getElementById('filtro_cliente').value;
-   filtros.mes = document.getElementById('filtro_mes').value;
-   filtros.ano = document.getElementById('filtro_ano').value;
+   filtros.mes     = document.getElementById('filtro_mes').value;
+   filtros.ano     = document.getElementById('filtro_ano').value;
 
    // Adiciona os filtros ao localStorage para que o filtro persista
    localStorage.setItem('filtros_gastos', JSON.stringify(filtros));
 
-   document.getElementById('modal').style.display = 'none';
+   document.getElementById('modal').style.display   = 'none';
    document.querySelector('.overlay').style.display = 'none';
 
    carregarGastos(1); // reseta para a página 1 após carregar os dados com base nos filtros
@@ -89,12 +89,12 @@ document.getElementById('btn_limpar_filtro').addEventListener('click', function(
    // Limpa o localStorage
    localStorage.removeItem('filtros_gastos');
 
-   document.getElementById('filtro_obra').value = '';
-   document.getElementById('filtro_cliente').value = '';
-   document.getElementById('filtro_mes').value = '';
-   document.getElementById('filtro_ano').value = '';
+   document.getElementById('filtro_obra').value     = '';
+   document.getElementById('filtro_cliente').value  = '';
+   document.getElementById('filtro_mes').value      = '';
+   document.getElementById('filtro_ano').value      = '';
 
-   document.getElementById('modal').style.display = 'none';
+   document.getElementById('modal').style.display   = 'none';
    document.querySelector('.overlay').style.display = 'none';
 
    carregarGastos(1);

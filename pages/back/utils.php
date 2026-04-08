@@ -1,29 +1,42 @@
 <?php
-   // Criei essa função para padronizar a exclusão dos dados com base em uma key
+   // Função que exclui um registro do banco de dados com base em uma key
    function excluirPorKey($conn, $path, $tabela, $coluna, $key) {
-      $query = $conn->prepare("DELETE FROM $tabela WHERE $tabela.$coluna = '$key'");
+      try {
+         $query = $conn->prepare("DELETE FROM $tabela WHERE $tabela.$coluna = '$key'");
 
-      $query->execute();
+         $query->execute();
 
-      if($query) {
+         if(!$query) {
+            throw new Exception("Não foi possível excluir os dados");
+         }
 
          header("location:".$path);
-         exit();
+         die();
 
+      } catch (Exception $erro) {
+         echo $erro->getMessage();
+         die();
       }
    }
 
    // Criei essa função para conseguir buscar dados no banco com base em uma key
    function selecionaPorKey($conn, $tabela, $coluna, $key) {
-      $query = $conn->prepare("SELECT * FROM $tabela WHERE $tabela.$coluna = '$key'");
+      try {
+         $query = $conn->prepare("SELECT * FROM $tabela WHERE $tabela.$coluna = '$key'");
 
-      $query->execute();
+         $query->execute();
 
-      if($query) {
+         if(!$query) {
+            throw new Exception("Não foi possível recuperar os dados");
+         }
 
          $dados = $query->fetch(PDO::FETCH_ASSOC);
 
          return $dados;
+
+      } catch (Exception $erro) {
+         echo $erro->getMessage();
+         die();
       }
    }
 
@@ -34,16 +47,17 @@
    
          $query->execute();
    
-         if($query) {
-
-            $dados = $query->fetchAll(PDO::FETCH_ASSOC);
-
-            return $dados;
+         if(!$query) {
+            throw new Exception("Não foi possível recuperar os dados");
          }
 
-      } catch (PDOException $erro) {
-         echo "Não foi possível recuperar os dados";
-         exit();
+         $dados = $query->fetchAll(PDO::FETCH_ASSOC);
+
+         return $dados;
+
+      } catch (Exception $erro) {
+         echo $erro->getMessage();
+         die();
       }
    }
 

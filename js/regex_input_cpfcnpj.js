@@ -14,9 +14,6 @@ input.addEventListener('input', function() {
 
    this.value = numeros.length <= 11 ? formatarCpf(numeros) : formatarCnpj(numeros);
    hiddenInput.value = parseInt(numeros); // Armazena apenas os números no campo oculto
-
-   console.log(hiddenInput.value);
-   
 });
 
 function formatarCpf(v) {

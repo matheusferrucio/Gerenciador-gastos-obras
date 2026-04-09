@@ -38,7 +38,7 @@
                                     <span><i class='bx bxs-user-badge'></i></span>
                                     <input type="text" class="input_cpf_cnpj" name="cpfUsuario" id="cpfUsuario" placeholder="Digite seu CPF" maxlength="20" required>
 
-                                    <input type="hidden" name="hidden_cpf_cnpj" class="hidden_cpf_cnpj" maxlength="13">
+                                    <input type="hidden" name="hidden_cpf_cnpj" class="hidden_cpf_cnpj" maxlength="14">
                               </div>
                         </div>
 

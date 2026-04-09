@@ -18,7 +18,7 @@
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/style.css">
       <link rel="stylesheet" href="<?= BASE_URL; ?>css/forms.css">
       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-      <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+      <script src="<?= BASE_URL; ?>js/regex_input_cpfcnpj.js" defer></script>
       <title>Cadastre-se</title>
       <style>
             body {
@@ -44,7 +44,9 @@
                               <!-- <label for="cpfUsuario">Digite seu cpf abaixo</label> -->
                               <div class="input_wrap">
                                     <span><i class='bx bxs-user-badge'></i></span>
-                                    <input type="text" name="cpfUsuario" id="cpfUsuario" placeholder="Digite seu CPF aqui" maxlength="11" required>
+                                    <input type="text" class="input_cpf_cnpj" name="cpfUsuario" id="cpfUsuario" placeholder="Digite seu CPF aqui" maxlength="20" required>
+
+                                    <input type="hidden" name="hidden_cpf_cnpj" class="hidden_cpf_cnpj" maxlength="14">
                               </div>
                         </div>
 

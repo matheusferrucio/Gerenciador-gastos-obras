@@ -10,7 +10,7 @@
    try {
 
       $nomeUsuario  = filter_input(INPUT_POST, 'nomeUsuario', FILTER_SANITIZE_SPECIAL_CHARS);
-      $cpfUsuario = filter_input(INPUT_POST, 'cpfUsuario', FILTER_SANITIZE_SPECIAL_CHARS);
+      $cpfUsuario   = filter_input(INPUT_POST, 'hidden_cpf_cnpj', FILTER_SANITIZE_SPECIAL_CHARS);
       $senhaUsuario = trim($_POST['senhaUsuario']);
 
       if (empty($nomeUsuario) || !filter_var($nomeUsuario, FILTER_VALIDATE_STRING) || empty($cpfUsuario) || !filter_var($cpfUsuario, FILTER_VALIDATE_INT) || empty($senhaUsuario)) {

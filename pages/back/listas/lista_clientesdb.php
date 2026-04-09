@@ -10,12 +10,14 @@
          'nome'
       );
 
-      if($clientes) {
-         return $clientes;
+      if(!$clientes) {
+         throw new Exception('Nenhum cliente cadastrado');
       }
+      
+      return $clientes;
 
-   } catch (PDOException $erro) {
-      echo "Não foi possível recuperar os clientes cadastrados";
-      exit();
+   } catch (Exception $erro) {
+      echo $erro->getMessage();
+      die();
    }
 ?>

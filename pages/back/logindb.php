@@ -7,7 +7,7 @@
       
       try {
 
-         $cpfUsuario = filter_input(INPUT_POST, 'cpfUsuario', FILTER_SANITIZE_SPECIAL_CHARS);
+         $cpfUsuario = filter_input(INPUT_POST, 'hidden_cpf_cnpj', FILTER_SANITIZE_SPECIAL_CHARS);
          $senhaUsuario = trim($_POST['senhaUsuario']);
 
          if(empty($cpfUsuario) || !filter_var($cpfUsuario, FILTER_VALIDATE_INT) || empty($senhaUsuario)) {

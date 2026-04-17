@@ -39,6 +39,9 @@ async function carregarGastos(pagina) {
       // Passamos a página e os filtros como parâmetros de URL para requisição
       const response = await fetch(`../../back/buscar_dados.php?${params}`);
       const dados = await response.json();
+
+      console.log(dados);
+      
       
       renderizarTabela(dados.gastos);
       renderizarPaginacao(dados.pagina_atual, dados.total_paginas, dados.total);

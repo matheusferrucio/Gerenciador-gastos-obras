@@ -56,49 +56,54 @@
    $pagina_atual = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
    $offset = ($pagina_atual - 1) * $registros_por_pagina; // define a partir de qual linha os dados serão selecionados
 
-   // Conta a quantidade de registros respeitando o(s) filtro(s)
-   $stmtTotal = $conn->prepare("SELECT
-                                    COUNT(*) AS total_registros
-                                 FROM gastosobras g
-                                 INNER JOIN obras o ON g.id_obra = o.id
-                                 INNER JOIN clientes c ON o.cpf_cnpj_cliente = c.cpf_cnpj
-                                 $where");
+   try {
 
-   $stmtTotal->execute($parametros);
-
-   $total = $stmtTotal->fetchAll(PDO::FETCH_ASSOC)[0]['total_registros'];
-                                 
-   $total_paginas = ceil($total / $registros_por_pagina); // define quantas páginas terão
-
-   // Query principal foi atualizada para puxar os dados com base nos filtros
-   $stmt = $conn->prepare("SELECT 
-                           o.nome AS nomeObra,
-                           c.nome AS nomeCliente,
-                           g.id AS id_gasto, 
-                           g.valor_gasto, 
-                           g.data_gasto, 
-                           g.descricao
-                        FROM gastosobras g
-                        INNER JOIN obras o
-                        ON g.id_obra = o.id
-                        INNER JOIN clientes c
-                        ON o.cpf_cnpj_cliente = c.cpf_cnpj
-                        $where
-                        ORDER BY g.data_gasto DESC, o.nome ASC
-                        LIMIT :limite
-                        OFFSET :offset");
-
-   // Adiciona os parâmetros + limite + offset
-   foreach ($parametros as $chave => $valor) {
-      $stmt->bindValue($chave, $valor);
-   }
-
-   $stmt->bindValue(':limite', $registros_por_pagina, PDO::PARAM_INT);
-   $stmt->bindvalue(':offset', $offset, PDO::PARAM_INT);
+      // Conta a quantidade de registros respeitando o(s) filtro(s)
+      $stmtTotal = $conn->prepare("SELECT
+                                       COUNT(*) AS total_registros
+                                    FROM gastosobras g
+                                    INNER JOIN obras o ON g.id_obra = o.id
+                                    INNER JOIN clientes c ON o.cpf_cnpj_cliente = c.cpf_cnpj
+                                    $where");
    
-   $stmt->execute();
-
-   if ($stmt) {
+      $stmtTotal->execute($parametros);
+   
+      $total = $stmtTotal->fetchAll(PDO::FETCH_ASSOC)[0]['total_registros'];
+                                    
+      $total_paginas = ceil($total / $registros_por_pagina); // define quantas páginas terão
+   
+      // Query principal foi atualizada para puxar os dados com base nos filtros
+      $stmt = $conn->prepare("SELECT 
+                              o.nome AS nomeObra,
+                              c.nome AS nomeCliente,
+                              g.id AS id_gasto, 
+                              g.valor_gasto, 
+                              g.data_gasto, 
+                              g.descricao
+                           FROM gastosobras g
+                           INNER JOIN obras o
+                           ON g.id_obra = o.id
+                           INNER JOIN clientes c
+                           ON o.cpf_cnpj_cliente = c.cpf_cnpj
+                           $where
+                           ORDER BY o.nome ASC, g.data_gasto DESC
+                           LIMIT :limite
+                           OFFSET :offset");
+   
+      // Adiciona os parâmetros + limite + offset
+      foreach ($parametros as $chave => $valor) {
+         $stmt->bindValue($chave, $valor);
+      }
+   
+      $stmt->bindValue(':limite', $registros_por_pagina, PDO::PARAM_INT);
+      $stmt->bindvalue(':offset', $offset, PDO::PARAM_INT);
+      
+      $stmt->execute();
+   
+      if (!$stmt) {
+         throw new PDOException("Não foi possível recuperar os dados");
+      }
+      
       $lista_gastos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
       echo json_encode([
@@ -108,9 +113,8 @@
          'total'         => (int) $total
       ]);
 
-      // echo '<pre>';
-      // print_r($lista_gastos);
-      // echo '</pre>';
+   } catch(PDOException $erro) {
+      echo $erro->getMessage();
+      die();
    }
-
 ?>

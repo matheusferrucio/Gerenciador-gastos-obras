@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Database;
+namespace App\Database;
 
 require_once __DIR__."../../vendor/autoload.php";
 

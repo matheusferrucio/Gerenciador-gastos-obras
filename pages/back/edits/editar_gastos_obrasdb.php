@@ -12,7 +12,7 @@
 
       try {
 
-         if(empty($idObra) || empty($valorGastoObra) || $valorGastoObra <= 0 || empty($dataGasto) || !filter_var($dataGasto, FILTER_VALIDATE_DATE) || empty($descricao)) {
+         if(empty($idObra) || empty($valorGastoObra) || $valorGastoObra <= 0 || empty($dataGasto) || empty($descricao)) {
             throw new Exception("Preencha todos os campos para atualizar o gasto da obra");
             die();
          }

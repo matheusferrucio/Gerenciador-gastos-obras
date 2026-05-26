@@ -1,3 +1,32 @@
+/* Classes padrão para estilização de cor de textos */
+.bg_verde {
+   background-color: var(--bg-icon-card1) !important;
+}
+.co_verde {
+   color: var(--co-icon-card1) !important;
+}
+
+.bg_azul {
+   background-color: var(--bg-icon-card2) !important;
+}
+.co_azul {
+   color: var(--co-icon-card2) !important;
+}
+
+.bg_roxo {
+   background-color: var(--bg-icon-card3) !important;
+}
+.co_roxo {
+   color: var(--co-icon-card3) !important;
+}
+
+.bg_laranja {
+   background-color: var(--bg-icon-card4) !important;
+}
+.co_laranja {
+   color: var(--co-icon-card4) !important;
+}
+
 .container.container_titulo .rowTitulo{
    display: flex;
    justify-content: space-between;
@@ -23,7 +52,6 @@
 
    & h1,
    i.icon_titulo {
-      color: var(--realce);
       font-size: 2rem;
    }
 
@@ -46,6 +74,43 @@
       display: flex;
       flex-direction: column;
       gap: 30px;
+
+      /* Estilização do telefone dos fornecedores */
+      & span.telefone {
+         font-size: .9rem;
+      }
+
+      /* Estilização do STATUS dos fornecedores */
+      & span.status {
+         width: fit-content;
+         padding: 5px 10px;
+         border-radius: 20px;
+         font-weight: 500;
+         font-size: .9rem;
+         display: flex;
+         align-items: center;
+         gap: 6px;
+
+         & .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--cor-texto);
+         }
+      }
+      & span.status.ativo {
+         background-color: var(--verde-claro);
+         color: var(--verde);
+
+         & .dot {
+            background-color: var(--verde);
+         }
+      }
+      & span.status.inativo {
+         background-color: var(--cinza-claro02);
+         color: var(--cor-texto);
+         border: none;
+      }
       
       & .card {
          display: flex;
@@ -149,13 +214,46 @@
       }
    }
 
-   & .row.dados_adm_obra {
+   & .row.dados-adm-obra {
       margin-top: 20px;
 
-      & .particao {
-         border: 1px solid black;
-         display: flex;
-         gap: 10px;
+      & h3.title-dados-adm-obra {
+         margin-bottom: 10px;
+      }
+
+      & .row.cards-wrapper {
+         flex-wrap: wrap;
+         gap: 15px;
+
+         & .box {
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            background-color: var(--gelo);
+            border: 1px solid var(--borda-card);
+            border-radius: 7px;
+
+            & .row {
+               width: fit-content;
+
+               & i {
+                  font-size: 1rem;
+                  font-weight: 500;
+               }
+
+               & span {
+                  font-size: .98rem;
+               }
+            }
+
+            & h3 {
+               font-size: 1.3rem;
+               width: fit-content;
+            }
+         }
       }
    }
 }

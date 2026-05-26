@@ -2,6 +2,7 @@
     --cor-texto: rgba(26, 26, 26, 0.84);
     --cinza: rgba(26, 26, 26, 0.7);
     --cinza-claro: rgba(37, 37, 37, 0.438);
+    --cinza-claro02: rgba(179, 179, 179, 0.226);
     --borda-card: rgba(37, 37, 37, 0.130);
     --borda-outline-input: #213c5133;
     --realce: #213C51;
@@ -11,7 +12,9 @@
     --vermelho: #f16060;
     --vermelho02: #cc4545;
     --verde: #66ac5f;
-
+    
+    
+    --vermelho-claro: #fddddd;
     --verde-claro: #e9fae8;
     
     --bg-icon-card1: #ddf8e0;

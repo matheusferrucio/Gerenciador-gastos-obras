@@ -13,7 +13,7 @@
             <li class="btnMenu"><a href="<?= BASE_URL; ?>pages/front/listas/lista_clientes.php?nomePag=Clientes">Clientes</a></li>
             <li class="btnMenu"><a href="<?= BASE_URL; ?>pages/front/listas/lista_fornecedores.php?nomePag=Fornecedores">Fornecedores</a></li>
             <li class="btnMenu"><a href="<?= BASE_URL; ?>pages/front/listas/lista_obras.php?nomePag=Obras">Obras</a></li>
-            <li class="btnMenu"><a href="<?= BASE_URL; ?>pages/front/listas/lista_gastos_obras.php?nomePag=Gastos obras">Gastos obras</a></li>
+            <li class="btnMenu"><a href="<?= BASE_URL; ?>pages/front/listas/lista_gastos_obras.php?nomePag=Gastos obras">Financeiro</a></li>
          </ul>
 
          <ul>

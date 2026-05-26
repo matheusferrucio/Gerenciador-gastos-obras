@@ -17,7 +17,7 @@ final class Database {
       try {
          $this->connection = new PDO(
             $this->dsn,
-            $this->username,
+            $this->username,  
             $this->password,
             [
                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

@@ -63,7 +63,8 @@
                <h3>Endereço da obra</h3>
                <p>Rua: <span><?= $linha['rua']; ?></span></p>
                <p>Número(s): <span><?= $linha['numObra']; ?></span></p>
-               <!-- <p>Cidade: <span>Cidade da obra</span></p> -->
+               <p>Cidade: <span>Cidade da obra</span></p>
+               <p>M²: <span>Metragem da obra</span></p>
             </div>
 
             <div class="particao">
@@ -73,12 +74,67 @@
                </div>
             </div>
          </div>
-         <!-- <div class="row dados_adm_obra">
-            <h3>Dados de administração da obra</h3>
-            <div class="particao">
-               <div class="box_dado_adm_obra"></div>
+
+         <div class="row dados-adm-obra">
+            <h3 class="title-dados-adm-obra">Dados de administração da obra</h3>
+            <div class="row cards-wrapper d-flex">
+
+               <div class="box">
+                  <div class="row">
+                     <div class="row">
+                        <i class='bx bx-dollar'></i>
+                        <span>Total gasto</span>
+                     </div>
+   
+                     <h3 class="">R$ 100.000.000</h3>
+                  </div>
+               </div>
+
+               <div class="box">
+                  <div class="row">
+                     <div class="row">
+                        <i class='bx bx-dollar'></i>
+                        <span>Total administração</span>
+                     </div>
+   
+                     <h3 class="">R$ 100.000</h3>
+                  </div>
+               </div>
+
+               <div class="box">
+                  <div class="row">
+                     <div class="row">
+                        <i class='bx bx-calendar-alt'></i>
+                        <span>Média mês</span>
+                     </div>
+   
+                     <h3>R$ 1000</h3>
+                  </div>
+               </div>
+
+               <div class="box">
+                  <div class="row">
+                     <div class="row">
+                        <i class='bx bx-time-five' ></i>
+                        <span>Tempo de obra</span>
+                     </div>
+   
+                     <h3>1 mês</h3>
+                  </div>
+               </div>
+
+               <div class="box">
+                  <div class="row">
+                     <div class="row">
+                        <i class='bx bx-home-alt-2'></i>
+                        <span>Valor m²</span>
+                     </div>
+   
+                     <h3>R$ 200</h3>
+                  </div>
+               </div>
             </div>
-         </div> -->
+         </div>
       </div>
 
       <?php

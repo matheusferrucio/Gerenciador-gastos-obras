@@ -7,7 +7,7 @@
          $query->execute();
 
          if(!$query) {
-            throw new Exception("Não foi possível excluir os dados");
+            throw new Exception("Não foi possível excluir o(s) dado(s)");
          }
 
          header("location:".$path);

@@ -3,8 +3,6 @@
 
    require_once(__DIR__."/../../back/_session.php");
 
-   require_once(__DIR__."/../../back/listas/lista_clientesdb.php");
-
    $nomePagina = isset($_GET['nomePag']) ? $_GET['nomePag'] : "Fornecedores";
 ?>
 
@@ -28,10 +26,10 @@
       
       <div class="container container_lista">
          <div class="row rowTitulo">
-            <h1><i class='bx bx-store-alt'></i> Lista dos fornecedores cadastrados</h1>
+            <h1><i class='bx bx-store-alt icon_titulo'></i> Lista dos fornecedores cadastrados</h1>
 
             <nav>
-               <a href="<?= BASE_URL; ?>pages/front/cadastros/cadastrar_clientes.php" class="btn nav"><i class='bx bx-plus'></i> Cadastrar fornecedor</a>
+               <a href="<?= BASE_URL; ?>pages/front/cadastros/cadastrar_fornecedor.php" class="btn nav"><i class='bx bx-plus'></i> Cadastrar fornecedor</a>
             </nav>
          </div>
 
@@ -39,41 +37,49 @@
             <table class="tabela_gastos_obras">
                <tr class="linha_cabecalho">
                   <th class="f1">CPF/CNPJ</th>
-                  <th class="f2">Nome</th>
-                  <th class="f-6">Telefone</th>
-                  <th class="f1">Categoria</th>
+                  <th class="f1">Nome</th>
+                  <th class="f1">Telefone</th>
+                  <th class="f-5">Status</th>
                   <th class="f-5 celula_botoes_acoes">Ações</th>
                </tr>
                
                <?php
-                  foreach($clientes as $linha) {
+                  $json = file_get_contents(BASE_URL . "pages/back/apis/api_lista_fornecedores.php");
+                     
+                  $dados = json_decode($json, true);
+               
+                  foreach($dados as $linha) {
                ?>
                
-               <!-- <tr>
+               <tr>
                   <td class="f1">
-                     <p class="cpf_cnpj_cliente"><?= $linha['cpf_cnpj']; ?></p>
+                     <p class="cpf_cnpj_cliente"><?= $linha['cpf_cnpj_fornecedor']; ?></p>
                   </td>
 
-                  <td class="f2">
-                     <?= $linha['nome']; ?>
+                  <td class="f1">
+                     <p><?= $linha['nome_fornecedor']; ?></p>
                   </td>
 
-                  <td class="f-6">
-                     <?= strtoupper($linha['tipo_cliente']); ?>
+                  <td class="f1">
+                     <span class="telefone"><?= $linha['telefone']; ?></span>
+                  </td>
+
+                  <td class="f-5">
+                     <span class="status <?= $linha['status_fornecedor'] == 'ativo' ? 'ativo' : 'inativo'; ?>"><div class="dot"></div><?= ucfirst($linha['status_fornecedor']); ?></span>
                   </td>
 
                   <td class="f-5 celula_botoes_acoes">
-                     <a href="<?= BASE_URL; ?>pages/front/edits/editar_cliente.php?cpfCnpj=<?= $linha['cpf_cnpj']; ?>" class="btn editar">
+                     <a href="<?= BASE_URL; ?>pages/front/edits/editar_fornecedor.php?idFornecedor=<?= $linha['id_fornecedor']; ?>" class="btn editar">
                         <i class='bx bx-edit'></i>
                      </a>
                      <a
-                        href="<?= BASE_URL; ?>pages/back/excluir/excluir_clientedb.php?cpfCnpj=<?= $linha['cpf_cnpj']; ?>" 
+                        href="<?= BASE_URL; ?>pages/back/excluir/excluir_fornecedordb.php?idFornecedor=<?= $linha['id_fornecedor']; ?>" 
                         class="btn excluir"
                         onclick="confirmarExclusao(event, '')">
                         <i class='bx bx-message-alt-x'></i>
                      </a>
                   </td>
-               </tr> -->
+               </tr>
 
                <?php
                   }

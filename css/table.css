@@ -24,6 +24,10 @@ table {
    & tr:not(:last-of-type) {
       border-bottom: 1px solid var(--borda-card);
    }
+
+   & tr:last-of-type {
+      border-radius: 0 0 10px 10px;
+   }
    
    & th {
       color: var(--realce);

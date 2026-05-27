@@ -30,7 +30,7 @@
             throw new Exception("Não foi possível recuperar os dados");
          }
 
-         $dados = $query->fetch(PDO::FETCH_ASSOC);
+         $dados = $query->fetch();
 
          return $dados;
 

@@ -3,7 +3,7 @@
 
    require_once(__DIR__."/../../back/_session.php");
 
-   require_once(__DIR__."/../../back/views/view_clientesdb.php");
+   require_once __DIR__ . "/../../back/views/view_fornecedordb.php";
 ?>
 
 <!DOCTYPE html>
@@ -29,12 +29,12 @@
                <form action="<?= BASE_URL; ?>pages/back/edits/editar_clientesdb.php" method="POST">
                   <input 
                      type="hidden" 
-                     name="cpf_cnpj_antigo"
-                     value="<?= $linha['cpf_cnpj']; ?>">
+                     name="id-fornecedor"
+                     value="<?= $dados['id_fornecedor']; ?>">
                   
                   <div class="row">
                      <div class="particao">
-                        <label for="cpfCnpjCliente">Digite o CPF/CNPJ do cliente</label>
+                        <label for="cpfCnpjCliente">Digite o CPF/CNPJ do fornecedor</label>
                         <input 
                            type="text" 
                            name="cpfCnpjCliente" 
@@ -42,55 +42,35 @@
                            placeholder="Ex: 00.111.222/0001-33" 
                            maxlength="14" 
                            minlength="11"
-                           value="<?= $linha['cpf_cnpj']; ?>"
+                           value="<?= $dados['cpf_cnpj_fornecedor']; ?>"
                            required>
                      </div>
 
                      <div class="particao">
-                        <label for="nomeCliente">Digite o nome do cliente</label>
+                        <label for="nomeFornecedor">Digite o nome do fornecedor</label>
                         <input 
                            type="text" 
-                           name="nomeCliente" 
-                           id="nomeCliente" 
-                           placeholder="Ex: Matheus da Cruz Ferrucio" 
-                           value="<?= $linha['nome']; ?>"
+                           name="nomeFornecedor" 
+                           id="nomeFornecedor" 
+                           placeholder="Digite aqui o nome do fornecedor" 
+                           value="<?= $dados['nome_fornecedor']; ?>"
                            required>
                      </div>
 
                      <div class="particao">
-                        <label for="nomeCliente">O cliente é PF ou PJ?</label>
-                        <div class="row">
-                           <div class="particao inptRadio">
-                              <input 
-                                 type="radio" 
-                                 name="tipoCliente" 
-                                 id="pf"
-                                 value="pf"
-                                 required>
-
-                              <label for="pf">
-                                 Pessoa física
-                              </label>
-                           </div>
-
-                           <div class="particao inptRadio">
-                              <input 
-                                 type="radio" 
-                                 name="tipoCliente" 
-                                 id="pj" 
-                                 value="pj"
-                                 required>
-                              
-                              <label for="pj">
-                                 Pessoa Jurídica
-                              </label>
-                           </div>
-                        </div>
+                        <label for="telefoneFornecedor">Digite telefone do fornecedor</label>
+                        <input 
+                           type="text" 
+                           name="telefoneFornecedor" 
+                           id="telefoneFornecedor" 
+                           placeholder="Ex: (18) 99999-9999" 
+                           value="<?= $dados['telefone'] ?>"
+                           required>
                      </div>
                   </div>
 
                   <div class="row rowBtn">
-                     <a href="<?= BASE_URL; ?>pages/front/listas/lista_clientes.php" class="btn voltar">Voltar</a>
+                     <a href="<?= BASE_URL; ?>pages/front/listas/lista_fornecedores.php" class="btn voltar">Voltar</a>
                      <input type="submit" value="Cadastrar">
                   </div>
                </form>

@@ -83,7 +83,7 @@
       /* Estilização do STATUS dos fornecedores */
       & span.status {
          width: fit-content;
-         padding: 5px 10px;
+         padding: 3px 10px;
          border-radius: 20px;
          font-weight: 500;
          font-size: .9rem;

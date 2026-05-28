@@ -26,7 +26,7 @@
                   <h1>Editar fornecedor</h1>
                </div>
 
-               <form action="<?= BASE_URL; ?>pages/back/edits/editar_clientesdb.php" method="POST">
+               <form action="<?= BASE_URL; ?>pages/back/edits/editar_fornecedoresdb.php" method="POST">
                   <input 
                      type="hidden" 
                      name="id-fornecedor"
@@ -66,6 +66,18 @@
                            placeholder="Ex: (18) 99999-9999" 
                            value="<?= $dados['telefone'] ?>"
                            required>
+                     </div>
+
+                     <div class="particao">
+                        <label for="statusFornecedor">Status do Fornecedor</label>
+                        <label class="switch">
+                           <input 
+                              type="checkbox" 
+                              name="statusFornecedor" 
+                              id="statusFornecedor" 
+                              <?= $dados['status_fornecedor'] == "ativo" ? "checked" : ""; ?>>
+                           <span class="slider round"></span>
+                        </label>
                      </div>
                   </div>
 
